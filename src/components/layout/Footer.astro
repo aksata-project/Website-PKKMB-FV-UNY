@@ -1,0 +1,118 @@
+---
+// Footer.astro - Section 07: Minimal & Elegant Footer
+import SocialIcons from "./SocialIcons.astro";
+---
+
+<footer
+  class="relative bg-cokro-navy text-white pt-16 pb-12 overflow-hidden border-t-4 border-cokro-gold"
+>
+  <!-- Ambient Wave Graphic Overlay -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10"
+    >
+      <!-- Brand & Tagline (5 Kolom) -->
+      <div class="md:col-span-5 space-y-4">
+        <!-- Dual Logos -->
+        <div class="flex items-center space-x-3">
+          <!-- Logo PKKMB FV 2026 -->
+          <div
+            class="w-12 h-12 rounded-full bg-white p-1 flex items-center justify-center shadow-md overflow-hidden"
+          >
+            <img
+              src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg"
+              alt="PKKMB FV UNY 2026"
+              class="w-full h-full object-contain"
+            />
+          </div>
+
+          <div class="leading-none">
+            <h3
+              class="font-extrabold text-xl font-display text-white tracking-wide"
+            >
+              PKKMB FV UNY 2026
+            </h3>
+            <p
+              class="text-xs text-cokro-gold font-bold tracking-widest uppercase mt-0.5 font-display"
+            >
+              KABINET COKRO AKSATA
+            </p>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-300 font-body leading-relaxed max-w-sm">
+          Pengenalan Kehidupan Kampus Bagi Mahasiswa Baru Fakultas Vokasi
+          Universitas Negeri Yogyakarta. "Take The Leap, Chase Your Dream".
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="pt-2">
+          <SocialIcons size="w-5 h-5" variant="white" class="gap-2" />
+        </div>
+      </div>
+
+      <!-- Quick Nav Links (4 Kolom) -->
+      <div class="md:col-span-4 space-y-3">
+        <h4
+          class="text-base font-bold font-display text-cokro-gold uppercase tracking-wider"
+        >
+          Navigasi Cepat
+        </h4>
+        <div class="grid grid-cols-2 gap-2 text-sm text-slate-300 font-body">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a
+            href="/ormawa"
+            class="hover:text-white transition-colors text-cokro-gold font-bold"
+            >Ormawa FV</a
+          >
+          <a
+            href="/ukm"
+            class="hover:text-white transition-colors text-cokro-gold font-bold"
+            >UKM Vokasi</a
+          >
+          <a href="/#about" class="hover:text-white transition-colors"
+            >Tentang PKKMB</a
+          >
+          <a href="/#recap" class="hover:text-white transition-colors"
+            >Recap 2025</a
+          >
+          <a href="/#faculty" class="hover:text-white transition-colors"
+            >Fakultas Vokasi</a
+          >
+          <a href="/#campus" class="hover:text-white transition-colors"
+            >Lokasi Kampus</a
+          >
+          <a href="/#faq" class="hover:text-white transition-colors"
+            >Pertanyaan (FAQ)</a
+          >
+        </div>
+      </div>
+
+      <!-- Contact Info (3 Kolom) -->
+      <div class="md:col-span-3 space-y-3">
+        <h4
+          class="text-base font-bold font-display text-cokro-gold uppercase tracking-wider"
+        >
+          Sekretariat
+        </h4>
+        <p class="text-xs text-slate-300 font-body leading-relaxed">
+          Gedung Dekanat Fakultas Vokasi UNY Kampus Wates, Jalan Terusan
+          Pengasih, Kulon Progo, D.I. Yogyakarta 55652
+        </p>
+        <p class="text-xs text-slate-300 font-body">
+          <strong>Email:</strong> pkkmbfvuny2026@uny.ac.id
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div
+      class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-body"
+    >
+      <p>© 2026 PKKMB Fakultas Vokasi UNY. All Rights Reserved.</p>
+      <p class="mt-2 sm:mt-0">
+        Dirancang oleh Tim IT & Web Developer Cokro Aksata 2026.
+      </p>
+    </div>
+  </div>
+</footer>

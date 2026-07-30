@@ -1,0 +1,157 @@
+---
+// Navbar.astro — Dynamic active state + real assets
+import SocialIcons from './SocialIcons.astro';
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/",          label: "Home"     },
+  { href: "/#timeline", label: "Timeline" },
+  { href: "/#panduan",  label: "Panduan"  },
+  { href: "/ormawa",    label: "Ormawa"   },
+  { href: "/ukm",       label: "UKM"      },
+  { href: "/#faq",      label: "FAQ"      },
+];
+
+// Hash anchor links are never a standalone active page
+function isActive(href: string): boolean {
+  if (href.includes('#')) return false;
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-50 w-full bg-doodle-header shadow-lg border-b border-white/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+
+    <!-- ── BRAND ── -->
+    <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="PKKMB FV UNY 2026 – Beranda">
+      <!-- PKKMB logo bubble -->
+      <div class="w-10 h-10 rounded-full bg-white/90 p-0.5 shadow flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-200">
+        <img src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg" alt="" aria-hidden="true" class="w-full h-full object-contain" />
+      </div>
+      <!-- Cokro logo + wordmark -->
+      <div class="flex items-center gap-1.5">
+        <img src="/Assets/logos/partners/logo-cokro.svg" alt="" aria-hidden="true"
+             class="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200" />
+        <div class="leading-[1.1] text-white hidden sm:block select-none">
+          <span class="font-extrabold text-[10px] tracking-widest uppercase block font-display">COKRO</span>
+          <span class="font-extrabold text-[10px] tracking-widest uppercase block font-display">AKSATA</span>
+        </div>
+      </div>
+
+      <!-- Divider + Event Title -->
+      <div class="flex items-center gap-2.5 select-none">
+        <span class="w-px h-8 bg-white/30 rounded-full"></span>
+        <div class="leading-[1.25] text-white">
+          <span class="block text-[9px] font-semibold tracking-widest uppercase text-white/60 font-body">PKKMB KM FV UNY</span>
+          <span class="block text-sm font-extrabold tracking-wide font-display text-white">2026</span>
+        </div>
+      </div>
+    </a>
+
+
+    <!-- ── NAV LINKS (Desktop) ── -->
+    <nav class="hidden md:flex items-center gap-0.5" aria-label="Navigasi utama">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={isActive(link.href)
+            ? "nav-pill-active text-sm font-display"
+            : "text-white/90 hover:text-white hover:bg-white/15 px-4 py-1.5 rounded-full font-bold text-sm font-display transition-all duration-150"}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- ── RIGHT: Social Icons + Hamburger ── -->
+    <div class="flex items-center gap-2 shrink-0">
+
+      <!-- Social icons — visible sm+ -->
+      <div class="hidden sm:block">
+        <SocialIcons size="w-5 h-5" variant="white" />
+      </div>
+
+      <!-- Hamburger (Mobile only) -->
+      <button
+        id="nav-ham-btn"
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl hover:bg-white/15 transition-colors"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="nav-mobile-menu"
+      >
+        <!-- Fixed-height wrapper: 18px tall, bars absolute-positioned -->
+        <div class="relative w-5 h-[18px]">
+          <span id="ham-top" class="absolute top-0    left-0 w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+          <span id="ham-mid" class="absolute top-1/2  left-0 w-full h-0.5 bg-white rounded-full -translate-y-1/2 transition-all duration-300"></span>
+          <span id="ham-bot" class="absolute bottom-0 left-0 w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ── MOBILE MENU ── -->
+  <div
+    id="nav-mobile-menu"
+    class="hidden md:hidden bg-cokro-navy/95 backdrop-blur-md border-t border-white/10"
+    aria-label="Menu mobile"
+  >
+    <!-- Links -->
+    <nav class="px-3 pt-3 pb-2 flex flex-col gap-0.5">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={isActive(link.href)
+            ? "px-4 py-3 rounded-xl bg-white/20 text-white font-extrabold text-sm font-display"
+            : "px-4 py-3 rounded-xl text-white/80 font-semibold text-sm font-display hover:bg-white/10 hover:text-white transition-all duration-150"}
+        >
+          {link.label}
+          {isActive(link.href) && (
+            <span class="ml-2 text-xs text-cokro-gold">◀</span>
+          )}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Social icons (Mobile) -->
+    <div class="px-7 py-4 border-t border-white/10">
+      <SocialIcons size="w-6 h-6" variant="white" />
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn  = document.getElementById('nav-ham-btn')!;
+  const menu = document.getElementById('nav-mobile-menu')!;
+  const top  = document.getElementById('ham-top')!;
+  const mid  = document.getElementById('ham-mid')!;
+  const bot  = document.getElementById('ham-bot')!;
+
+  // Container h=18px, each bar h=2px (h-0.5)
+  // top bar center @ 1px, mid bar center @ 9px, bot bar center @ 17px
+  // → top must move +8px, bot must move -8px to meet mid
+  function open() {
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Tutup menu');
+    top.style.transform = 'translateY(8px) rotate(45deg)';
+    mid.style.opacity   = '0';
+    bot.style.transform = 'translateY(-8px) rotate(-45deg)';
+  }
+
+  function close() {
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Buka menu');
+    top.style.transform = '';
+    mid.style.opacity   = '1';
+    bot.style.transform = '';
+  }
+
+  btn.addEventListener('click', () =>
+    menu.classList.contains('hidden') ? open() : close()
+  );
+
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+</script>

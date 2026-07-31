@@ -1,0 +1,62 @@
+---
+// src/pages/ormawa.astro
+import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import OrgCard from '../components/ui/OrgCard.astro';
+import { getOrgsByType } from '../data/orgs';
+
+const ormawaList = getOrgsByType('ormawa');
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ormawa FV UNY — PKKMB FV UNY 2026</title>
+    <meta name="description" content="Daftar Organisasi Mahasiswa (Ormawa) Fakultas Vokasi Universitas Negeri Yogyakarta." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
+    <Navbar />
+
+    <PageHeader
+      title="Organisasi Mahasiswa"
+      subtitle="Kenali lembaga-lembaga mahasiswa di Fakultas Vokasi UNY. Temukan tempat untuk berkembang, berkarya, dan berjejaring!"
+      badge="Ormawa FV UNY"
+    />
+
+    <main class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-4">{ormawaList.length} Organisasi Aktif</h2>
+          <div class="w-20 h-1.5 bg-cokro-gold rounded-pill mx-auto mb-4"></div>
+          <p class="font-body text-cokro-text-muted max-w-lg mx-auto">Klik kartu untuk melihat profil lengkap setiap organisasi.</p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16 mt-16">
+          {ormawaList.map(org => (
+            <OrgCard
+              id={org.id}
+              name={org.name}
+              shortName={org.shortName}
+              description={org.description}
+              logo={org.logo}
+              cardImage={org.cardImage}
+              badge={org.badge}
+              badgeColor={org.badgeColor}
+              href={`/ormawa/${org.id}`}
+            />
+          ))}
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

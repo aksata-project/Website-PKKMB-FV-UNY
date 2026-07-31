@@ -1,0 +1,160 @@
+---
+// Philosophy.astro — Simplified to match DesignSystem.md (3D Pop Aesthetic, less heavy effects)
+---
+
+<section
+  class="py-20 px-4 sm:px-6 lg:px-8 bg-white relative"
+  aria-labelledby="philosophy-title"
+>
+  <!-- Subtle doodle pattern background (from DesignSystem) -->
+  <div
+    class="absolute inset-0 bg-doodle-pattern opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <!-- Section label -->
+    <div class="text-center mb-12">
+      <span
+        class="inline-block px-4 py-1.5 bg-cokro-gold text-cokro-navy font-display font-extrabold text-sm rounded-pill shadow-3d-solid uppercase tracking-widest mb-4"
+        >Introduce the logo</span
+      >
+      <h2
+        id="philosophy-title"
+        class="font-display font-bold text-4xl md:text-5xl text-cokro-navy"
+      >
+        Filosofi Logo
+      </h2>
+    </div>
+
+    <!-- MAIN LAYOUT: Logo + Cards -->
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <!-- LEFT: Logo Display -->
+      <div class="w-full lg:w-5/12 flex flex-col items-center">
+        <!-- Logo container with standard 3D Card style from DesignSystem -->
+        <div
+          class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-cokro-tint border-4 border-cokro-navy shadow-3d-solid-lg p-8 flex items-center justify-center hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300"
+        >
+          <img
+            src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg"
+            alt="Logo PKKMB FV UNY 2026 — Griffin Cokro Aksata"
+            class="w-full h-full object-contain drop-shadow-md"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Logo caption -->
+        <div class="mt-8 text-center">
+          <p class="font-display font-black text-2xl text-cokro-navy mb-1">
+            LOGO PKKMB FV UNY 2026
+          </p>
+          <p
+            class="font-display font-bold text-sm text-cokro-text-muted uppercase tracking-widest"
+          >
+            griffin
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Philosophy cards — 2x2 grid -->
+      <div class="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <!-- Card 1: Sayap & Jambul -->
+        <div
+          class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid p-6 hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cokro-gold border-2 border-cokro-navy flex items-center justify-center shrink-0"
+            >
+              <span class="text-cokro-navy font-black text-sm"></span>
+            </div>
+            <h3 class="font-display font-bold text-lg text-cokro-navy">
+              Sayap & Jambul
+            </h3>
+          </div>
+          <p class="font-body text-sm text-cokro-text-muted leading-relaxed">
+            <strong class="text-cokro-navy">6 helai jambul</strong> = 6 Departemen
+            FV.<br />
+            <strong class="text-cokro-navy">14 helai sayap depan</strong> = 14 Program
+            Studi.<br />
+            <strong class="text-cokro-navy">2 sayap utama</strong> = Kampus Gunungkidul
+            & Wates bersatu.
+          </p>
+        </div>
+
+        <!-- Card 2: Mata Merah -->
+        <div
+          class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid p-6 hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-red-500 border-2 border-cokro-navy flex items-center justify-center shrink-0"
+            >
+            </div>
+            <h3 class="font-display font-bold text-lg text-red-600">
+              Mata Merah
+            </h3>
+          </div>
+          <p class="font-body text-sm text-cokro-text-muted leading-relaxed">
+            Melambangkan ketajaman visi dan keberanian mengambil keputusan.
+            Mahasiswa vokasi diharapkan kritis melihat peluang dan fokus pada
+            cita-cita.
+          </p>
+        </div>
+
+        <!-- Card 3: Postur Griffin -->
+        <div
+          class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid p-6 hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cokro-sky border-2 border-cokro-navy flex items-center justify-center shrink-0"
+            >
+            </div>
+            <h3 class="font-display font-bold text-lg text-cokro-sky">
+              Postur Griffin
+            </h3>
+          </div>
+          <p class="font-body text-sm text-cokro-text-muted leading-relaxed">
+            <strong class="text-cokro-navy">Kaki depan</strong> = keberanian & kebijaksanaan.<br
+            />
+            <strong class="text-cokro-navy">Kaki belakang</strong> = integritas.<br
+            />
+            <strong class="text-cokro-navy">Ekor</strong> = keseimbangan <em
+              >hard-skills</em
+            > & <em>soft-skills</em>.
+          </p>
+        </div>
+
+        <!-- Card 4: Cokelat Keemasan -->
+        <div
+          class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid p-6 hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-yellow-400 border-2 border-cokro-navy flex items-center justify-center shrink-0"
+            >
+            </div>
+            <h3 class="font-display font-bold text-lg text-yellow-600">
+              Warna Cokelat Keemasan
+            </h3>
+          </div>
+          <p class="font-body text-sm text-cokro-text-muted leading-relaxed">
+            Merepresentasikan kemuliaan, kejayaan, dan profesionalisme. Harapan
+            agar lulusan vokasi mengukir prestasi unggul dan bersaing di tingkat
+            global.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote bottom -->
+    <div class="mt-16 text-center">
+      <p
+        class="font-display font-bold text-xl md:text-2xl text-cokro-blue italic"
+      >
+        "Griffin — Simbol Keberanian, Kebijaksanaan, dan Semangat Vokasi"
+      </p>
+    </div>
+  </div>
+</section>

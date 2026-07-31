@@ -1,0 +1,56 @@
+---
+// CampusMap.astro
+---
+<section class="py-24 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden" aria-labelledby="map-title">
+  <!-- Top wave divider -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 rotate-180">
+    <svg class="relative block w-full h-[30px] md:h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,188.71,98.67,234.33,85.53,278.4,70.28,321.39,56.44Z" class="fill-cokro-blue"></path>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto pt-8">
+    <div class="text-center mb-16">
+      <h2 id="map-title" class="font-display font-bold text-4xl md:text-5xl text-cokro-navy mb-4">Peta Kampus</h2>
+      <p class="font-body text-lg text-cokro-text-muted">Fakultas Vokasi UNY tersebar di dua wilayah kebanggaan Yogyakarta.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      
+      <!-- Kampus Gunung Kidul -->
+      <div class="bg-white rounded-card-md border-4 border-cokro-navy shadow-3d-solid-lg overflow-hidden flex flex-col group">
+        <div class="bg-cokro-navy text-white p-4 text-center">
+          <h3 class="font-display font-bold text-xl tracking-wider uppercase">Kampus Gunung Kidul</h3>
+        </div>
+        <div class="relative h-[300px] md:h-[400px] w-full bg-gray-200">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.7877239331816!2d110.6094628741094!3d-7.917242192095945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5bb0f40d2bbd%3A0x6bba847bf2585f1c!2sKampus%20UNY%20Gunungkidul!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+            class="absolute top-0 left-0 w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-500" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Peta Kampus Gunung Kidul">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Kampus Kulon Progo -->
+      <div class="bg-white rounded-card-md border-4 border-cokro-navy shadow-3d-solid-lg overflow-hidden flex flex-col group">
+        <div class="bg-cokro-blue text-white p-4 text-center border-b-2 border-cokro-navy">
+          <h3 class="font-display font-bold text-xl tracking-wider uppercase">Kampus Wates (Kulon Progo)</h3>
+        </div>
+        <div class="relative h-[300px] md:h-[400px] w-full bg-gray-200">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.553956799042!2d110.15541577410852!3d-7.836932492180479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ae553b47f48e3%3A0xc023a105f2ea1e17!2sKampus%20Wates%20UNY!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+            class="absolute top-0 left-0 w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-500" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Peta Kampus Kulon Progo">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

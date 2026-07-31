@@ -1,0 +1,133 @@
+---
+// src/pages/timeline.astro
+import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import TimelineCard from '../components/timeline/TimelineCard.astro';
+
+const milestones = [
+  {
+    date: 'Juli 2026',
+    title: 'Pembukaan Pendaftaran',
+    description: 'Pendaftaran PKKMB FV UNY 2026 resmi dibuka. Peserta wajib melengkapi data diri dan mengunggah dokumen persyaratan melalui portal yang tersedia.',
+    icon: '📋',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '1 Agustus 2026',
+    title: 'Batas Akhir Pendaftaran',
+    description: 'Batas waktu pengisian formulir pendaftaran online. Pastikan semua dokumen telah terunggah sebelum tanggal ini.',
+    icon: '⏰',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '10 Agustus 2026',
+    title: 'Pengumuman Peserta',
+    description: 'Pengumuman daftar peserta yang lolos seleksi administrasi. Peserta dapat mengecek status pendaftarannya melalui portal resmi.',
+    icon: '📣',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '18–19 Agustus 2026',
+    title: 'Technical Meeting',
+    description: 'Pertemuan teknis bagi seluruh peserta terdaftar. Penjelasan mengenai tata tertib, dresscode, dan jadwal kegiatan PKKMB.',
+    icon: '🎙️',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '20 Agustus 2026',
+    title: 'Hari Pembukaan PKKMB',
+    description: 'Upacara pembukaan resmi PKKMB FV UNY 2026 di Kampus Wates & Gunungkidul. "Take the Leap, Chase Your Dream!" 🚀',
+    icon: '🎓',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '21–22 Agustus 2026',
+    title: 'Rangkaian Kegiatan PKKMB',
+    description: 'Serangkaian kegiatan pengenalan kampus, seminar, workshop, dan kegiatan kelompok yang interaktif dan edukatif bagi mahasiswa baru.',
+    icon: '⭐',
+    status: 'upcoming' as const,
+  },
+  {
+    date: '23 Agustus 2026',
+    title: 'Penutupan & After Movie',
+    description: 'Upacara penutupan resmi PKKMB FV UNY 2026. Diakhiri dengan penampilan seni dan sesi foto bersama. Selamat menjadi bagian dari keluarga besar Vokasi!',
+    icon: '🎉',
+    status: 'upcoming' as const,
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline PKKMB FV UNY 2026 — Cokro Aksata</title>
+    <meta name="description" content="Jadwal dan rangkaian kegiatan PKKMB Fakultas Vokasi Universitas Negeri Yogyakarta 2026." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
+    <Navbar />
+
+    <PageHeader
+      title="Timeline PKKMB"
+      subtitle="Jadwal lengkap rangkaian kegiatan PKKMB Fakultas Vokasi UNY 2026. Catat tanggal-tanggal penting dan bersiaplah untuk petualangan terbaikmu!"
+      badge="PKKMB FV UNY 2026"
+    />
+
+    <main class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-16">
+          <h2 class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-4">Rangkaian Kegiatan</h2>
+          <div class="w-20 h-1.5 bg-cokro-gold rounded-pill mx-auto"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical connector line (visible md+) -->
+          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cokro-gold via-cokro-blue to-cokro-navy rounded-full -translate-x-1/2 z-0"></div>
+
+          <!-- Mobile: left line -->
+          <div class="md:hidden absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cokro-gold via-cokro-blue to-cokro-navy rounded-full z-0"></div>
+
+          <!-- Cards -->
+          <div class="relative z-10 pl-10 md:pl-0">
+            {milestones.map((m, i) => (
+              <TimelineCard
+                date={m.date}
+                title={m.title}
+                description={m.description}
+                icon={m.icon}
+                status={m.status}
+                position={i % 2 === 0 ? 'left' : 'right'}
+              />
+            ))}
+          </div>
+
+          <!-- End Node -->
+          <div class="relative z-10 flex justify-center mt-4">
+            <div class="w-14 h-14 rounded-full bg-cokro-navy border-4 border-cokro-gold shadow-3d-solid flex items-center justify-center text-2xl">
+              🏁
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-20 bg-white rounded-card-lg border-2 border-cokro-navy shadow-3d-solid-lg p-8 text-center">
+          <h3 class="font-display font-black text-2xl text-cokro-navy mb-3">Siap untuk Petualangan?</h3>
+          <p class="font-body text-cokro-text-muted mb-6 max-w-md mx-auto">Pastikan kamu sudah mendaftar dan mengikuti semua tahapan kegiatan. Sampai jumpa di PKKMB FV UNY 2026!</p>
+          <a href="/panduan" class="inline-flex items-center gap-2 px-8 py-3 bg-cokro-blue text-white font-display font-bold rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200">
+            Lihat Panduan Lengkap →
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,25 @@
+---
+// StepCard.astro — Step card for Panduan page
+interface Props {
+  step: number;
+  title: string;
+  description: string;
+  icon?: string;
+}
+const { step, title, description, icon = '✅' } = Astro.props;
+---
+
+<div class="relative bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-300 p-6 pt-10">
+  <!-- Step Number Blob -->
+  <div class="absolute -top-6 -left-3 w-14 h-14 bg-cokro-gold border-4 border-cokro-navy shadow-3d-solid flex items-center justify-center [border-radius:60%_40%_30%_70%/60%_30%_70%_40%]">
+    <span class="font-display font-black text-xl text-cokro-navy">{step}</span>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-0.5 shrink-0">{icon}</span>
+    <div>
+      <h3 class="font-display font-bold text-lg text-cokro-navy mb-2">{title}</h3>
+      <p class="font-body text-sm text-cokro-text-muted leading-relaxed">{description}</p>
+    </div>
+  </div>
+</div>

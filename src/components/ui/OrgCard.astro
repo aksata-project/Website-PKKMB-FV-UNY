@@ -1,0 +1,75 @@
+---
+// OrgCard.astro — Generic card for Ormawa & UKM — navigates to detail page
+interface Props {
+  id: string;
+  name: string;
+  shortName: string;
+  description: string;
+  logo: string;
+  cardImage?: string;
+  badge: string;
+  badgeColor?: 'gold' | 'blue' | 'sky';
+  href: string; // e.g. /ormawa/bem or /ukm/ukm-reaction
+}
+const { id, name, shortName, description, logo, cardImage, badge, badgeColor = 'gold', href } = Astro.props;
+
+const badgeClasses: Record<string, string> = {
+  gold: 'bg-cokro-gold text-cokro-navy',
+  blue: 'bg-cokro-blue text-white',
+  sky:  'bg-cokro-sky text-white',
+};
+
+const placeholderImage = `https://placehold.co/800x480/0F52BA/FFFFFF/webp?text=Card+Photo+(800+x+480)`;
+const displayImage = cardImage || placeholderImage;
+---
+
+<a
+  href={href}
+  id={`org-card-${id}`}
+  class="org-card group relative bg-white rounded-card-lg border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300 flex flex-col overflow-hidden no-underline"
+  aria-label={`Lihat detail ${name}`}
+>
+  <!-- Card Header Photo / Thumbnail -->
+  <div class="relative w-full h-44 sm:h-48 bg-cokro-navy overflow-hidden">
+    <img
+      src={displayImage}
+      alt={`Foto ${name}`}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      loading="lazy"
+      onerror={`this.onerror=null; this.src='${placeholderImage}';`}
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-cokro-navy/80 via-transparent to-transparent"></div>
+
+    <!-- Badge -->
+    <span class={`absolute top-3 left-3 px-3 py-1 rounded-pill text-xs font-extrabold uppercase tracking-wider border border-cokro-navy shadow-sm z-10 ${badgeClasses[badgeColor]}`}>
+      {badge}
+    </span>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative pt-12 pb-6 px-6 flex-1 flex flex-col">
+    <!-- Logo (oversized floating badge overlapping image) -->
+    <div class="absolute -top-10 left-6 w-20 h-20 bg-white rounded-full border-4 border-cokro-navy shadow-3d-solid flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 z-20">
+      <img src={logo} alt={`Logo ${name}`} class="w-14 h-14 object-contain" loading="lazy" />
+    </div>
+
+    <!-- Name & Short Name -->
+    <div class="mb-2">
+      <h3 class="font-display font-extrabold text-xl text-cokro-navy leading-tight mb-1 group-hover:text-cokro-blue transition-colors">{name}</h3>
+      <p class="text-xs font-bold text-cokro-sky uppercase tracking-widest">{shortName}</p>
+    </div>
+
+    <!-- Description -->
+    <p class="font-body text-sm text-cokro-text-muted leading-relaxed line-clamp-3 flex-1 mb-4">{description}</p>
+
+    <!-- CTA -->
+    <div class="pt-4 border-t-2 border-cokro-tint flex items-center justify-between mt-auto">
+      <span class="text-sm font-bold text-cokro-blue group-hover:text-cokro-navy transition-colors">Lihat Detail & Foto →</span>
+      <div class="w-8 h-8 rounded-full bg-cokro-tint border-2 border-cokro-navy flex items-center justify-center group-hover:bg-cokro-gold transition-colors">
+        <svg class="w-4 h-4 text-cokro-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</a>

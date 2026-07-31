@@ -1,0 +1,15 @@
+---
+// RuleItem.astro — Do's & Don'ts item for Panduan page
+interface Props {
+  type: 'do' | 'dont';
+  text: string;
+}
+const { type, text } = Astro.props;
+---
+
+<div class={`flex items-start gap-3 p-4 rounded-xl border-2 transition-all duration-200 hover:-translate-y-0.5 ${type === 'do' ? 'bg-green-50 border-green-400 shadow-[3px_3px_0_#16a34a]' : 'bg-red-50 border-red-400 shadow-[3px_3px_0_#dc2626]'}`}>
+  <span class={`shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center font-black text-sm ${type === 'do' ? 'bg-green-500 border-green-700 text-white' : 'bg-red-500 border-red-700 text-white'}`}>
+    {type === 'do' ? '✓' : '✕'}
+  </span>
+  <p class="font-body text-sm text-cokro-text-muted leading-relaxed">{text}</p>
+</div>

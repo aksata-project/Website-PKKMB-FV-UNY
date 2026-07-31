@@ -5,11 +5,11 @@ const pathname = Astro.url.pathname;
 
 const navLinks = [
   { href: "/",          label: "Home"     },
-  { href: "/#timeline", label: "Timeline" },
-  { href: "/#panduan",  label: "Panduan"  },
-  { href: "/ormawa",    label: "Ormawa"   },
-  { href: "/ukm",       label: "UKM"      },
-  { href: "/#faq",      label: "FAQ"      },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/panduan",  label: "Panduan"  },
+  { href: "/ormawa",   label: "Ormawa"   },
+  { href: "/ukm",      label: "UKM"      },
+  { href: "/faq",      label: "FAQ"      },
 ];
 
 // Hash anchor links are never a standalone active page
@@ -20,7 +20,7 @@ function isActive(href: string): boolean {
 }
 ---
 
-<header class="sticky top-0 z-50 w-full bg-doodle-header shadow-lg border-b border-white/20">
+<header class="sticky top-0 z-50 w-full bg-cokro-header bg-doodle-pattern shadow-[0_4px_12px_rgba(10,37,64,0.3)] border-b-4 border-cokro-gold">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
 
     <!-- ── BRAND ── -->
@@ -56,8 +56,8 @@ function isActive(href: string): boolean {
         <a
           href={link.href}
           class={isActive(link.href)
-            ? "nav-pill-active text-sm font-display"
-            : "text-white/90 hover:text-white hover:bg-white/15 px-4 py-1.5 rounded-full font-bold text-sm font-display transition-all duration-150"}
+            ? "bg-white text-cokro-blue px-4 py-1.5 rounded-pill shadow-pill font-bold text-sm font-display"
+            : "text-white/90 hover:text-white hover:bg-white/15 px-4 py-1.5 rounded-pill font-bold text-sm font-display transition-all duration-150"}
         >
           {link.label}
         </a>
@@ -94,7 +94,7 @@ function isActive(href: string): boolean {
   <!-- ── MOBILE MENU ── -->
   <div
     id="nav-mobile-menu"
-    class="hidden md:hidden bg-cokro-navy/95 backdrop-blur-md border-t border-white/10"
+    class="hidden md:hidden bg-cokro-blue/95 backdrop-blur-md border-t-4 border-cokro-gold"
     aria-label="Menu mobile"
   >
     <!-- Links -->

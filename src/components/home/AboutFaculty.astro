@@ -1,0 +1,98 @@
+---
+// AboutFaculty.astro
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+const stats = [
+  { value: "1.200+", label: "Mahasiswa Baru" },
+  { value: "12", label: "Program Studi" },
+  { value: "5", label: "Ormawa" },
+  { value: "15+", label: "UKM" }
+];
+
+// Actual logos from public/Assets/logos/ormawa
+const logos = [
+  "/Assets/logos/ormawa/logo-bem.svg",
+  "/Assets/logos/ormawa/logo-dpm.svg",
+  "/Assets/logos/ormawa/logo-himanagari.svg",
+  "/Assets/logos/ormawa/logo-himatabona.svg",
+  "/Assets/logos/ormawa/logo-hmdbk.svg",
+  "/Assets/logos/ormawa/logo-hmdtm.svg",
+  "/Assets/logos/ormawa/logo-hmdts.svg",
+  "/Assets/logos/ormawa/logo-hmok.svg",
+  "/Assets/logos/ormawa/logo-hmve.svg"
+];
+---
+<section class="py-24 px-4 sm:px-6 lg:px-8 bg-cokro-blue relative overflow-hidden" aria-labelledby="about-title">
+  <!-- Doodle Overlay -->
+  <div class="absolute inset-0 bg-doodle-pattern opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <h2 id="about-title" class="font-display font-bold text-4xl md:text-5xl text-white mb-6" style="-webkit-text-stroke: 2px #0A2540; text-shadow: 4px 4px 0px #0A2540;">
+        Tentang Fakultas Vokasi UNY
+      </h2>
+      <p class="font-body text-lg text-cokro-tint max-w-3xl mx-auto">
+        Berpusat pada ilmu terapan dan keterampilan praktis, Fakultas Vokasi UNY siap mencetak lulusan handal yang dibutuhkan oleh industri global masa depan.
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+      {stats.map(stat => (
+        <div class="bg-white rounded-card-md border-4 border-cokro-navy shadow-3d-solid-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="font-display font-black text-4xl md:text-5xl text-cokro-gold mb-2" style="-webkit-text-stroke: 1px #0A2540;">{stat.value}</div>
+          <div class="font-body font-bold text-cokro-navy text-sm md:text-base uppercase tracking-wider">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Logo Slideshow (Marquee with Swiper) -->
+    <div class="bg-white rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg p-8">
+      <h3 class="text-center font-display font-bold text-2xl text-cokro-navy mb-8">Keluarga Ormawa & UKM</h3>
+      
+      <!-- Swiper Marquee -->
+      <div class="swiper logo-marquee w-full h-[150px]">
+        <div class="swiper-wrapper items-center">
+          {logos.map((logo) => (
+            <div class="swiper-slide w-auto flex justify-center">
+              <img src={logo} alt="Logo Organisasi" loading="lazy" class="h-[100px] w-[100px] md:h-[120px] md:w-[120px] object-contain drop-shadow-md hover:scale-110 transition-transform duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom transition for smooth continuous marquee */
+  .logo-marquee .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.logo-marquee', {
+      modules: [Autoplay],
+      spaceBetween: 40,
+      slidesPerView: 'auto',
+      loop: true,
+      freeMode: true,
+      speed: 3000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        320: { slidesPerView: 3, spaceBetween: 20 },
+        768: { slidesPerView: 5, spaceBetween: 40 },
+        1024: { slidesPerView: 7, spaceBetween: 50 },
+      }
+    });
+  });
+</script>

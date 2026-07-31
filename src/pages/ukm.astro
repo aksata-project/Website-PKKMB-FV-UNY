@@ -1,0 +1,72 @@
+---
+// src/pages/ukm.astro
+import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import OrgCard from '../components/ui/OrgCard.astro';
+import { getOrgsByType } from '../data/orgs';
+
+const ukmList = getOrgsByType('ukm');
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UKM FV UNY — PKKMB FV UNY 2026</title>
+    <meta name="description" content="Daftar Unit Kegiatan Mahasiswa (UKM) Fakultas Vokasi Universitas Negeri Yogyakarta." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
+    <Navbar />
+
+    <PageHeader
+      title="Unit Kegiatan Mahasiswa"
+      subtitle="Ekspresikan minat dan bakatmu bersama UKM di Fakultas Vokasi UNY. Temukan komunitasmu dan raih prestasi setinggi-tingginya!"
+      badge="UKM FV UNY"
+    />
+
+    <main class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-4">{ukmList.length} UKM Aktif</h2>
+          <div class="w-20 h-1.5 bg-cokro-gold rounded-pill mx-auto mb-4"></div>
+          <p class="font-body text-cokro-text-muted max-w-lg mx-auto">Klik kartu UKM untuk melihat profil lengkapnya dan temukan yang paling sesuai dengan minatmu.</p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16 mt-16">
+          {ukmList.map(org => (
+            <OrgCard
+              id={org.id}
+              name={org.name}
+              shortName={org.shortName}
+              description={org.description}
+              logo={org.logo}
+              cardImage={org.cardImage}
+              badge={org.badge}
+              badgeColor={org.badgeColor}
+              href={`/ukm/${org.id}`}
+            />
+          ))}
+        </div>
+
+        <!-- Join CTA Banner -->
+        <div class="mt-24 bg-white rounded-card-lg border-2 border-cokro-navy shadow-3d-solid-lg p-8 text-center">
+          <div class="text-5xl mb-4">🌟</div>
+          <h3 class="font-display font-black text-2xl text-cokro-navy mb-3">Mau Bergabung?</h3>
+          <p class="font-body text-cokro-text-muted mb-6 max-w-md mx-auto">Open recruitment UKM biasanya dibuka setelah PKKMB. Pantau terus media sosial resmi kami untuk info pendaftaran!</p>
+          <a href="/ormawa" class="inline-flex items-center gap-2 px-8 py-3 bg-cokro-gold text-cokro-navy font-display font-bold rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200">
+            Lihat Juga Daftar Ormawa →
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

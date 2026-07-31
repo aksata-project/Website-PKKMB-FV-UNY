@@ -1,0 +1,219 @@
+---
+// Hero.astro — Revised with "2026" text, decorative elements, better visual
+---
+
+<section
+  class="relative min-h-[100vh] flex flex-col items-center justify-center pt-24 pb-40 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
+  style="background-image: url('/Assets/illustrations/background/home-bg.png');"
+  aria-label="Hero Section"
+>
+  <!-- Light overlay -->
+  <div class="absolute inset-0 pointer-events-none bg-white/5 z-0"></div>
+
+  <!-- ✨ Decorative: floating star sparks -->
+  <div
+    class="absolute top-24 left-8 w-6 h-6 text-yellow-300 text-3xl animate-bounce pointer-events-none z-0"
+  >
+    ✦
+  </div>
+  <div
+    class="absolute top-40 right-12 w-4 h-4 text-white text-2xl animate-pulse pointer-events-none z-0"
+  >
+    ✦
+  </div>
+  <div
+    class="absolute bottom-40 left-16 text-cokro-gold text-4xl animate-bounce [animation-delay:0.5s] pointer-events-none z-0"
+  >
+    ✦
+  </div>
+  <div
+    class="absolute top-32 right-1/4 text-white/60 text-xl animate-ping [animation-delay:1s] pointer-events-none z-0"
+  >
+    ✦
+  </div>
+  <div
+    class="absolute bottom-60 right-10 text-yellow-200 text-3xl animate-bounce [animation-delay:1.5s] pointer-events-none z-0"
+  >
+    ★
+  </div>
+
+  <!-- ✨ Decorative: floating rings -->
+  <div
+    class="absolute top-28 right-8 w-20 h-20 rounded-full border-4 border-white/20 pointer-events-none z-0 animate-[spin_12s_linear_infinite]"
+  >
+  </div>
+  <div
+    class="absolute bottom-32 left-8 w-32 h-32 rounded-full border-4 border-cokro-gold/30 pointer-events-none z-0 animate-[spin_18s_linear_infinite_reverse]"
+  >
+  </div>
+  <div
+    class="absolute top-1/2 right-4 w-12 h-12 rounded-full border-2 border-white/30 pointer-events-none z-0 animate-[spin_8s_linear_infinite]"
+  >
+  </div>
+
+  <!-- ✨ Decorative: glowing blob left -->
+  <div
+    class="absolute left-0 top-1/3 w-64 h-64 bg-cokro-gold/10 rounded-full blur-3xl pointer-events-none z-0"
+  >
+  </div>
+  <div
+    class="absolute right-0 bottom-1/4 w-64 h-64 bg-blue-300/10 rounded-full blur-3xl pointer-events-none z-0"
+  >
+  </div>
+
+  <div
+    class="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center"
+  >
+    <!-- Main Title Image -->
+    <div
+      class="mb-4 w-full max-w-4xl px-2 transform hover:scale-105 transition-transform duration-500"
+    >
+      <img
+        src="/Assets/illustrations/words/home-cta1.png"
+        alt="PKKMB FV UNY 2026"
+        class="w-full h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+        loading="eager"
+      />
+    </div>
+
+    <!-- "2026" large floating badge -->
+    <div class="mb-4 flex items-center justify-center gap-1">
+      <span
+        class="font-display font-black text-16xl md:text-7xl text-cokro-gold drop-shadow-[4px_4px_0_#0A2540] [-webkit-text-stroke:2px_#0A2540] select-none"
+        >2026</span
+      >
+    </div>
+
+    <!-- Welcome sub-text -->
+    <p
+      class="font-display font-bold text-base md:text-xl text-cokro-blue/90 mb-4 max-w-2xl leading-relaxed drop-shadow-md px-2"
+    >
+      Selamat Datang Mahasiswa Baru Fakultas Vokasi<br
+        class="hidden md:block"
+      /> Universitas Negeri Yogyakarta
+    </p>
+
+    <!-- Tagline -->
+    <h2
+      class="text-2xl md:text-4xl text-cokro-gold mb-10 lowercase tracking-wider font-extrabold font-['Sniglet','Fredoka',cursive] drop-shadow-[4px_4px_0_#0A2540] [-webkit-text-stroke:2px_#0A2540]"
+    >
+      Take the leap, chase your dream
+    </h2>
+
+    <!-- CTA Button -->
+    <a
+      href="#welcome"
+      class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-cokro-navy bg-cokro-gold border-2 border-cokro-navy rounded-pill shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover active:translate-y-1 active:shadow-3d-solid-pressed transition-all duration-200"
+    >
+      Mulai Perjalanan ↓
+    </a>
+
+    <!-- Countdown Timer -->
+    <div class="mt-14 w-full max-w-3xl"></div>
+    <div
+      class="flex flex-wrap justify-center gap-3 md:gap-6"
+      id="countdown-container"
+    >
+      <!-- Days -->
+      <div
+        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:60%_40%_30%_70%/60%_30%_70%_40%]"
+      >
+        <span
+          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          id="days">00</span
+        >
+        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+          >Hari</span
+        >
+      </div>
+      <!-- Hours -->
+      <div
+        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:40%_60%_70%_30%/50%_60%_40%_50%]"
+      >
+        <span
+          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          id="hours">00</span
+        >
+        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+          >Jam</span
+        >
+      </div>
+      <!-- Minutes -->
+      <div
+        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:70%_30%_50%_50%/30%_50%_70%_50%]"
+      >
+        <span
+          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          id="minutes">00</span
+        >
+        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+          >Menit</span
+        >
+      </div>
+      <!-- Seconds -->
+      <div
+        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:50%_50%_30%_70%/60%_40%_60%_40%]"
+      >
+        <span
+          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          id="seconds">00</span
+        >
+        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+          >Detik</span
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCountdown() {
+    const targetDate = new Date("August 20, 2026 00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    function update() {
+      const distance = targetDate - Date.now();
+      if (distance < 0) {
+        [daysEl, hoursEl, minutesEl, secondsEl].forEach(
+          (el) => (el.innerText = "00"),
+        );
+        return;
+      }
+      daysEl.innerText = String(Math.floor(distance / 86400000)).padStart(
+        2,
+        "0",
+      );
+      hoursEl.innerText = String(
+        Math.floor((distance % 86400000) / 3600000),
+      ).padStart(2, "0");
+      minutesEl.innerText = String(
+        Math.floor((distance % 3600000) / 60000),
+      ).padStart(2, "0");
+      secondsEl.innerText = String(
+        Math.floor((distance % 60000) / 1000),
+      ).padStart(2, "0");
+    }
+    update();
+    setInterval(update, 1000);
+  }
+  document.addEventListener("DOMContentLoaded", initCountdown);
+</script>
+<!-- Wave Divider Bottom -->
+<div
+  class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none"
+>
+  <svg
+    class="relative block w-full h-[50px] md:h-[100px]"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 120"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,188.71,98.67,234.33,85.53,278.4,70.28,321.39,56.44Z"
+      class="fill-white"></path>
+  </svg>
+</div>

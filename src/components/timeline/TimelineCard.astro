@@ -1,0 +1,50 @@
+---
+// TimelineCard.astro
+interface Props {
+  date: string;
+  title: string;
+  description: string;
+  icon?: string;
+  position: 'left' | 'right';
+  status?: 'upcoming' | 'ongoing' | 'done';
+}
+const { date, title, description, icon = '📅', position, status = 'upcoming' } = Astro.props;
+
+const statusClasses: Record<string, string> = {
+  upcoming: 'bg-white border-cokro-navy text-cokro-navy',
+  ongoing:  'bg-cokro-gold border-cokro-navy text-cokro-navy',
+  done:     'bg-cokro-blue border-cokro-navy text-white',
+};
+const statusLabel: Record<string, string> = {
+  upcoming: 'Akan Datang',
+  ongoing:  'Berlangsung',
+  done:     'Selesai',
+};
+---
+
+<div class={`relative flex items-center gap-8 mb-12 ${position === 'right' ? 'flex-row-reverse md:flex-row' : 'flex-row'}`}>
+  <!-- Card -->
+  <div class={`w-full md:w-5/12 bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-300 p-6 ${position === 'right' ? 'md:ml-auto' : ''}`}>
+    <div class="flex items-center gap-3 mb-3">
+      <span class={`px-3 py-1 rounded-pill text-xs font-extrabold uppercase tracking-wider border-2 ${statusClasses[status]}`}>
+        {statusLabel[status]}
+      </span>
+      <span class="font-body text-sm font-semibold text-cokro-text-muted">{date}</span>
+    </div>
+    <div class="flex items-start gap-3">
+      <span class="text-2xl mt-0.5 shrink-0">{icon}</span>
+      <div>
+        <h3 class="font-display font-bold text-xl text-cokro-navy mb-2">{title}</h3>
+        <p class="font-body text-sm text-cokro-text-muted leading-relaxed">{description}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Node (center dot) — hidden on mobile, shown on md+ -->
+  <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-cokro-gold border-4 border-cokro-navy shadow-3d-solid z-10 items-center justify-center font-display font-black text-cokro-navy text-sm">
+    {icon}
+  </div>
+
+  <!-- Spacer for the other side -->
+  <div class="hidden md:block w-5/12"></div>
+</div>

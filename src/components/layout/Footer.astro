@@ -1,117 +1,164 @@
 ---
-// Footer.astro - Section 07: Minimal & Elegant Footer
+// Footer.astro — Revised with correct content & navigation links
 import SocialIcons from "./SocialIcons.astro";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/panduan", label: "Panduan" },
+  { href: "/ormawa", label: "Ormawa FV" },
+  { href: "/ukm", label: "UKM FV" },
+  { href: "/faq", label: "FAQ" },
+];
 ---
 
 <footer
-  class="relative bg-cokro-navy text-white pt-16 pb-12 overflow-hidden border-t-4 border-cokro-gold"
+  class="relative bg-cokro-navy text-white overflow-hidden border-t-4 border-cokro-gold z-10"
 >
-  <!-- Ambient Wave Graphic Overlay -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div
-      class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10"
+  <!-- Wave top divider -->
+  <div class="bg-cokro-tint overflow-hidden leading-none">
+    <svg
+      class="block w-full h-[40px] md:h-[60px]"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
     >
-      <!-- Brand & Tagline (5 Kolom) -->
+      <path
+        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+        class="fill-cokro-navy opacity-25"></path>
+      <path
+        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+        class="fill-cokro-navy opacity-50"></path>
+      <path
+        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+        class="fill-cokro-navy"></path>
+    </svg>
+  </div>
+
+  <!-- Doodle pattern overlay -->
+  <div class="absolute inset-0 bg-doodle-pattern opacity-5 pointer-events-none">
+  </div>
+  <!-- Gold glow blobs -->
+  <div
+    class="absolute bottom-0 left-0 w-64 h-64 bg-cokro-gold/5 rounded-full blur-3xl pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute top-0 right-0 w-48 h-48 bg-cokro-sky/5 rounded-full blur-2xl pointer-events-none"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/10"
+    >
+      <!-- Brand & Tagline (5 cols) -->
       <div class="md:col-span-5 space-y-4">
-        <!-- Dual Logos -->
-        <div class="flex items-center space-x-3">
-          <!-- Logo PKKMB FV 2026 -->
+        <!-- Logos row -->
+        <div class="flex items-center gap-3">
           <div
-            class="w-12 h-12 rounded-full bg-white p-1 flex items-center justify-center shadow-md overflow-hidden"
+            class="w-14 h-14 rounded-full bg-white p-1.5 flex items-center justify-center shadow-[4px_4px_0px_#3B82F6] border-2 border-cokro-sky overflow-hidden shrink-0"
           >
             <img
               src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg"
               alt="PKKMB FV UNY 2026"
               class="w-full h-full object-contain"
+              loading="lazy"
             />
           </div>
-
-          <div class="leading-none">
-            <h3
-              class="font-extrabold text-xl font-display text-white tracking-wide"
+          <div class="leading-tight">
+            <p
+              class="font-display font-extrabold text-xl text-white tracking-wide"
             >
               PKKMB FV UNY 2026
-            </h3>
+            </p>
             <p
-              class="text-xs text-cokro-gold font-bold tracking-widest uppercase mt-0.5 font-display"
+              class="text-xs text-cokro-gold font-bold tracking-widest uppercase"
             >
-              KABINET COKRO AKSATA
+              universitas negeri yogyakarta
             </p>
           </div>
         </div>
 
         <p class="text-sm text-slate-300 font-body leading-relaxed max-w-sm">
-          Pengenalan Kehidupan Kampus Bagi Mahasiswa Baru Fakultas Vokasi
-          Universitas Negeri Yogyakarta. "Take The Leap, Chase Your Dream".
+          Pengenalan Kehidupan Kampus bagi Mahasiswa Baru Fakultas Vokasi
+          Universitas Negeri Yogyakarta Tahun 2026.
+        </p>
+        <p class="text-sm font-display font-bold text-cokro-gold italic">
+          "Take The Leap, Chase Your Dream"
         </p>
 
-        <!-- Social Media Icons -->
-        <div class="pt-2">
-          <SocialIcons size="w-5 h-5" variant="white" class="gap-2" />
+        <!-- Social Media -->
+        <div class="pt-1">
+          <p
+            class="text-xs text-slate-400 mb-2 font-body uppercase tracking-wider"
+          >
+            Ikuti kami di
+          </p>
+          <div class="pt-2">
+            <SocialIcons size="w-6 h-6" variant="white" />
+          </div>
         </div>
       </div>
 
-      <!-- Quick Nav Links (4 Kolom) -->
+      <!-- Quick Nav (4 cols) -->
       <div class="md:col-span-4 space-y-3">
         <h4
-          class="text-base font-bold font-display text-cokro-gold uppercase tracking-wider"
+          class="font-display font-bold text-base text-cokro-gold uppercase tracking-wider mb-4"
         >
           Navigasi Cepat
         </h4>
-        <div class="grid grid-cols-2 gap-2 text-sm text-slate-300 font-body">
-          <a href="/" class="hover:text-white transition-colors">Home</a>
-          <a
-            href="/ormawa"
-            class="hover:text-white transition-colors text-cokro-gold font-bold"
-            >Ormawa FV</a
-          >
-          <a
-            href="/ukm"
-            class="hover:text-white transition-colors text-cokro-gold font-bold"
-            >UKM Vokasi</a
-          >
-          <a href="/#about" class="hover:text-white transition-colors"
-            >Tentang PKKMB</a
-          >
-          <a href="/#recap" class="hover:text-white transition-colors"
-            >Recap 2025</a
-          >
-          <a href="/#faculty" class="hover:text-white transition-colors"
-            >Fakultas Vokasi</a
-          >
-          <a href="/#campus" class="hover:text-white transition-colors"
-            >Lokasi Kampus</a
-          >
-          <a href="/#faq" class="hover:text-white transition-colors"
-            >Pertanyaan (FAQ)</a
-          >
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="font-body text-sm text-slate-300 hover:text-cokro-gold hover:translate-x-1 transition-all duration-200 flex items-center gap-1"
+              >
+                <span class="w-1 h-1 rounded-full bg-cokro-gold/60 shrink-0" />
+                {link.label}
+              </a>
+            ))
+          }
         </div>
       </div>
 
-      <!-- Contact Info (3 Kolom) -->
+      <!-- Contact Info (3 cols) -->
       <div class="md:col-span-3 space-y-3">
         <h4
-          class="text-base font-bold font-display text-cokro-gold uppercase tracking-wider"
+          class="font-display font-bold text-base text-cokro-gold uppercase tracking-wider mb-4"
         >
           Sekretariat
         </h4>
-        <p class="text-xs text-slate-300 font-body leading-relaxed">
-          Gedung Dekanat Fakultas Vokasi UNY Kampus Wates, Jalan Terusan
-          Pengasih, Kulon Progo, D.I. Yogyakarta 55652
-        </p>
-        <p class="text-xs text-slate-300 font-body">
-          <strong>Email:</strong> pkkmbfvuny2026@uny.ac.id
-        </p>
+        <div class="space-y-3 text-sm font-body text-slate-300">
+          <div class="flex gap-2">
+            <span class="shrink-0 mt-0.5">📍</span>
+            <p class="leading-relaxed">
+              Gedung Dekanat Fakultas Vokasi UNY, Kampus Wates, Jl. Terusan
+              Pengasih, Kulon Progo, D.I. Yogyakarta 55652
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <span class="shrink-0">✉️</span>
+            <a
+              href="mailto:pkkmbfvuny.web@gmail.com"
+              class="hover:text-cokro-gold transition-colors"
+              >pkkmbfvuny.web@gmail.com</a
+            >
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Copyright -->
     <div
-      class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-body"
+      class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-slate-400 font-body"
     >
       <p>© 2026 PKKMB Fakultas Vokasi UNY. All Rights Reserved.</p>
-      <p class="mt-2 sm:mt-0">
-        Dirancang oleh Tim IT & Web Developer Cokro Aksata 2026.
+      <p>
+        Powered By <span class="text-cokro-gold font-bold"
+          >Cokro Aksata Nusantara</span
+        >.
       </p>
     </div>
   </div>

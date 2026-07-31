@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cokro-blue: #0F52BA;
+  --color-cokro-navy: #0A2540;
+  --color-cokro-sky: #3B82F6;
+  --color-cokro-header: #2B7FFF;
+  --color-cokro-gold: #FFC700;
+  --color-cokro-tint: #EBF4FF;
+
+  --color-cokro-text-main: #1E293B;
+  --color-cokro-text-muted: #475569;
+
+  --font-display: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --radius-pill: 9999px;
+  --radius-card-md: 16px;
+  --radius-card-lg: 24px;
+  --radius-button: 12px;
+
+  --shadow-3d-title: 0px 8px 0px #0A2540;
+  --shadow-3d-tagline: 0px 4px 0px #0A2540;
+  --shadow-3d-solid: 4px 4px 0px #0A2540;
+  --shadow-3d-solid-lg: 6px 6px 0px #0A2540;
+  --shadow-3d-solid-hover: 8px 8px 0px #0A2540;
+  --shadow-3d-solid-pressed: 2px 2px 0px #0A2540;
+  --shadow-pill: 0px 4px 12px rgba(15, 82, 186, 0.15);
+}
+
+@layer utilities {
+  .bg-doodle-pattern {
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%230F52BA" fill-opacity="0.4" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+    background-repeat: repeat;
+  }
+}
+
+
+@keyframes float-cloud {
+  0% { transform: translateX(-150px) translateY(0); }
+  50% { transform: translateX(50vw) translateY(-10px); }
+  100% { transform: translateX(100vw) translateY(0); }
+}
+
+.animate-cloud-slow {
+  animation: float-cloud 80s linear infinite;
+}
+.animate-cloud-fast {
+  animation: float-cloud 50s linear infinite;
+}

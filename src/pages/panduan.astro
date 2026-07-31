@@ -4,41 +4,13 @@ import '../styles/global.css';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
-import StepCard from '../components/panduan/StepCard.astro';
-import RuleItem from '../components/panduan/RuleItem.astro';
 
-const steps = [
-  { step: 1, title: 'Buka Portal Pendaftaran', description: 'Kunjungi portal resmi PKKMB FV UNY 2026 dan pilih menu "Daftar Sekarang". Pastikan kamu menggunakan perangkat yang stabil.', icon: '🌐' },
-  { step: 2, title: 'Isi Data Diri', description: 'Lengkapi formulir dengan data diri yang valid sesuai KTP/KK. Nama, NIM, program studi, dan kontak yang bisa dihubungi.', icon: '📝' },
-  { step: 3, title: 'Unggah Dokumen', description: 'Upload dokumen yang dibutuhkan: foto formal, kartu tanda mahasiswa baru (sementara), dan surat keterangan sehat. Format JPG/PDF maks. 2MB.', icon: '📎' },
-  { step: 4, title: 'Konfirmasi Pendaftaran', description: 'Periksa kembali semua data, lalu klik "Kirim Pendaftaran". Kamu akan menerima email konfirmasi dalam 1x24 jam.', icon: '✅' },
-  { step: 5, title: 'Ikuti Technical Meeting', description: 'Hadiri technical meeting sesuai jadwal yang diberikan untuk memperoleh informasi teknis dan penjelasan lebih lanjut tentang kegiatan.', icon: '🎙️' },
-  { step: 6, title: 'Hadir di Hari-H', description: 'Datang tepat waktu dengan kelengkapan atribut yang ditentukan. Tunjukkan antusiasmemu dan siap untuk Take the Leap!', icon: '🎓' },
+const documentResources = [
+  { title: 'Guidebook PKKMB', description: 'Panduan lengkap rangkaian kegiatan dan kebutuhan peserta.', icon: '📘', color: 'bg-cokro-blue text-white', href: null as string | null },
+  { title: 'Tata Tertib', description: 'Dokumen resmi aturan dan ketentuan selama PKKMB berlangsung.', icon: '⚖️', color: 'bg-cokro-gold text-cokro-navy', href: null as string | null },
+  { title: 'Pemaparan Advokasi', description: 'Materi layanan advokasi dan kanal bantuan mahasiswa baru.', icon: '🫱🏻‍🫲🏽', color: 'bg-red-500 text-white', href: null as string | null },
 ];
 
-const dos = [
-  'Hadir tepat waktu sesuai jadwal yang telah ditentukan.',
-  'Memakai atribut dan dresscode yang sudah ditetapkan panitia.',
-  'Bersikap sopan, ramah, dan menerapkan nilai 5S kepada semua pihak.',
-  'Membawa perlengkapan yang telah diinformasikan saat technical meeting.',
-  'Aktif berpartisipasi dalam setiap sesi kegiatan dan diskusi kelompok.',
-  'Menjaga kebersihan dan ketertiban di lingkungan kampus.',
-];
-
-const donts = [
-  'Membawa atau mengonsumsi makanan dan minuman di dalam ruang kegiatan.',
-  'Menggunakan handphone selama sesi berlangsung (kecuali untuk keperluan darurat).',
-  'Meninggalkan area kegiatan tanpa izin dari panitia.',
-  'Berpakaian tidak sesuai dresscode yang telah ditetapkan.',
-  'Melakukan tindakan bullying, diskriminasi, atau kekerasan dalam bentuk apapun.',
-  'Membawa barang berharga yang tidak diperlukan untuk kegiatan.',
-];
-
-const dresscodes = [
-  { day: 'Hari 1 (Pembukaan)', outfit: 'Kemeja Putih Polos + Celana/Rok Hitam Formal + Sepatu Pantofel Hitam', note: 'Rapi, bersih, tidak ketat' },
-  { day: 'Hari 2 (Kegiatan Utama)', outfit: 'Kaos Peserta PKKMB (diberikan panitia) + Celana Panjang Hitam/Dongker + Sepatu Olahraga', note: 'Nyaman untuk aktivitas outdoor' },
-  { day: 'Hari 3 (Penutupan)', outfit: 'Kemeja Batik UNY (optional) atau Pakaian Resmi Terbaik + Sepatu Formal', note: 'Formal dan representatif' },
-];
 ---
 
 <!DOCTYPE html>
@@ -64,71 +36,32 @@ const dresscodes = [
     <main class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto space-y-24">
 
-        <!-- Section 1: Panduan Registrasi -->
-        <section aria-labelledby="reg-title">
-          <div class="text-center mb-12">
-            <span class="inline-block px-4 py-1.5 bg-cokro-blue text-white font-display font-extrabold text-sm rounded-pill shadow-3d-solid mb-4">📋 LANGKAH 1</span>
-            <h2 id="reg-title" class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-3">Panduan Registrasi</h2>
-            <div class="w-16 h-1.5 bg-cokro-gold rounded-pill mx-auto"></div>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
-            {steps.map(s => (
-              <StepCard step={s.step} title={s.title} description={s.description} icon={s.icon} />
-            ))}
-          </div>
-        </section>
-
-        <!-- Section divider -->
-        <div class="flex items-center gap-4 py-4">
-          <div class="flex-1 h-0.5 bg-cokro-navy/10 rounded-full"></div>
-          <span class="text-2xl">⚓</span>
-          <div class="flex-1 h-0.5 bg-cokro-navy/10 rounded-full"></div>
-        </div>
-
-        <!-- Section 2: Tata Tertib -->
-        <section aria-labelledby="rules-title">
-          <div class="text-center mb-12">
-            <span class="inline-block px-4 py-1.5 bg-cokro-gold text-cokro-navy font-display font-extrabold text-sm rounded-pill shadow-3d-solid mb-4">⚖️ LANGKAH 2</span>
-            <h2 id="rules-title" class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-3">Tata Tertib</h2>
-            <div class="w-16 h-1.5 bg-cokro-gold rounded-pill mx-auto mb-4"></div>
-            <p class="font-body text-cokro-text-muted max-w-lg mx-auto">Demi kelancaran dan kenyamanan bersama, setiap peserta wajib mematuhi tata tertib berikut.</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-3">
-              <h3 class="font-display font-bold text-xl text-green-700 mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-full bg-green-100 border-2 border-green-500 flex items-center justify-center text-green-700">✓</span> Yang Boleh Dilakukan</h3>
-              {dos.map(item => <RuleItem type="do" text={item} />)}
-            </div>
-            <div class="space-y-3">
-              <h3 class="font-display font-bold text-xl text-red-700 mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-full bg-red-100 border-2 border-red-500 flex items-center justify-center text-red-700">✕</span> Yang Tidak Boleh Dilakukan</h3>
-              {donts.map(item => <RuleItem type="dont" text={item} />)}
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 3: Dresscode -->
-        <section aria-labelledby="dress-title">
-          <div class="text-center mb-12">
-            <span class="inline-block px-4 py-1.5 bg-cokro-sky text-white font-display font-extrabold text-sm rounded-pill shadow-3d-solid mb-4">👔 LANGKAH 3</span>
-            <h2 id="dress-title" class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-3">Dresscode</h2>
-            <div class="w-16 h-1.5 bg-cokro-gold rounded-pill mx-auto mb-4"></div>
-            <p class="font-body text-cokro-text-muted max-w-lg mx-auto">Penampilan mencerminkan kepribadian. Pastikan kamu tampil sesuai dresscode di setiap hari kegiatan.</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {dresscodes.map((d, i) => (
-              <div class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-2 hover:shadow-3d-solid-hover transition-all duration-300 overflow-hidden">
-                <!-- Placeholder image area -->
-                <div class="h-48 bg-gradient-to-br from-cokro-blue to-cokro-sky flex items-center justify-center text-6xl border-b-2 border-cokro-navy">
-                  {i === 0 ? '👔' : i === 1 ? '👕' : '🎽'}
-                </div>
-                <div class="p-5">
-                  <span class="text-xs font-extrabold text-cokro-sky uppercase tracking-wider">{d.day}</span>
-                  <p class="font-body font-semibold text-cokro-navy mt-2 mb-3 text-sm leading-relaxed">{d.outfit}</p>
-                  <span class="inline-block px-3 py-1 bg-cokro-tint border border-cokro-navy rounded-pill text-xs font-bold text-cokro-text-muted">{d.note}</span>
-                </div>
+        <!-- Pusat dokumen dan informasi peserta -->
+        <section aria-labelledby="resources-title" class="relative overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-white p-6 shadow-3d-solid-lg sm:p-8">
+          <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cokro-gold/20 blur-3xl"></div>
+          <div class="relative">
+            <div class="mb-8 flex flex-col gap-3 text-center sm:text-left">
+              <span class="w-fit self-center rounded-pill border-2 border-cokro-navy bg-cokro-gold px-4 py-1.5 font-display text-xs font-black text-cokro-navy shadow-3d-solid sm:self-start">PUSAT INFORMASI</span>
+              <div>
+                <h2 id="resources-title" class="font-display text-3xl font-black text-cokro-navy sm:text-4xl">Dokumen Peserta</h2>
+                <p class="mt-2 max-w-2xl font-body text-sm leading-relaxed text-cokro-text-muted">Simpan tiga dokumen ini sebelum kegiatan dimulai. Tombol akan aktif setelah tautan resmi Google Drive dipublikasikan.</p>
               </div>
-            ))}
+            </div>
+            <div class="grid gap-5 md:grid-cols-3">
+              {documentResources.map((resource) => (
+                <article class="relative overflow-hidden rounded-card-md border-2 border-cokro-navy bg-white p-5 shadow-3d-solid">
+                  <div class={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-cokro-navy text-3xl shadow-[3px_3px_0_#0A2540] ${resource.color}`}>{resource.icon}</div>
+                  <h3 class="font-display text-xl font-black text-cokro-navy">{resource.title}</h3>
+                  <p class="mt-2 min-h-12 font-body text-sm leading-relaxed text-cokro-text-muted">{resource.description}</p>
+                  {resource.href ? (
+                    <a href={resource.href} target="_blank" rel="noreferrer" class="mt-5 inline-flex rounded-pill border-2 border-cokro-navy bg-cokro-blue px-4 py-2 font-display text-xs font-black text-white shadow-3d-solid transition-all hover:-translate-y-0.5 hover:shadow-3d-solid-hover">Buka Google Drive ↗</a>
+                  ) : (
+                    <span aria-disabled="true" class="mt-5 inline-flex rounded-pill border-2 border-cokro-navy bg-cokro-tint px-4 py-2 font-display text-xs font-black text-cokro-text-muted">LINK MENYUSUL</span>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
-          <p class="text-center text-sm text-cokro-text-muted mt-8 font-body">* Detail dresscode mungkin berubah. Update terakhir akan disampaikan saat Technical Meeting.</p>
         </section>
 
       </div>

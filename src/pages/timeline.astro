@@ -8,52 +8,49 @@ import TimelineCard from '../components/timeline/TimelineCard.astro';
 
 const milestones = [
   {
-    date: 'Juli 2026',
-    title: 'Pembukaan Pendaftaran',
-    description: 'Pendaftaran PKKMB FV UNY 2026 resmi dibuka. Peserta wajib melengkapi data diri dan mengunggah dokumen persyaratan melalui portal yang tersedia.',
-    icon: '📋',
+    date: '25 Juli 2026',
+    title: 'TMTP',
+    description: 'Technical Meeting Terpadu sebagai persiapan awal mahasiswa baru sebelum memasuki rangkaian kegiatan PKKMB.',
+    
     status: 'upcoming' as const,
   },
   {
-    date: '1 Agustus 2026',
-    title: 'Batas Akhir Pendaftaran',
-    description: 'Batas waktu pengisian formulir pendaftaran online. Pastikan semua dokumen telah terunggah sebelum tanggal ini.',
-    icon: '⏰',
+    date: '5 Agustus 2026',
+    title: 'Kepemanduan 1',
+    description: 'Sesi kepemanduan pertama untuk mengenal alur kegiatan, lingkungan kampus, dan persiapan peserta.',
+    
     status: 'upcoming' as const,
   },
   {
     date: '10 Agustus 2026',
-    title: 'Pengumuman Peserta',
-    description: 'Pengumuman daftar peserta yang lolos seleksi administrasi. Peserta dapat mengecek status pendaftarannya melalui portal resmi.',
-    icon: '📣',
+    title: 'Kepemanduan 2',
+    description: 'Sesi kepemanduan lanjutan untuk memantapkan kesiapan seluruh peserta PKKMB.',
+  
     status: 'upcoming' as const,
   },
   {
     date: '18–19 Agustus 2026',
-    title: 'Technical Meeting',
-    description: 'Pertemuan teknis bagi seluruh peserta terdaftar. Penjelasan mengenai tata tertib, dresscode, dan jadwal kegiatan PKKMB.',
-    icon: '🎙️',
+    title: 'PKKMB UNY',
+    description: 'Rangkaian Pengenalan Kehidupan Kampus bagi Mahasiswa Baru tingkat Universitas Negeri Yogyakarta.',
+
     status: 'upcoming' as const,
   },
   {
     date: '20 Agustus 2026',
-    title: 'Hari Pembukaan PKKMB',
-    description: 'Upacara pembukaan resmi PKKMB FV UNY 2026 di Kampus Wates & Gunungkidul. "Take the Leap, Chase Your Dream!" 🚀',
-    icon: '🎓',
+    title: 'PKKMB FV UNY',
+    description: 'Pengenalan Kehidupan Kampus bagi Mahasiswa Baru Fakultas Vokasi UNY.',
     status: 'upcoming' as const,
   },
   {
-    date: '21–22 Agustus 2026',
-    title: 'Rangkaian Kegiatan PKKMB',
-    description: 'Serangkaian kegiatan pengenalan kampus, seminar, workshop, dan kegiatan kelompok yang interaktif dan edukatif bagi mahasiswa baru.',
-    icon: '⭐',
+    date: '21 Agustus 2026',
+    title: 'PKKMB Departemen',
+    description: 'Pengenalan lingkungan, budaya akademik, dan organisasi di masing-masing departemen Fakultas Vokasi.',
     status: 'upcoming' as const,
   },
   {
-    date: '23 Agustus 2026',
-    title: 'Penutupan & After Movie',
-    description: 'Upacara penutupan resmi PKKMB FV UNY 2026. Diakhiri dengan penampilan seni dan sesi foto bersama. Selamat menjadi bagian dari keluarga besar Vokasi!',
-    icon: '🎉',
+    date: '29 Agustus 2026',
+    title: 'SDP × OH',
+    description: 'Student Development Program (SDP) bersama Open House Ormawa (OH) untuk mengenal ruang pengembangan diri dan organisasi mahasiswa.',
     status: 'upcoming' as const,
   },
 ];
@@ -80,42 +77,35 @@ const milestones = [
     />
 
     <main class="py-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-5xl mx-auto">
-        <!-- Title -->
-        <div class="text-center mb-16">
-          <h2 class="font-display font-black text-3xl md:text-4xl text-cokro-navy mb-4">Rangkaian Kegiatan</h2>
-          <div class="w-20 h-1.5 bg-cokro-gold rounded-pill mx-auto"></div>
+      <div class="max-w-6xl mx-auto">
+        <div class="relative mb-12 overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-cokro-blue p-7 text-center shadow-3d-solid-lg sm:p-10">
+          <div class="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-cokro-gold/30 blur-2xl"></div>
+          <div class="absolute -bottom-14 -right-8 h-40 w-40 rounded-full border-[18px] border-white/20"></div>
+          <p class="relative mb-3 font-display text-sm font-black uppercase tracking-[0.25em] text-cokro-gold">Jadwal Utama</p>
+          <h2 class="relative font-display font-black text-3xl text-white drop-shadow-[3px_3px_0_#0A2540] sm:text-5xl">PKKMB FV UNY 2026</h2>
+          <p class="relative mx-auto mt-4 max-w-2xl font-body text-sm leading-relaxed text-white/90 sm:text-base">Simpan jadwal pentingmu. Setiap tile berisi tahap yang perlu kamu siapkan sebelum dan selama PKKMB.</p>
         </div>
 
-        <!-- Timeline -->
-        <div class="relative">
-          <!-- Vertical connector line (visible md+) -->
-          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cokro-gold via-cokro-blue to-cokro-navy rounded-full -translate-x-1/2 z-0"></div>
-
-          <!-- Mobile: left line -->
-          <div class="md:hidden absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cokro-gold via-cokro-blue to-cokro-navy rounded-full z-0"></div>
-
-          <!-- Cards -->
-          <div class="relative z-10 pl-10 md:pl-0">
+        <!-- Instagram-feed inspired schedule grid -->
+        <section aria-labelledby="schedule-title" class="relative rounded-card-lg border-4 border-cokro-navy bg-white p-3 shadow-3d-solid-lg sm:p-5">
+          <div class="mb-5 flex flex-col items-center justify-between gap-3 px-2 sm:flex-row">
+            <div>
+              <p class="font-display text-sm font-black uppercase tracking-widest text-cokro-sky">Feed Jadwal</p>
+              <h2 id="schedule-title" class="font-display text-2xl font-black text-cokro-navy sm:text-3xl">Rangkaian Kegiatan</h2>
+            </div>
+            <span class="rounded-pill border-2 border-cokro-navy bg-cokro-gold px-4 py-2 font-display text-xs font-black text-cokro-navy shadow-3d-solid">GESER & CATAT ✦</span>
+          </div>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {milestones.map((m, i) => (
               <TimelineCard
                 date={m.date}
                 title={m.title}
                 description={m.description}
-                icon={m.icon}
-                status={m.status}
-                position={i % 2 === 0 ? 'left' : 'right'}
+                index={i}
               />
             ))}
           </div>
-
-          <!-- End Node -->
-          <div class="relative z-10 flex justify-center mt-4">
-            <div class="w-14 h-14 rounded-full bg-cokro-navy border-4 border-cokro-gold shadow-3d-solid flex items-center justify-center text-2xl">
-              🏁
-            </div>
-          </div>
-        </div>
+        </section>
 
         <!-- CTA -->
         <div class="mt-20 bg-white rounded-card-lg border-2 border-cokro-navy shadow-3d-solid-lg p-8 text-center">

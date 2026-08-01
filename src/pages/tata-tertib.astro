@@ -1,0 +1,687 @@
+---
+// src/pages/tata-tertib.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PageHeader from "../components/ui/PageHeader.astro";
+import {
+  TATA_TERTIB_TITLE,
+  GENERAL_RULES,
+  DRESSCODE_TABLE,
+  PROHIBITIONS,
+  FINAL_GENERAL_POINTERS,
+  VIOLATION_POINTS,
+  PENALTY_TIERS,
+  SPECIAL_SANCTIONS,
+  APPROVAL_SHEETS,
+} from "../data/tataTertib";
+---
+
+<BaseLayout
+  title="Tata Tertib & Sanksi Peserta — PKKMB FV UNY 2026"
+  description="Dokumen resmi Tata Tertib, Ketentuan Dresscode, Poin Pelanggaran, dan Sanksi Peserta PKKMB KM FV UNY 2026."
+>
+  <Navbar />
+
+  <PageHeader
+    title="Tata Tertib & Sanksi Peserta"
+    subtitle="Dokumen Resmi Ketentuan, Dresscode, Poin Pelanggaran, dan Pengesahan PKKMB KM FV UNY 2026"
+    badge="DOKUMEN PESERTA"
+    badgeColor="gold"
+  />
+
+  <main class="py-12 bg-cokro-tint min-h-screen">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Action Bar & Live Search -->
+      <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 shadow-3d-solid mb-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Document Badge & Title info -->
+          <div class="flex items-center gap-3 w-full md:w-auto">
+            <div class="w-12 h-12 rounded-xl bg-cokro-navy text-cokro-gold flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-lg text-cokro-navy leading-tight">
+                Dokumen Resmi PKKMB KM FV UNY 2026
+              </h2>
+              <p class="font-body text-xs text-cokro-text-muted">
+                Pedoman resmi tata tertib, ketentuan dresscode, serta sanksi kedisiplinan peserta PKKMB KM FV UNY 2026
+              </p>
+            </div>
+          </div>
+
+          <!-- Actions & Search -->
+          <div class="flex flex-wrap items-center gap-3 w-full md:w-auto justify-end">
+            <!-- Download Original PDF -->
+            <a
+              href="/Assets/docs/tata-tertib-pkkmb-2026.pdf"
+              download="TATA TERTIB PESERTA PKKMB KM FV UNY 2026.pdf"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-cokro-gold text-cokro-navy font-display font-bold text-sm rounded-xl border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Unduh PDF Asli
+            </a>
+
+            <!-- Print Button -->
+            <button
+              id="print-btn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-cokro-navy font-display font-semibold text-sm rounded-xl border-2 border-cokro-navy shadow-sm hover:bg-slate-50 transition-all cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Cetak Halaman
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Input Bar -->
+        <div class="mt-6 pt-6 border-t border-slate-100">
+          <div class="relative max-w-2xl mx-auto">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input
+              type="text"
+              id="tata-tertib-search"
+              placeholder="Cari aturan atau kata kunci (misal: batik, terlambat, kuku, rokok, makeup)..."
+              class="w-full pl-10 pr-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-cokro-navy rounded-xl text-sm font-body text-cokro-navy placeholder:text-slate-400 focus:outline-none focus:bg-white transition-colors"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── TAB 1: TATA TERTIB & DRESSCODE ─── -->
+      <div id="tab-rules" class="tab-content space-y-10">
+        <!-- Document Title Banner -->
+        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+            DOKUMEN RESMI TAHUN 2026
+          </span>
+          <h1 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto leading-tight">
+            {TATA_TERTIB_TITLE}
+          </h1>
+        </div>
+
+        <!-- Tata Tertib Poin 1 - 4 -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <h2 class="sect-heading sect-heading-mb">
+            <span class="badge-letter badge-letter-gold">A</span>
+            Tata Tertib Umum Peserta
+          </h2>
+
+          <div class="space-y-4">
+            {
+              GENERAL_RULES.map((rule) => (
+                <div class="searchable-item card-pair" style="padding:1rem; border-radius:0.75rem; background:#f8fafc; border:1px solid #e2e8f0;">
+                  <span class="number-badge">{rule.id}</span>
+                  <p style="font-size:0.9375rem; color:#1e293b; line-height:1.65;">{rule.title}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Tabel Dresscode Peserta (Laki-laki vs Perempuan) -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid overflow-hidden">
+          <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="sect-heading">
+                <span class="badge-letter badge-letter-gold">B</span>
+                Ketentuan Dresscode &amp; Pakaian Peserta
+              </h2>
+              <p class="font-body text-xs text-cokro-text-muted mt-1">
+                Wajib dipatuhi oleh seluruh peserta Laki-laki dan Perempuan pada seluruh rangkaian kegiatan
+              </p>
+            </div>
+            <span class="px-3 py-1 bg-cokro-tint border border-cokro-navy/20 text-cokro-navy font-display font-bold text-xs rounded-lg self-start sm:self-auto">
+              Ketentuan Poin 5
+            </span>
+          </div>
+
+          <!-- Table Container -->
+          <div style="overflow-x:auto; border:2px solid #0A2540; border-radius:0.75rem;">
+            <table class="tt-table" style="width:100%; min-width:640px;">
+              <thead>
+                <tr>
+                  <th class="col-cat">Kategori</th>
+                  <th class="col-gold-header" style="width:45%">
+                    <span class="inline-flex items-center gap-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      Laki-laki
+                    </span>
+                  </th>
+                  <th class="col-gold-header" style="width:45%">
+                    <span class="inline-flex items-center gap-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/><path d="M12 11v10"/></svg>
+                      Perempuan
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  DRESSCODE_TABLE.map((row) => (
+                    <tr class="searchable-item">
+                      <td class="col-cat" style="background:#f1f5f9;">{row.category}</td>
+                      <td style="white-space:pre-line;">{row.male}</td>
+                      <td style="white-space:pre-line;">{row.female}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Larangan Selama Kegiatan (Poin 6) -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <div class="mb-6">
+            <h2 class="sect-heading">
+              <span class="badge-letter badge-letter-red">C</span>
+              Larangan Selama Kegiatan (Poin 6)
+            </h2>
+            <p class="font-body text-xs text-cokro-text-muted mt-1">
+              Selama kegiatan PKKMB KM FV UNY 2026 berlangsung, peserta dilarang melakukan hal-hal berikut:
+            </p>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr; gap:0.75rem;">
+            {
+              PROHIBITIONS.map((item, idx) => (
+                <div class="searchable-item card-pair" style="padding:0.875rem 1rem; border-radius:0.75rem; background:#fff5f5; border:1px solid #fecaca;">
+                  <span class="number-badge" style="background:#ef4444; min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.7rem;">{idx + 1}</span>
+                  <p style="font-size:0.875rem; color:#1e293b; line-height:1.6;">{item}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Poin Penutup Tata Tertib (Poin 7 - 10) -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <h2 class="sect-heading sect-heading-mb">
+            <span class="badge-letter badge-letter-gold">D</span>
+            Ketentuan Akhir (Poin 7 – 10)
+          </h2>
+
+          <div class="space-y-4">
+            {
+              FINAL_GENERAL_POINTERS.map((item, idx) => (
+                <div class="searchable-item card-pair" style="padding:1rem; border-radius:0.75rem; background:#f8fafc; border:1px solid #e2e8f0;">
+                  <span class="number-badge">{idx + 7}</span>
+                  <p style="font-size:0.9375rem; color:#1e293b; line-height:1.65; font-weight:600;">{item}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── TAB 2: SANKSI & POIN PELANGGARAN ─── -->
+      <div id="tab-sanctions" class="tab-content space-y-10" style="display:none">
+        <!-- Title Banner -->
+        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+          </div>
+          <span class="inline-block px-3.5 py-1 bg-red-500 text-white font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+            SANKSI & POIN PELANGGARAN
+          </span>
+          <h2 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto">
+            SANKSI PELANGGARAN PESERTA PKKMB KM FV UNY 2026
+          </h2>
+        </div>
+
+        <!-- Bagian A: Tabel Poin Pelanggaran -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <div class="mb-6">
+            <h2 class="sect-heading">
+              <span class="badge-letter badge-letter-navy">A</span>
+              Tabel Poin Pelanggaran Peserta
+            </h2>
+            <p class="font-body text-xs text-cokro-text-muted mt-1">
+              Daftar seluruh pelanggaran beserta bobot poin sanksi yang dihitung kumulatif
+            </p>
+          </div>
+
+          <div class="overflow-x-auto no-scrollbar border-2 border-cokro-navy rounded-xl">
+            <table class="w-full text-left border-collapse min-w-[600px]">
+              <thead>
+                <tr class="bg-cokro-navy text-white font-display text-xs sm:text-sm uppercase tracking-wider">
+                  <th class="py-3.5 px-4 border-r border-cokro-navy/30 w-16 text-center">NO</th>
+                  <th class="py-3.5 px-4 border-r border-cokro-navy/30 w-44">KATEGORI</th>
+                  <th class="py-3.5 px-5 border-r border-cokro-navy/30">DESKRIPSI PELANGGARAN</th>
+                  <th class="py-3.5 px-4 text-center w-28 text-cokro-gold">BOBOT POIN</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-body text-xs sm:text-sm text-slate-800">
+                {
+                  VIOLATION_POINTS.map((item, idx) => (
+                    <tr class={`searchable-item hover:bg-slate-50 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}>
+                      <td class="py-3 px-4 font-display font-bold text-center border-r border-slate-200 text-slate-500">
+                        {item.no}
+                      </td>
+                      <td class="py-3 px-4 font-display font-semibold border-r border-slate-200 text-cokro-navy">
+                        {item.category}
+                      </td>
+                      <td class="py-3 px-5 border-r border-slate-200 leading-relaxed">
+                        {item.description}
+                      </td>
+                      <td style="padding:0.75rem 1rem; text-align:center;">
+                        <span class={`poin-badge ${
+                          item.points >= 100 ? 'poin-red' :
+                          item.points >= 50  ? 'poin-orange' :
+                          item.points >= 20  ? 'poin-amber' :
+                          'poin-slate'
+                        }`}>
+                          +{item.points} Poin
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bagian B: Tingkatan Sanksi Berdasarkan Poin -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <div class="mb-6">
+            <h2 class="sect-heading">
+              <span class="badge-letter badge-letter-gold">B</span>
+              Tingkatan Sanksi Akibat Poin Pelanggaran
+            </h2>
+            <p class="font-body text-xs text-cokro-text-muted mt-1">
+              Sanksi yang wajib dilaksanakan peserta berdasarkan total akumulasi poin yang diperoleh
+            </p>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
+            {
+              PENALTY_TIERS.map((tier, idx) => (
+                <div class="searchable-item" style="background:#fff; border:2px solid #0A2540; border-radius:0.75rem; padding:1.25rem; display:flex; flex-direction:column; gap:0.75rem;">
+                  <!-- Badge header -->
+                  <div style="display:flex; align-items:center; justify-content:space-between; padding-bottom:0.75rem; border-bottom:1px solid #e2e8f0;">
+                    <span style="font-size:0.7rem; font-weight:800; text-transform:uppercase; background:#f1f5f9; color:#64748b; border-radius:0.375rem; padding:0.2rem 0.5rem;">Tingkat {idx + 1}</span>
+                    <span style={`font-size:0.8125rem; font-weight:900; padding:0.2rem 0.65rem; border-radius:9999px; ${
+                      idx >= 4 ? 'background:#dc2626; color:#fff;' :
+                      idx >= 2 ? 'background:#f59e0b; color:#fff;' :
+                                 'background:#0A2540; color:#F5C842;'
+                    }`}>{tier.range}</span>
+                  </div>
+                  <p style="font-size:0.75rem; font-weight:700; color:#0A2540; margin-bottom:0.25rem;">Konsekuensi / Sanksi Wajib:</p>
+                  <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.5rem;">
+                    {tier.sanctions.map((s) => (
+                      <li style="display:flex; align-items:flex-start; gap:0.5rem; font-size:0.75rem; color:#475569; line-height:1.5;">
+                        <span style="color:#F5C842; font-weight:700; flex-shrink:0;">•</span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Bagian C: Sanksi Pelanggaran Khusus -->
+        <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid">
+          <div class="mb-6">
+            <h2 class="sect-heading">
+              <span class="badge-letter badge-letter-red">C</span>
+              Sanksi Pelanggaran Khusus
+            </h2>
+            <p class="font-body text-xs text-cokro-text-muted mt-1">
+              Tindakan langsung / penanganan khusus di tempat untuk jenis pelanggaran tertentu
+            </p>
+          </div>
+
+          <div style="overflow-x:auto; border:2px solid #0A2540; border-radius:0.75rem;">
+            <table class="tt-table" style="width:100%; min-width:500px;">
+              <thead>
+                <tr>
+                  <th class="col-no">NO</th>
+                  <th style="width:48%">PELANGGARAN KHUSUS</th>
+                  <th class="col-gold-header" style="width:48%">TINDAKAN / SANKSI KHUSUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  SPECIAL_SANCTIONS.map((item) => (
+                    <tr class="searchable-item">
+                      <td class="col-no">{item.no}</td>
+                      <td style="font-weight:600; color:#0A2540;">{item.violation}</td>
+                      <td>{item.sanction}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── TAB 3: LEMBAR PENGESAHAN ─── -->
+      <div id="tab-approval" class="tab-content space-y-10" style="display:none">
+        <!-- Title Banner -->
+        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+            LEMBAR PENGESAHAN RESMI
+          </span>
+          <h2 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto">
+            LEMBAR PENGESAHAN TATA TERTIB PKKMB KM FV UNY 2026
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {
+            APPROVAL_SHEETS.map((sheet) => (
+              <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-6 sm:p-8 shadow-3d-solid flex flex-col justify-between">
+                <div>
+                  <!-- Header info -->
+                  <div class="border-b-2 border-cokro-navy pb-4 mb-6">
+                    <span class="px-3 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-md uppercase tracking-wider inline-block mb-2">
+                      {sheet.campus}
+                    </span>
+                    <h3 class="font-display font-extrabold text-lg text-cokro-navy">
+                      Disahkan di {sheet.location}
+                    </h3>
+                    <p class="font-body text-xs text-cokro-text-muted mt-1 flex items-center gap-3">
+                      <span class="inline-flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        {sheet.date}
+                      </span>
+                      <span>•</span>
+                      <span class="inline-flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Pukul {sheet.time}
+                      </span>
+                    </p>
+                  </div>
+
+                  <!-- Signatories grid -->
+                  <div class="space-y-4">
+                    <h4 class="font-display font-bold text-sm text-cokro-navy uppercase tracking-wider">
+                      Daftar Penandatangan / Pengesah:
+                    </h4>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {sheet.signatories.map((sig) => (
+                        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                          <p class="font-display font-extrabold text-xs text-cokro-blue uppercase tracking-tight">
+                            {sig.role}
+                          </p>
+                          <p class="font-display font-bold text-sm text-cokro-navy mt-1">
+                            {sig.name}
+                          </p>
+                          <p class="font-body text-xs text-slate-500 font-mono mt-0.5">
+                            NIM. {sig.nim}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer stamp -->
+                <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-body text-slate-400">
+                  <span>Panitia PKKMB KM FV UNY 2026</span>
+                  <span class="text-emerald-600 font-bold flex items-center gap-1">
+                    ✓ Terverifikasi Sah
+                  </span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- ─── BOTTOM STICKY NAVIGATION TABS ─── -->
+      <!-- Diletakkan di bagian bawah agar efisien saat pengguna scroll dan selesai membaca -->
+      <div class="sticky bottom-4 z-40 my-8 bg-white/95 backdrop-blur-md rounded-card-lg border-2 border-cokro-navy p-2 sm:p-3 shadow-3d-solid-lg">
+        <div class="flex items-center justify-center overflow-x-auto no-scrollbar scroll-smooth gap-2">
+          <button
+            id="tab-btn-rules"
+            data-target="tab-rules"
+            class="tab-btn active-tab px-5 py-3 font-display font-extrabold text-xs sm:text-sm rounded-xl border-2 border-cokro-navy bg-cokro-gold text-cokro-navy flex items-center gap-2 whitespace-nowrap transition-all shadow-sm cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            1. Tata Tertib &amp; Dresscode
+          </button>
+          <button
+            id="tab-btn-sanctions"
+            data-target="tab-sanctions"
+            class="tab-btn px-5 py-3 font-display font-semibold text-xs sm:text-sm rounded-xl border-2 border-transparent text-cokro-text-muted hover:text-cokro-navy hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap transition-all cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+            2. Sanksi &amp; Poin Pelanggaran
+          </button>
+          <button
+            id="tab-btn-approval"
+            data-target="tab-approval"
+            class="tab-btn px-5 py-3 font-display font-semibold text-xs sm:text-sm rounded-xl border-2 border-transparent text-cokro-text-muted hover:text-cokro-navy hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap transition-all cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            3. Lembar Pengesahan
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer Help Box -->
+      <div class="mt-14 bg-white rounded-card-lg border-2 border-cokro-navy p-6 shadow-3d-solid flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cokro-tint text-cokro-navy flex items-center justify-center shrink-0 border border-cokro-navy/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-base text-cokro-navy">
+              Memiliki Pertanyaan Seputar Tata Tertib & Sanksi?
+            </h3>
+            <p class="font-body text-xs text-cokro-text-muted">
+              Tim Advokasi & Kedisiplinan PKKMB FV UNY siap membantu menjelaskan setiap ketentuan.
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="/faq"
+          class="px-5 py-2.5 bg-cokro-navy text-white font-display font-bold text-sm rounded-xl hover:bg-cokro-navy/90 transition-colors whitespace-nowrap shrink-0"
+        >
+          Lihat FAQ Peserta →
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  function initTataTertibPage() {
+    // 1. Tab Switcher Logic — use style.display instead of classList.toggle('hidden')
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+    const tabContents = document.querySelectorAll<HTMLDivElement>(".tab-content");
+
+    // Ensure initial state: show only tab-rules, hide others
+    tabContents.forEach((content) => {
+      if (content.id === "tab-rules") {
+        content.style.display = "";
+      } else {
+        content.style.display = "none";
+      }
+    });
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+
+        // Reset all tab button styles
+        tabBtns.forEach((b) => {
+          b.style.backgroundColor = "transparent";
+          b.style.borderColor = "transparent";
+          b.style.color = "#64748b";
+          b.style.fontWeight = "600";
+          b.classList.remove("active-tab");
+        });
+
+        // Activate clicked tab button
+        btn.style.backgroundColor = "#F5C842";
+        btn.style.borderColor = "#0A2540";
+        btn.style.color = "#0A2540";
+        btn.style.fontWeight = "800";
+        btn.classList.add("active-tab");
+
+        // Show target content, hide others
+        tabContents.forEach((content) => {
+          content.style.display = content.id === targetId ? "" : "none";
+        });
+
+        // Smooth scroll to top of target content section
+        if (targetId) {
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const yOffset = -80;
+            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+          }
+        }
+      });
+    });
+
+    // 2. Print Page Button
+    const printBtn = document.getElementById("print-btn");
+    if (printBtn) {
+      printBtn.addEventListener("click", () => {
+        window.print();
+      });
+    }
+
+    // 3. Live Search Filter
+    const searchInput = document.getElementById("tata-tertib-search") as HTMLInputElement;
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        const searchableItems = document.querySelectorAll<HTMLElement>(".searchable-item");
+
+        searchableItems.forEach((item) => {
+          const text = item.textContent?.toLowerCase() || "";
+          item.style.display = (!query || text.includes(query)) ? "" : "none";
+        });
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTataTertibPage);
+  } else {
+    initTataTertibPage();
+  }
+  document.addEventListener("astro:page-load", initTataTertibPage);
+</script>
+
+<style>
+  /* ─── Tab Button Active State ─── */
+  #tab-btn-rules {
+    background-color: #F5C842;
+    border-color: #0A2540;
+    color: #0A2540;
+    font-weight: 800;
+  }
+  #tab-btn-sanctions,
+  #tab-btn-approval {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: 600;
+  }
+
+  /* ─── Section Heading Badge Layout ─── */
+  /* Fixes Tailwind flex purge: ensures h2 with badge letter aligns side by side */
+  .sect-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display, 'Fredoka', sans-serif);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #0A2540;
+  }
+  .sect-heading-mb {
+    margin-bottom: 1.5rem;
+  }
+  .badge-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    border-radius: 0.5rem;
+    font-weight: 900;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+  .badge-letter-gold   { background: #F5C842; color: #0A2540; }
+  .badge-letter-navy   { background: #0A2540; color: #fff; }
+  .badge-letter-red    { background: #dc2626; color: #fff; }
+
+  /* ─── Table Striping (fallback for Tailwind purge) ─── */
+  .tt-table tbody tr:nth-child(even) { background-color: #f8fafc; }
+  .tt-table tbody tr:hover            { background-color: #f1f5f9; }
+  .tt-table thead tr                  { background-color: #0A2540; color: #fff; }
+  .tt-table                           { border-collapse: collapse; }
+  .tt-table th,
+  .tt-table td                        { padding: 0.75rem 1rem; vertical-align: top; }
+  .tt-table th                        { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tt-table td                        { font-size: 0.8125rem; line-height: 1.55; }
+  .tt-table th.col-no,
+  .tt-table td.col-no                 { text-align: center; width: 3.5rem; }
+  .tt-table th + th, .tt-table td + td { border-left: 1px solid rgba(255,255,255,0.15); }
+  .tt-table tbody td + td             { border-left: 1px solid #e2e8f0; }
+  .tt-table tbody tr + tr             { border-top: 1px solid #e2e8f0; }
+  .tt-table .col-cat                  { font-weight: 600; color: #0A2540; width: 9rem; }
+  .tt-table .col-gold-header          { color: #F5C842; }
+
+  /* ─── Violation Points Badge Colors ─── */
+  .poin-red    { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .poin-orange { background: #ffedd5; color: #c2410c; border: 1px solid #fdba74; }
+  .poin-amber  { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .poin-slate  { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+  .poin-badge  {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* ─── Card flex fixes ─── */
+  .card-pair { display: flex; align-items: flex-start; gap: 0.875rem; }
+  .card-pair .number-badge {
+    width: 1.75rem; height: 1.75rem; min-width: 1.75rem;
+    border-radius: 9999px;
+    background: #0A2540; color: #fff;
+    font-weight: 900; font-size: 0.75rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 0.125rem;
+  }
+
+  @media print {
+    header, footer, #print-btn, #tata-tertib-search, .tab-btn {
+      display: none !important;
+    }
+    .tab-content { display: block !important; }
+  }
+</style>

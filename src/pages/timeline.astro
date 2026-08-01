@@ -1,5 +1,6 @@
 ---
 // src/pages/timeline.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -56,19 +57,11 @@ const milestones = [
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timeline PKKMB FV UNY 2026 — Cokro Aksata</title>
-    <meta name="description" content="Jadwal dan rangkaian kegiatan PKKMB Fakultas Vokasi Universitas Negeri Yogyakarta 2026." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
-    <Navbar />
+<BaseLayout
+  title="Timeline PKKMB FV UNY 2026 — Cokro Aksata"
+  description="Jadwal dan rangkaian kegiatan PKKMB Fakultas Vokasi Universitas Negeri Yogyakarta 2026."
+>
+  <Navbar />
 
     <PageHeader
       title="Timeline PKKMB"
@@ -93,7 +86,7 @@ const milestones = [
               <p class="font-display text-sm font-black uppercase tracking-widest text-cokro-sky">Feed Jadwal</p>
               <h2 id="schedule-title" class="font-display text-2xl font-black text-cokro-navy sm:text-3xl">Rangkaian Kegiatan</h2>
             </div>
-            <span class="rounded-pill border-2 border-cokro-navy bg-cokro-gold px-4 py-2 font-display text-xs font-black text-cokro-navy shadow-3d-solid">GESER & CATAT ✦</span>
+            <span class="rounded-pill border-2 border-cokro-navy bg-cokro-gold px-4 py-2 font-display text-xs font-black text-cokro-navy shadow-3d-solid">SCROLL &amp; CATAT ✦</span>
           </div>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {milestones.map((m, i) => (
@@ -119,5 +112,4 @@ const milestones = [
     </main>
 
     <Footer />
-  </body>
-</html>
+</BaseLayout>

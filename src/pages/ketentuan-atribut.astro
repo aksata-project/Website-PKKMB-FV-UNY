@@ -1,0 +1,94 @@
+---
+// src/pages/ketentuan-atribut.astro — Preview PDF Ketentuan Atribut Maba PKKMB FV UNY 2026
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+
+const driveViewUrl = 'https://drive.google.com/file/d/167-30-nBzNGJX_CDwnVZckG6pnxg0oDy/view';
+const drivePreviewUrl = 'https://drive.google.com/file/d/167-30-nBzNGJX_CDwnVZckG6pnxg0oDy/preview';
+---
+
+<BaseLayout
+  title="Ketentuan Atribut Maba — PKKMB FV UNY 2026"
+  description="Dokumen Resmi Ketentuan Pakaian, Dresscode, dan Atribut Peserta PKKMB Fakultas Vokasi UNY 2026."
+>
+  <Navbar />
+
+  <PageHeader
+    title="Ketentuan Atribut Maba"
+    subtitle="Dokumen Resmi Ketentuan Pakaian, Dresscode, dan Atribut Peserta PKKMB KM FV UNY 2026"
+    badge="DOKUMEN PESERTA"
+    badgeColor="blue"
+  />
+
+  <main class="py-10 bg-cokro-tint min-h-screen">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
+
+      <!-- Action Bar & Info Banner -->
+      <div class="bg-white rounded-card-lg border-2 border-cokro-navy p-5 shadow-3d-solid flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-cokro-blue text-white flex items-center justify-center text-xl shrink-0 border border-cokro-navy">
+            👔
+          </span>
+          <div>
+            <h2 class="font-display font-black text-lg text-cokro-navy">Ketentuan Pakaian & Atribut</h2>
+            <p class="font-body text-xs text-cokro-text-muted">Preview dokumen resmi langsung dari Google Drive panitia</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+          <!-- Drive View Button -->
+          <a
+            href={driveViewUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-cokro-blue text-white font-display font-bold text-xs rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-0.5 transition-all"
+          >
+            📂 Buka Google Drive ↗
+          </a>
+
+          <!-- Back to Panduan Button -->
+          <a
+            href="/panduan"
+            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-cokro-gold text-cokro-navy font-display font-bold text-xs rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-0.5 transition-all"
+          >
+            ← Kembali ke Panduan
+          </a>
+        </div>
+      </div>
+
+      <!-- PDF Preview Container -->
+      <div class="bg-white rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg overflow-hidden p-2 sm:p-4">
+        <div class="relative w-full h-[70vh] sm:h-[80vh] rounded-xl overflow-hidden border-2 border-slate-200 bg-slate-100">
+          <iframe
+            src={drivePreviewUrl}
+            class="w-full h-full border-0"
+            title="Preview Dokumen Ketentuan Atribut Maba PKKMB FV UNY 2026"
+            allow="autoplay"
+            loading="lazy"
+          >
+            <p class="p-6 text-center font-body text-sm text-slate-600">
+              Browser kamu tidak mendukung iframe preview.
+              <a href={driveViewUrl} target="_blank" rel="noreferrer" class="text-cokro-blue underline font-bold">
+                Klik di sini untuk membuka di Google Drive.
+              </a>
+            </p>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="text-center py-4">
+        <p class="font-body text-xs text-cokro-text-muted">
+          Jika dokumen tidak tampil dengan sempurna pada perangkat Anda, silakan gunakan tombol 
+          <a href={driveViewUrl} target="_blank" rel="noreferrer" class="text-cokro-navy font-bold underline">Buka Google Drive</a>.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

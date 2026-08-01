@@ -19,8 +19,7 @@ const badgeClasses: Record<string, string> = {
   sky:  'bg-cokro-sky text-white',
 };
 
-const placeholderImage = `https://placehold.co/800x480/0F52BA/FFFFFF/webp?text=Card+Photo+(800+x+480)`;
-const displayImage = cardImage || placeholderImage;
+const hasImage = !!cardImage;
 ---
 
 <a
@@ -30,14 +29,20 @@ const displayImage = cardImage || placeholderImage;
   aria-label={`Lihat detail ${name}`}
 >
   <!-- Card Header Photo / Thumbnail -->
-  <div class="relative w-full h-44 sm:h-48 bg-cokro-navy overflow-hidden">
-    <img
-      src={displayImage}
-      alt={`Foto ${name}`}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      loading="lazy"
-      onerror={`this.onerror=null; this.src='${placeholderImage}';`}
-    />
+  <div class="relative w-full h-44 sm:h-48 overflow-hidden" style={!hasImage ? 'background: linear-gradient(135deg, #0A2540 0%, #0F52BA 60%, #38BDF8 100%)' : ''}>
+    {hasImage ? (
+      <img
+        src={cardImage}
+        alt={`Foto ${name}`}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center">
+        <img src={logo} alt={`Logo ${name}`} class="w-24 h-24 object-contain opacity-30" loading="lazy" decoding="async" />
+      </div>
+    )}
     <div class="absolute inset-0 bg-gradient-to-t from-cokro-navy/80 via-transparent to-transparent"></div>
 
     <!-- Badge -->
@@ -50,7 +55,7 @@ const displayImage = cardImage || placeholderImage;
   <div class="relative pt-12 pb-6 px-6 flex-1 flex flex-col">
     <!-- Logo (oversized floating badge overlapping image) -->
     <div class="absolute -top-10 left-6 w-20 h-20 bg-white rounded-full border-4 border-cokro-navy shadow-3d-solid flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 z-20">
-      <img src={logo} alt={`Logo ${name}`} class="w-14 h-14 object-contain" loading="lazy" />
+      <img src={logo} alt={`Logo ${name}`} class="w-14 h-14 object-contain" loading="lazy" decoding="async" />
     </div>
 
     <!-- Name & Short Name -->

@@ -9,21 +9,21 @@ export interface OrgData {
   /**
    * Gambar card (tampil di listing ormawa/ukm).
    * Ukuran: 800 x 480 px (landscape 5:3)
-   * Nama file contoh: card-bem.jpg
+   * Nama file contoh: card-bem.webp
    * Letakkan di: /Assets/photos/ormawa/ atau /Assets/photos/ukm/
    */
   cardImage?: string;
   /**
    * Gambar hero/header halaman detail.
    * Ukuran: 1920 x 480 px (landscape banner)
-   * Nama file contoh: header-bem.jpg
+   * Nama file contoh: header-bem.webp
    * Letakkan di: /Assets/photos/ormawa/ atau /Assets/photos/ukm/
    */
   headerImage?: string;
   /**
    * Galeri foto (min 3, tampil di halaman detail).
    * Ukuran tiap foto: 800 x 600 px (4:3)
-   * Nama file contoh: gallery-bem-1.jpg, gallery-bem-2.jpg
+   * Nama file contoh: gallery-bem-1.webp, gallery-bem-2.webp
    * Letakkan di: /Assets/photos/ormawa/ atau /Assets/photos/ukm/
    */
   gallery?: string[];
@@ -55,13 +55,7 @@ export const orgs: OrgData[] = [
     name: 'Badan Eksekutif Mahasiswa',
     shortName: 'BEM FV UNY',
     logo: '/Assets/logos/ormawa/logo-bem.svg',
-    cardImage: '/Assets/photos/ormawa/card-bem.jpg',
-    headerImage: '/Assets/photos/ormawa/header-bem.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-bem-1.jpg',
-      '/Assets/photos/ormawa/gallery-bem-2.jpg',
-      '/Assets/photos/ormawa/gallery-bem-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari BEM
     badge: 'Eksekutif',
     badgeColor: 'gold',
     description:
@@ -98,9 +92,7 @@ export const orgs: OrgData[] = [
       'Juara I Lomba Debat Mahasiswa antar BEM Perguruan Tinggi Yogyakarta 2024.',
     ],
     contact: {
-      instagram: 'https://instagram.com/bemfvuny',
-      tiktok: 'https://tiktok.com/@bemfvuny',
-      whatsapp: 'https://wa.me/628123456789',
+      instagram: 'https://www.instagram.com/bemvokasiuny/',
     },
   },
   {
@@ -109,13 +101,7 @@ export const orgs: OrgData[] = [
     name: 'Dewan Perwakilan Mahasiswa',
     shortName: 'DPM FV UNY',
     logo: '/Assets/logos/ormawa/logo-dpm.svg',
-    cardImage: '/Assets/photos/ormawa/card-dpm.jpg',
-    headerImage: '/Assets/photos/ormawa/header-dpm.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-dpm-1.jpg',
-      '/Assets/photos/ormawa/gallery-dpm-2.jpg',
-      '/Assets/photos/ormawa/gallery-dpm-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari DPM
     badge: 'Legislatif',
     badgeColor: 'blue',
     description:
@@ -144,9 +130,7 @@ export const orgs: OrgData[] = [
       { name: 'DPM Goes to Campus', description: 'Roadshow sosialisasi ke tiap program studi untuk mendekatkan DPM dengan mahasiswa.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/dpmfvuny',
-      tiktok: 'https://tiktok.com/@dpmfvuny',
-      whatsapp: 'https://wa.me/628123456790',
+      instagram: 'https://www.instagram.com/dpmkmfvuny/',
     },
   },
   {
@@ -155,13 +139,7 @@ export const orgs: OrgData[] = [
     name: 'Himpunan Mahasiswa Bisnis & Keuangan',
     shortName: 'HIMANAGARI',
     logo: '/Assets/logos/ormawa/logo-himanagari.svg',
-    cardImage: '/Assets/photos/ormawa/card-himanagari.jpg',
-    headerImage: '/Assets/photos/ormawa/header-himanagari.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-himanagari-1.jpg',
-      '/Assets/photos/ormawa/gallery-himanagari-2.jpg',
-      '/Assets/photos/ormawa/gallery-himanagari-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari HIMANAGARI
     badge: 'Himpunan',
     badgeColor: 'sky',
     description:
@@ -191,9 +169,7 @@ export const orgs: OrgData[] = [
       { name: 'Magang Profesi', description: 'Program penghubung mahasiswa dengan perusahaan mitra untuk pengalaman magang terstruktur.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/himanagari_uny',
-      tiktok: 'https://tiktok.com/@himanagari_uny',
-      whatsapp: 'https://wa.me/628123456791',
+      instagram: 'https://www.instagram.com/himanagari/',
     },
   },
   {
@@ -202,12 +178,12 @@ export const orgs: OrgData[] = [
     name: 'Himpunan Mahasiswa Tata Boga & Busana',
     shortName: 'HIMATABONA',
     logo: '/Assets/logos/ormawa/logo-himatabona.svg',
-    cardImage: '/Assets/photos/ormawa/card-himatabona.jpg',
-    headerImage: '/Assets/photos/ormawa/header-himatabona.jpg',
+    cardImage: '/Assets/photos/ormawa/card-himatabona.webp',
+    headerImage: '/Assets/photos/ormawa/header-himatabona.webp',
     gallery: [
-      '/Assets/photos/ormawa/gallery-himatabona-1.jpg',
-      '/Assets/photos/ormawa/gallery-himatabona-2.jpg',
-      '/Assets/photos/ormawa/gallery-himatabona-3.jpg',
+      '/Assets/photos/ormawa/gallery-himatabona-1.webp',
+      '/Assets/photos/ormawa/gallery-himatabona-2.webp',
+      '/Assets/photos/ormawa/gallery-himatabona-3.webp',
     ],
     badge: 'Himpunan',
     badgeColor: 'sky',
@@ -237,9 +213,7 @@ export const orgs: OrgData[] = [
       { name: 'Beauty Workshop', description: 'Workshop kecantikan dan makeup profesional untuk mahasiswa dan umum.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/himatabona_uny',
-      tiktok: 'https://tiktok.com/@himatabona_uny',
-      whatsapp: 'https://wa.me/628123456792',
+      instagram: 'https://www.instagram.com/himatabona/',
     },
   },
   {
@@ -248,13 +222,7 @@ export const orgs: OrgData[] = [
     name: 'Himpunan Mahasiswa Departemen Bisnis & Keuangan',
     shortName: 'HMDBK',
     logo: '/Assets/logos/ormawa/logo-hmdbk.svg',
-    cardImage: '/Assets/photos/ormawa/card-hmdbk.jpg',
-    headerImage: '/Assets/photos/ormawa/header-hmdbk.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-hmdbk-1.jpg',
-      '/Assets/photos/ormawa/gallery-hmdbk-2.jpg',
-      '/Assets/photos/ormawa/gallery-hmdbk-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari HMDBK
     badge: 'Himpunan',
     badgeColor: 'sky',
     description:
@@ -281,9 +249,7 @@ export const orgs: OrgData[] = [
       { name: 'Business Mentoring', description: 'Program mentoring bisnis dengan praktisi dan alumni sukses di bidang bisnis & keuangan.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/hmdbk_uny',
-      tiktok: 'https://tiktok.com/@hmdbk_uny',
-      whatsapp: 'https://wa.me/628123456793',
+      instagram: 'https://www.instagram.com/himadbkfvuny/',
     },
   },
   {
@@ -294,13 +260,8 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ormawa/logo-hmdtm.svg',
     badge: 'Himpunan',
     badgeColor: 'sky',
-    cardImage: '/Assets/photos/ormawa/card-hmdtm.jpg',
-    headerImage: '/Assets/photos/ormawa/header-hmdtm.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-hmdtm-1.jpg',
-      '/Assets/photos/ormawa/gallery-hmdtm-2.jpg',
-      '/Assets/photos/ormawa/gallery-hmdtm-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari HMDTM
+    badge: 'Himpunan',
     description:
       'HMDTM berkomitmen dalam meningkatkan kompetensi teknis, jiwa inovatif, dan semangat industrialis mahasiswa vokasi di bidang teknik mesin dan otomotif. Aktif dalam kegiatan riset terapan dan kompetisi teknik.',
     vision:
@@ -330,9 +291,7 @@ export const orgs: OrgData[] = [
       'Juara II Kompetisi Desain Mesin Nasional 2024.',
     ],
     contact: {
-      instagram: 'https://instagram.com/hmdtm_uny',
-      tiktok: 'https://tiktok.com/@hmdtm_uny',
-      whatsapp: 'https://wa.me/628123456794',
+      instagram: 'https://www.instagram.com/hmdtm.fvuny/',
     },
   },
   {
@@ -343,13 +302,8 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ormawa/logo-hmdts.svg',
     badge: 'Himpunan',
     badgeColor: 'sky',
-    cardImage: '/Assets/photos/ormawa/card-hmdts.jpg',
-    headerImage: '/Assets/photos/ormawa/header-hmdts.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-hmdts-1.jpg',
-      '/Assets/photos/ormawa/gallery-hmdts-2.jpg',
-      '/Assets/photos/ormawa/gallery-hmdts-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari HMDTS
+    badge: 'Himpunan',
     description:
       'HMDTS aktif dalam pengembangan kompetensi konstruksi dan infrastruktur melalui proyek nyata, kunjungan industri, dan kompetisi rancang bangun. Berfokus pada pengembangan mahasiswa yang siap menghadapi tantangan industri konstruksi nasional.',
     vision:
@@ -374,9 +328,7 @@ export const orgs: OrgData[] = [
       { name: 'Survei Lapangan Terpadu', description: 'Kegiatan survei dan pemetaan lapangan bekerja sama dengan dinas terkait.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/hmdts_uny',
-      tiktok: 'https://tiktok.com/@hmdts_uny',
-      whatsapp: 'https://wa.me/628123456795',
+      instagram: 'https://www.instagram.com/hmdts_fvuny/',
     },
   },
   {
@@ -387,12 +339,12 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ormawa/logo-hmok.svg',
     badge: 'Himpunan',
     badgeColor: 'sky',
-    cardImage: '/Assets/photos/ormawa/card-hmok.jpg',
-    headerImage: '/Assets/photos/ormawa/header-hmok.jpg',
+    cardImage: '/Assets/photos/ormawa/card-hmok.webp',
+    headerImage: '/Assets/photos/ormawa/header-hmok.webp',
     gallery: [
-      '/Assets/photos/ormawa/gallery-hmok-1.jpg',
-      '/Assets/photos/ormawa/gallery-hmok-2.jpg',
-      '/Assets/photos/ormawa/gallery-hmok-3.jpg',
+      '/Assets/photos/ormawa/gallery-hmok-1.webp',
+      '/Assets/photos/ormawa/gallery-hmok-2.webp',
+      '/Assets/photos/ormawa/gallery-hmok-3.webp',
     ],
     description:
       'HMOK mendorong gaya hidup sehat, sportivitas, dan prestasi di bidang olahraga dan ilmu kesehatan vokasi. Aktif dalam kegiatan olahraga, kesehatan komunitas, dan pengabdian masyarakat di bidang kesehatan.',
@@ -419,9 +371,7 @@ export const orgs: OrgData[] = [
       { name: 'Senam Gembira FV', description: 'Kegiatan olahraga rutin setiap minggu yang terbuka untuk seluruh civitas akademika FV.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/hmok_fvuny',
-      tiktok: 'https://tiktok.com/@hmok_fvuny',
-      whatsapp: 'https://wa.me/628123456796',
+      instagram: 'https://www.instagram.com/himaorkesfvuny/',
     },
   },
   {
@@ -432,13 +382,8 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ormawa/logo-hmve.svg',
     badge: 'Himpunan',
     badgeColor: 'sky',
-    cardImage: '/Assets/photos/ormawa/card-hmve.jpg',
-    headerImage: '/Assets/photos/ormawa/header-hmve.jpg',
-    gallery: [
-      '/Assets/photos/ormawa/gallery-hmve-1.jpg',
-      '/Assets/photos/ormawa/gallery-hmve-2.jpg',
-      '/Assets/photos/ormawa/gallery-hmve-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari HMVE
+    badge: 'Himpunan',
     description:
       'HMVE bergerak dalam pengembangan inovasi teknologi kelistrikan, otomasi, dan elektronika terapan. Aktif dalam kegiatan riset, kompetisi robotik, dan kolaborasi dengan industri elektronika nasional.',
     vision:
@@ -469,9 +414,7 @@ export const orgs: OrgData[] = [
       'Best Innovation Award di IoT Summit Indonesia 2024.',
     ],
     contact: {
-      instagram: 'https://instagram.com/hmve_uny',
-      tiktok: 'https://tiktok.com/@hmve_uny',
-      whatsapp: 'https://wa.me/628123456797',
+      instagram: 'https://www.instagram.com/hmve.uny/',
     },
   },
 
@@ -484,13 +427,7 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ukm/logo-ukm-baiturrahman.svg',
     badge: 'Kerohanian',
     badgeColor: 'gold',
-    cardImage: '/Assets/photos/ukm/card-ukm-baiturrahman.jpg',
-    headerImage: '/Assets/photos/ukm/header-ukm-baiturrahman.jpg',
-    gallery: [
-      '/Assets/photos/ukm/gallery-ukm-baiturrahman-1.jpg',
-      '/Assets/photos/ukm/gallery-ukm-baiturrahman-2.jpg',
-      '/Assets/photos/ukm/gallery-ukm-baiturrahman-3.jpg',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari UKM Baiturrahman
     description:
       'UKM Kerohanian Islam Baiturrahman adalah wadah pengembangan spiritualitas dan kegiatan keagamaan Islam bagi mahasiswa Fakultas Vokasi UNY. Aktif menyelenggarakan kajian, program sosial, dan kegiatan keislaman yang inspiratif untuk membentuk mahasiswa yang beriman, berilmu, dan berakhlak mulia.',
     vision:
@@ -519,9 +456,7 @@ export const orgs: OrgData[] = [
       { name: 'Halaqoh Tahfidz', description: 'Program menghafal Al-Quran secara berkelompok dengan bimbingan mentor berpengalaman.' },
     ],
     contact: {
-      instagram: 'https://instagram.com/baiturrahman_fvuny',
-      tiktok: 'https://tiktok.com/@baiturrahman_fvuny',
-      whatsapp: 'https://wa.me/628123456798',
+      instagram: 'https://www.instagram.com/ukmf_baiturrahman/',
     },
   },
   {
@@ -529,15 +464,15 @@ export const orgs: OrgData[] = [
     type: 'ukm',
     name: 'UKM Kesenian',
     shortName: 'Seni & Budaya FV UNY',
-    logo: '/Assets/logos/ukm/logo-ukm-keseninan.svg',
+    logo: '/Assets/logos/ukm/logo-ukm-kesenian.svg',
     badge: 'Seni & Budaya',
     badgeColor: 'sky',
-    cardImage: '/Assets/photos/ukm/card-ukm-kesenian.jpg',
-    headerImage: '/Assets/photos/ukm/header-ukm-kesenian.jpg',
+    cardImage: '/Assets/photos/ukm/card-ukm-kesenian.webp',
+    headerImage: '/Assets/photos/ukm/header-ukm-kesenian.webp',
     gallery: [
-      '/Assets/photos/ukm/gallery-ukm-kesenian-1.jpg',
-      '/Assets/photos/ukm/gallery-ukm-kesenian-2.jpg',
-      '/Assets/photos/ukm/gallery-ukm-kesenian-3.jpg',
+      '/Assets/photos/ukm/gallery-ukm-kesenian-1.webp',
+      '/Assets/photos/ukm/gallery-ukm-kesenian-2.webp',
+      '/Assets/photos/ukm/gallery-ukm-kesenian-3.webp',
     ],
     description:
       'UKM Kesenian adalah wadah bagi mahasiswa berbakat di bidang seni dan budaya. Meliputi seni tari, musik, teater, dan kesenian tradisional. Aktif tampil di berbagai event kampus, festival seni, dan lomba tingkat regional maupun nasional.',
@@ -570,9 +505,7 @@ export const orgs: OrgData[] = [
       'Penampil terbaik di Dies Natalis UNY 2024.',
     ],
     contact: {
-      instagram: 'https://instagram.com/ukmkesenian_fvuny',
-      tiktok: 'https://tiktok.com/@ukmkesenian_fvuny',
-      whatsapp: 'https://wa.me/628123456799',
+      instagram: 'https://www.instagram.com/ukmkesenianfv.uny/',
     },
   },
   {
@@ -583,12 +516,12 @@ export const orgs: OrgData[] = [
     logo: '/Assets/logos/ukm/logo-ukm-reaction.svg',
     badge: 'Penelitian',
     badgeColor: 'blue',
-    cardImage: '/Assets/photos/ukm/card-ukm-reaction.jpg',
-    headerImage: '/Assets/photos/ukm/header-ukm-reaction.jpg',
+    cardImage: '/Assets/photos/ukm/card-ukm-reaction.webp',
+    headerImage: '/Assets/photos/ukm/header-ukm-reaction.webp',
     gallery: [
-      '/Assets/photos/ukm/gallery-ukm-reaction-1.jpg',
-      '/Assets/photos/ukm/gallery-ukm-reaction-2.jpg',
-      '/Assets/photos/ukm/gallery-ukm-reaction-3.jpg',
+      '/Assets/photos/ukm/gallery-ukm-reaction-1.webp',
+      '/Assets/photos/ukm/gallery-ukm-reaction-2.webp',
+      '/Assets/photos/ukm/gallery-ukm-reaction-3.webp',
     ],
     description:
       'UKMF Penelitian Reaction FV UNY adalah unit kegiatan mahasiswa yang berfokus pada pengembangan penelitian, penalaran, karya ilmiah, dan inovasi mahasiswa Fakultas Vokasi Universitas Negeri Yogyakarta. Organisasi ini mewadahi mahasiswa yang memiliki minat dan bakat di bidang riset melalui pembinaan, pelatihan, pendampingan, diskusi ilmiah, serta pengembangan keterampilan akademik agar lahir karya yang bermanfaat bagi masyarakat.',
@@ -629,16 +562,11 @@ export const orgs: OrgData[] = [
     type: 'ukm',
     name: 'UKMF Kewirausahaan',
     shortName: 'Segera Hadir',
-    logo: '/Assets/logos/ukm/logo-ukm-reaction.svg',
+    logo: '/Assets/logos/ukm/logo-ukm-kwu.svg',
     badge: 'Wirausaha',
     badgeColor: 'gold',
-    cardImage: 'https://placehold.co/800x480/0F52BA/FFFFFF/webp?text=UKMF+Kewirausahaan',
-    headerImage: 'https://placehold.co/1920x480/0F52BA/FFFFFF/webp?text=UKMF+Kewirausahaan',
-    gallery: [
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Kewirausahaan+01',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Kewirausahaan+02',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Kewirausahaan+03',
-    ],
+    cardImage: '/Assets/photos/ukm/card-ukm-kewirausahaan.webp',
+    headerImage: '/Assets/photos/ukm/header-ukm-kewirausahaan.webp',
     description:
       'Profil UKMF Kewirausahaan masih dalam tahap penyusunan. Placeholder ini disiapkan agar daftar UKM tetap tampil lengkap dan siap diisi dengan data resmi pada tahap berikutnya.',
     vision:
@@ -663,23 +591,19 @@ export const orgs: OrgData[] = [
       { name: 'Inkubasi Ide Usaha', description: 'Pendampingan awal untuk mahasiswa yang ingin mengembangkan ide bisnis.' },
       { name: 'Bazar Mahasiswa', description: 'Wadah promosi dan penjualan produk karya mahasiswa.' },
     ],
-    contact: {},
+    contact: {
+      instagram: 'https://www.instagram.com/kwuvokasiuny/',
+    },
   },
   {
     id: 'ukm-ksr',
     type: 'ukm',
     name: 'UKMF KSR',
     shortName: 'Segera Hadir',
-    logo: '/Assets/logos/ukm/logo-ukm-reaction.svg',
+    logo: '/Assets/logos/ukm/logo-ukm-ksr.svg',
     badge: 'Kemanusiaan',
     badgeColor: 'sky',
-    cardImage: 'https://placehold.co/800x480/0F52BA/FFFFFF/webp?text=UKMF+KSR',
-    headerImage: 'https://placehold.co/1920x480/0F52BA/FFFFFF/webp?text=UKMF+KSR',
-    gallery: [
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+KSR+01',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+KSR+02',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+KSR+03',
-    ],
+    // cardImage & headerImage belum tersedia — menunggu pengumpulan dari UKMF KSR
     description:
       'Profil UKMF KSR masih berupa placeholder. Entitas ini disiapkan sebagai ruang awal untuk pengisian profil resmi kegiatan kemanusiaan dan kepalangmerahan mahasiswa.',
     vision:
@@ -704,22 +628,24 @@ export const orgs: OrgData[] = [
       { name: 'Aksi Sosial Kampus', description: 'Kegiatan bakti sosial dan penggalangan bantuan di lingkungan kampus dan sekitarnya.' },
       { name: 'Donor Darah', description: 'Program kemanusiaan berkala yang mendukung kebutuhan darah di masyarakat.' },
     ],
-    contact: {},
+    contact: {
+      instagram: 'https://www.instagram.com/ksrpmifvuny/',
+    },
   },
   {
     id: 'ukm-olahraga',
     type: 'ukm',
     name: 'UKMF Olahraga',
     shortName: 'Segera Hadir',
-    logo: '/Assets/logos/ukm/logo-ukm-reaction.svg',
+    logo: '/Assets/logos/ukm/logo-ukm-olahraga.svg',
     badge: 'Olahraga',
     badgeColor: 'blue',
-    cardImage: 'https://placehold.co/800x480/0F52BA/FFFFFF/webp?text=UKMF+Olahraga',
-    headerImage: 'https://placehold.co/1920x480/0F52BA/FFFFFF/webp?text=UKMF+Olahraga',
+    cardImage: '/Assets/photos/ukm/card-ukm-olahraga.webp',
+    headerImage: '/Assets/photos/ukm/header-ukm-olahraga.webp',
     gallery: [
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Olahraga+01',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Olahraga+02',
-      'https://placehold.co/800x600/0F52BA/FFFFFF/webp?text=UKMF+Olahraga+03',
+      '/Assets/photos/ukm/gallery-ukm-olahraga-1.webp',
+      '/Assets/photos/ukm/gallery-ukm-olahraga-2.webp',
+      '/Assets/photos/ukm/gallery-ukm-olahraga-3.webp',
     ],
     description:
       'Profil UKMF Olahraga masih dalam tahap placeholder. Entri ini disiapkan agar kategori UKM tetap lengkap sebelum data resmi dimasukkan.',
@@ -745,7 +671,9 @@ export const orgs: OrgData[] = [
       { name: 'Turnamen Internal', description: 'Agenda kompetisi internal untuk menjaring potensi dan mempererat kebersamaan.' },
       { name: 'Sport Day', description: 'Kegiatan olahraga bersama untuk membangun semangat hidup aktif.' },
     ],
-    contact: {},
+    contact: {
+      instagram: 'https://www.instagram.com/ukmfv_olahraga/',
+    },
   },
 ];
 

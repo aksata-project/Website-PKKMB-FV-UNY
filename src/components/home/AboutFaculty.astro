@@ -69,17 +69,11 @@ const logos = [
           </div>
           <!-- Seluruh foto di kanan; pada mobile foto mengikuti paragraf -->
           <div class="grid grid-cols-1 gap-5 lg:col-span-2">
-            <div class="flex h-48 w-full items-center justify-center rounded-xl border-2 border-dashed border-cokro-navy bg-cokro-tint p-4 text-center shadow-[4px_4px_0_#0A2540]" role="img" aria-label="Placeholder foto kiri Kampus Kulon Progo">
-              <div>
-                <p class="font-display font-bold text-cokro-navy">Foto Kampus</p>
-                <p class="mt-1 font-body text-xs font-semibold text-cokro-text-muted">Foto 1 · 640 × 420 px</p>
-              </div>
+            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2">
+              <img src="/Assets/photos/campus/kulon-progo-1.webp" alt="Fakultas Vokasi UNY Kampus Kulon Progo" class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
             </div>
-            <div class="flex min-h-80 w-full items-center justify-center rounded-xl border-2 border-dashed border-cokro-navy bg-cokro-tint p-4 text-center shadow-[-4px_4px_0_#0A2540] lg:min-h-[420px]" role="img" aria-label="Placeholder foto utama kanan Kampus Kulon Progo">
-              <div>
-                <p class="font-display font-bold text-cokro-navy">Foto Utama Kampus</p>
-                <p class="mt-1 font-body text-xs font-semibold text-cokro-text-muted">Foto 2 · 640 × 840 px</p>
-              </div>
+            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2">
+              <img src="/Assets/photos/campus/kulon-progo-2.webp" alt="Gedung Utama Vokasi UNY Kampus Kulon Progo" class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -99,17 +93,11 @@ const logos = [
           </div>
           <!-- Seluruh foto di kanan; pada mobile foto mengikuti paragraf -->
           <div class="grid grid-cols-1 gap-5 lg:col-span-2">
-            <div class="flex h-48 w-full items-center justify-center rounded-xl border-2 border-dashed border-cokro-navy bg-cokro-tint p-4 text-center shadow-[4px_4px_0_#0A2540]" role="img" aria-label="Placeholder foto kiri Kampus Gunung Kidul">
-              <div>
-                <p class="font-display font-bold text-cokro-navy">Foto Kampus</p>
-                <p class="mt-1 font-body text-xs font-semibold text-cokro-text-muted">Foto 1 · 640 × 420 px</p>
-              </div>
+            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2">
+              <img src="/Assets/photos/campus/gunungkidul-1.webp" alt="Fakultas Vokasi UNY Kampus Gunungkidul" class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
             </div>
-            <div class="flex min-h-80 w-full items-center justify-center rounded-xl border-2 border-dashed border-cokro-navy bg-cokro-tint p-4 text-center shadow-[-4px_4px_0_#0A2540] lg:min-h-[420px]" role="img" aria-label="Placeholder foto utama kanan Kampus Gunung Kidul">
-              <div>
-                <p class="font-display font-bold text-cokro-navy">Foto Utama Kampus</p>
-                <p class="mt-1 font-body text-xs font-semibold text-cokro-text-muted">Foto 2 · 640 × 840 px</p>
-              </div>
+            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2">
+              <img src="/Assets/photos/campus/gunungkidul-2.webp" alt="Gedung Utama Vokasi UNY Kampus Gunungkidul" class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -125,7 +113,7 @@ const logos = [
         <div class="swiper-wrapper items-center">
           {logos.map((logo) => (
             <div class="swiper-slide w-auto flex justify-center">
-              <img src={logo} alt="Logo Organisasi" loading="lazy" class="h-[100px] w-[100px] md:h-[120px] md:w-[120px] object-contain drop-shadow-md hover:scale-110 transition-transform duration-300" />
+              <img src={logo} alt="Logo Organisasi" loading="lazy" decoding="async" class="h-[100px] w-[100px] md:h-[120px] md:w-[120px] object-contain drop-shadow-md hover:scale-110 transition-transform duration-300" />
             </div>
           ))}
         </div>
@@ -143,25 +131,35 @@ const logos = [
 
 <script>
   import Swiper from 'swiper';
-  import { Autoplay } from 'swiper/modules';
+  import { Autoplay, FreeMode } from 'swiper/modules';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('.logo-marquee', {
-      modules: [Autoplay],
-      spaceBetween: 40,
-      slidesPerView: 'auto',
-      loop: true,
-      freeMode: true,
-      speed: 3000,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        320: { slidesPerView: 3, spaceBetween: 20 },
-        768: { slidesPerView: 5, spaceBetween: 40 },
-        1024: { slidesPerView: 7, spaceBetween: 50 },
-      }
-    });
-  });
+  function initLogoMarquee() {
+    const el = document.querySelector('.logo-marquee');
+    if (el) {
+      new Swiper('.logo-marquee', {
+        modules: [Autoplay, FreeMode],
+        spaceBetween: 40,
+        slidesPerView: 'auto',
+        loop: true,
+        freeMode: true,
+        speed: 3500,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          320: { slidesPerView: 3, spaceBetween: 20 },
+          768: { slidesPerView: 5, spaceBetween: 40 },
+          1024: { slidesPerView: 7, spaceBetween: 50 },
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLogoMarquee);
+  } else {
+    initLogoMarquee();
+  }
+  document.addEventListener('astro:page-load', initLogoMarquee);
 </script>

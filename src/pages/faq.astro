@@ -1,5 +1,6 @@
 ---
 // src/pages/faq.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -13,7 +14,7 @@ const faqs = [
   },
   {
     question: 'Kapan dan di mana kegiatan PKKMB FV UNY 2026 dilaksanakan?',
-    answer: 'PKKMB FV UNY 2026 akan dilaksanakan pada 20–23 Agustus 2026. Kegiatan dipusatkan di dua kampus Fakultas Vokasi UNY, yaitu Kampus Wates (Kulon Progo) dan Kampus Gunungkidul. Detail lokasi per hari akan diinformasikan saat Technical Meeting.',
+    answer: 'PKKMB FV UNY 2026 akan dilaksanakan pada 20–21 Agustus 2026 (PKKMB FV UNY & Departemen), serta 29 Agustus 2026 (SDP × Open House Ormawa). Sebelumnya, TMTP (Technical Meeting Terpadu Perdana) telah dilaksanakan pada 25 Juli 2026. Kegiatan dipusatkan di dua kampus Fakultas Vokasi UNY, yaitu Kampus Wates (Kulon Progo) dan Kampus Gunungkidul.',
   },
   {
     question: 'Bagaimana cara mendaftar PKKMB FV UNY 2026?',
@@ -41,7 +42,7 @@ const faqs = [
   },
   {
     question: 'Di mana saya bisa mendapatkan informasi terbaru tentang PKKMB?',
-    answer: 'Informasi terbaru PKKMB FV UNY 2026 dapat diikuti melalui: (1) Website resmi ini, (2) Instagram resmi @pkkmbfvuny2026, (3) WhatsApp Group peserta yang akan dibentuk setelah pendaftaran ditutup, dan (4) Pengumuman resmi dari kampus melalui portal mahasiswa.',
+    answer: 'Informasi terbaru PKKMB FV UNY 2026 dapat diikuti melalui: (1) Website resmi ini, (2) Instagram resmi @pkkmbfvuny, (3) WhatsApp Group peserta yang akan dibentuk setelah pendaftaran ditutup, dan (4) Pengumuman resmi dari kampus melalui portal mahasiswa.',
   },
   {
     question: 'Apakah orang tua/wali boleh mendampingi saat PKKMB?',
@@ -50,19 +51,11 @@ const faqs = [
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ PKKMB FV UNY 2026 — Cokro Aksata</title>
-    <meta name="description" content="Pertanyaan yang sering diajukan seputar PKKMB Fakultas Vokasi Universitas Negeri Yogyakarta 2026." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
-    <Navbar />
+<BaseLayout
+  title="FAQ PKKMB FV UNY 2026"
+  description="Pertanyaan yang paling sering ditanyakan seputar PKKMB Fakultas Vokasi UNY 2026."
+>
+  <Navbar />
 
     <PageHeader
       title="Pertanyaan Umum"
@@ -95,7 +88,7 @@ const faqs = [
           <p class="font-body text-cokro-text-muted mb-6 max-w-md mx-auto">Jangan ragu untuk menghubungi panitia PKKMB FV UNY 2026 melalui media sosial kami.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.instagram.com/pkkmbfvuny2026"
+              href="https://www.instagram.com/pkkmbfvuny/"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-display font-bold rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200"
@@ -103,7 +96,7 @@ const faqs = [
               📸 Instagram Kami
             </a>
             <a
-              href="mailto:pkkmbfvuny2026@uny.ac.id"
+              href="mailto:pkkmbfvuny.web@gmail.com"
               class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cokro-gold text-cokro-navy font-display font-bold rounded-pill border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200"
             >
               ✉️ Email Kami
@@ -114,5 +107,4 @@ const faqs = [
     </main>
 
     <Footer />
-  </body>
-</html>
+</BaseLayout>

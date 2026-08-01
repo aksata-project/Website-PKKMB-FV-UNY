@@ -4,7 +4,7 @@
 
 <section
   class="relative min-h-[100vh] flex flex-col items-center justify-center pt-24 pb-40 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
-  style="background-image: url('/Assets/illustrations/background/home-bg.png');"
+  style="background-image: url('/Assets/illustrations/background/home-bg.webp');"
   aria-label="Hero Section"
 >
   <!-- Light overlay -->
@@ -98,10 +98,12 @@
       class="mb-0 w-full max-w-4xl px-2 transform hover:scale-105 transition-transform duration-500"
     >
       <img
-        src="/Assets/illustrations/words/home-cta1.png"
+        src="/Assets/illustrations/words/home-cta1.webp"
         alt="PKKMB FV UNY 2026"
         class="w-full h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </div>
 
@@ -138,56 +140,55 @@
     </a>
 
     <!-- Countdown Timer -->
-    <div class="mt-14 w-full max-w-3xl"></div>
     <div
-      class="flex flex-wrap justify-center gap-3 md:gap-6"
+      class="mt-10 grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 max-w-xl mx-auto w-full px-2"
       id="countdown-container"
     >
       <!-- Days -->
       <div
-        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:60%_40%_30%_70%/60%_30%_70%_40%]"
+        class="flex flex-col items-center justify-center py-2.5 px-1 sm:py-4 sm:px-2 bg-white border-3 sm:border-4 border-cokro-navy rounded-2xl shadow-3d-solid sm:shadow-3d-solid-lg transition-all duration-200 hover:-translate-y-1 h-20 sm:h-28 md:h-32"
       >
         <span
-          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="days">00</span
         >
-        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Hari</span
         >
       </div>
       <!-- Hours -->
       <div
-        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:40%_60%_70%_30%/50%_60%_40%_50%]"
+        class="flex flex-col items-center justify-center py-2.5 px-1 sm:py-4 sm:px-2 bg-white border-3 sm:border-4 border-cokro-navy rounded-2xl shadow-3d-solid sm:shadow-3d-solid-lg transition-all duration-200 hover:-translate-y-1 h-20 sm:h-28 md:h-32"
       >
         <span
-          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="hours">00</span
         >
-        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Jam</span
         >
       </div>
       <!-- Minutes -->
       <div
-        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:70%_30%_50%_50%/30%_50%_70%_50%]"
+        class="flex flex-col items-center justify-center py-2.5 px-1 sm:py-4 sm:px-2 bg-white border-3 sm:border-4 border-cokro-navy rounded-2xl shadow-3d-solid sm:shadow-3d-solid-lg transition-all duration-200 hover:-translate-y-1 h-20 sm:h-28 md:h-32"
       >
         <span
-          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="minutes">00</span
         >
-        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Menit</span
         >
       </div>
       <!-- Seconds -->
       <div
-        class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white border-4 border-cokro-navy shadow-3d-solid-lg transition-transform hover:-translate-y-2 [border-radius:50%_50%_30%_70%/60%_40%_60%_40%]"
+        class="flex flex-col items-center justify-center py-2.5 px-1 sm:py-4 sm:px-2 bg-white border-3 sm:border-4 border-cokro-navy rounded-2xl shadow-3d-solid sm:shadow-3d-solid-lg transition-all duration-200 hover:-translate-y-1 h-20 sm:h-28 md:h-32"
       >
         <span
-          class="font-display font-black text-3xl md:text-5xl text-cokro-blue countdown-value"
+          class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="seconds">00</span
         >
-        <span class="text-xs font-extrabold text-cokro-navy mt-0.5 uppercase"
+        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Detik</span
         >
       </div>

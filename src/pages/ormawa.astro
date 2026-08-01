@@ -1,5 +1,6 @@
 ---
 // src/pages/ormawa.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -10,19 +11,11 @@ import { getOrgsByType } from '../data/orgs';
 const ormawaList = getOrgsByType('ormawa');
 ---
 
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ormawa FV UNY — PKKMB FV UNY 2026</title>
-    <meta name="description" content="Daftar Organisasi Mahasiswa (Ormawa) Fakultas Vokasi Universitas Negeri Yogyakarta." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-cokro-tint text-cokro-navy font-body antialiased overflow-x-hidden selection:bg-cokro-gold selection:text-cokro-navy">
-    <Navbar />
+<BaseLayout
+  title="Ormawa FV UNY — PKKMB FV UNY 2026"
+  description="Daftar Organisasi Mahasiswa (Ormawa) Fakultas Vokasi Universitas Negeri Yogyakarta."
+>
+  <Navbar />
 
     <PageHeader
       title="Organisasi Mahasiswa"
@@ -58,5 +51,4 @@ const ormawaList = getOrgsByType('ormawa');
     </main>
 
     <Footer />
-  </body>
-</html>
+</BaseLayout>

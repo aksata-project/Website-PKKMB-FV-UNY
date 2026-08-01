@@ -23,14 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# media & data besar (jangan di-push)
+# media & data besar yang tidak dipakai website
 asset/
 drive_*.json
-*.pdf
-public/Assets/docs/
-public/Assets/photos/
-public/Assets/images/
-public/Assets/history/*.webp
-public/Assets/illustrations/background/home-bg.webp
-public/Assets/illustrations/words/home-cta1.webp
-public/Assets/logos/ukm/*.webp
+
+# Abaikan file JPG mentah di public/Assets (karena sudah di-convert ke WebP hemat ukuran)
+public/Assets/**/*.jpg

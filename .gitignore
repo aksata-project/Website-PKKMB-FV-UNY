@@ -27,5 +27,11 @@ pnpm-debug.log*
 asset/
 drive_*.json
 
-# Abaikan file JPG mentah di public/Assets (karena sudah di-convert ke WebP hemat ukuran)
+# Abaikan file gambar mentah di public/Assets (karena sudah di-convert ke WebP hemat ukuran)
 public/Assets/**/*.jpg
+public/Assets/**/*.JPG
+public/Assets/**/*.jpeg
+public/Assets/**/*.JPEG
+public/Assets/**/*.png
+public/Assets/**/*.PNG
+*.pdf

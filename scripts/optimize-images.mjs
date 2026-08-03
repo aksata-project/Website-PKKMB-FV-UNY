@@ -20,11 +20,12 @@ async function walk(dir) {
       await walk(full);
       continue;
     }
-    const ext = extname(entry.name).toLowerCase();
+    const rawExt = extname(entry.name);
+    const ext = rawExt.toLowerCase();
     if (ext !== '.jpg' && ext !== '.jpeg' && ext !== '.png') continue;
 
     const source = await stat(full);
-    const outFile = join(dirname(full), `${basename(entry.name, ext)}.webp`);
+    const outFile = join(dirname(full), `${basename(entry.name, rawExt)}.webp`);
 
     let upToDate = false;
     try {

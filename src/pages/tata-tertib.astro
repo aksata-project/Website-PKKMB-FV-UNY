@@ -39,7 +39,7 @@ import {
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <!-- Document Badge & Title info -->
           <div class="flex items-center gap-3 w-full md:w-auto">
-            <div class="w-12 h-12 rounded-xl bg-cokro-navy text-cokro-gold flex items-center justify-center shrink-0">
+            <div class="w-12 h-12 rounded-xl bg-cokro-header bg-doodle-pattern text-white flex items-center justify-center shrink-0 border-2 border-cokro-navy shadow-sm">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
             </div>
             <div>
@@ -123,15 +123,15 @@ import {
 
       <!-- ─── TAB 1: TATA TERTIB & DRESSCODE ─── -->
       <div id="tab-rules" class="tab-content space-y-10">
-        <!-- Document Title Banner -->
-        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
-          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+        <!-- Document Title Banner (Sesuai tema Header: Biru & Polkadot) -->
+        <div class="bg-cokro-header bg-doodle-pattern text-white rounded-card-lg p-6 sm:p-8 border-2 border-cokro-navy shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-15 pointer-events-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
-          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3 shadow-3d-solid">
             DOKUMEN RESMI TAHUN 2026
           </span>
-          <h1 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto leading-tight">
+          <h1 class="font-display font-black text-xl sm:text-2xl md:text-3xl text-white max-w-4xl mx-auto leading-tight drop-shadow-[2px_2px_0_#0A2540]">
             {TATA_TERTIB_TITLE}
           </h1>
         </div>
@@ -254,14 +254,14 @@ import {
       <!-- ─── TAB 2: SANKSI & POIN PELANGGARAN ─── -->
       <div id="tab-sanctions" class="tab-content space-y-10" style="display:none">
         <!-- Title Banner -->
-        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
-          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+        <div class="bg-cokro-header bg-doodle-pattern text-white rounded-card-lg p-6 sm:p-8 border-2 border-cokro-navy shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-15 pointer-events-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
           </div>
-          <span class="inline-block px-3.5 py-1 bg-red-500 text-white font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+          <span class="inline-block px-3.5 py-1 bg-red-500 text-white font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3 shadow-3d-solid">
             SANKSI & POIN PELANGGARAN
           </span>
-          <h2 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto">
+          <h2 class="font-display font-black text-xl sm:text-2xl md:text-3xl text-white max-w-4xl mx-auto drop-shadow-[2px_2px_0_#0A2540]">
             SANKSI PELANGGARAN PESERTA PKKMB KM FV UNY 2026
           </h2>
         </div>
@@ -281,10 +281,10 @@ import {
           <div class="overflow-x-auto no-scrollbar border-2 border-cokro-navy rounded-xl">
             <table class="w-full text-left border-collapse min-w-[600px]">
               <thead>
-                <tr class="bg-cokro-navy text-white font-display text-xs sm:text-sm uppercase tracking-wider">
-                  <th class="py-3.5 px-4 border-r border-cokro-navy/30 w-16 text-center">NO</th>
-                  <th class="py-3.5 px-4 border-r border-cokro-navy/30 w-44">KATEGORI</th>
-                  <th class="py-3.5 px-5 border-r border-cokro-navy/30">DESKRIPSI PELANGGARAN</th>
+                <tr class="bg-cokro-header bg-doodle-pattern text-white font-display text-xs sm:text-sm uppercase tracking-wider">
+                  <th class="py-3.5 px-4 border-r border-white/20 w-16 text-center">NO</th>
+                  <th class="py-3.5 px-4 border-r border-white/20 w-44">KATEGORI</th>
+                  <th class="py-3.5 px-5 border-r border-white/20">DESKRIPSI PELANGGARAN</th>
                   <th class="py-3.5 px-4 text-center w-28 text-cokro-gold">BOBOT POIN</th>
                 </tr>
               </thead>
@@ -399,14 +399,14 @@ import {
       <!-- ─── TAB 3: LEMBAR PENGESAHAN ─── -->
       <div id="tab-approval" class="tab-content space-y-10" style="display:none">
         <!-- Title Banner -->
-        <div class="bg-cokro-navy text-white rounded-card-lg p-6 sm:p-8 shadow-3d-solid text-center relative overflow-hidden">
-          <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
+        <div class="bg-cokro-header bg-doodle-pattern text-white rounded-card-lg p-6 sm:p-8 border-2 border-cokro-navy shadow-3d-solid text-center relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 opacity-15 pointer-events-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
-          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3">
+          <span class="inline-block px-3.5 py-1 bg-cokro-gold text-cokro-navy font-display font-extrabold text-xs rounded-pill uppercase tracking-widest mb-3 shadow-3d-solid">
             LEMBAR PENGESAHAN RESMI
           </span>
-          <h2 class="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-cokro-gold max-w-4xl mx-auto">
+          <h2 class="font-display font-black text-xl sm:text-2xl md:text-3xl text-white max-w-4xl mx-auto drop-shadow-[2px_2px_0_#0A2540]">
             LEMBAR PENGESAHAN TATA TERTIB PKKMB KM FV UNY 2026
           </h2>
         </div>
@@ -664,13 +664,13 @@ import {
     flex-shrink: 0;
   }
   .badge-letter-gold   { background: #F5C842; color: #0A2540; }
-  .badge-letter-navy   { background: #0A2540; color: #fff; }
+  .badge-letter-navy   { background: #0F52BA; color: #fff; }
   .badge-letter-red    { background: #dc2626; color: #fff; }
 
-  /* ─── Table Striping (fallback for Tailwind purge) ─── */
+  /* ─── Table Striping & Header Colors ─── */
   .tt-table tbody tr:nth-child(even) { background-color: #f8fafc; }
   .tt-table tbody tr:hover            { background-color: #f1f5f9; }
-  .tt-table thead tr                  { background-color: #0A2540; color: #fff; }
+  .tt-table thead tr                  { background-color: #0F52BA; color: #fff; background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23FFFFFF" fill-opacity="0.15" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E'); }
   .tt-table                           { border-collapse: collapse; }
   .tt-table th,
   .tt-table td                        { padding: 0.75rem 1rem; vertical-align: top; }

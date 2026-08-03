@@ -177,7 +177,7 @@ import {
             <table class="tt-table" style="width:100%; min-width:640px;">
               <thead>
                 <tr>
-                  <th class="col-cat">Kategori</th>
+                  <th class="col-cat col-gold-header">Kategori</th>
                   <th class="col-gold-header" style="width:45%">
                     <span class="inline-flex items-center gap-1.5">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -196,7 +196,7 @@ import {
                 {
                   DRESSCODE_TABLE.map((row) => (
                     <tr class="searchable-item">
-                      <td class="col-cat" style="background:#f1f5f9;">{row.category}</td>
+                      <td class="col-cat">{row.category}</td>
                       <td style="white-space:pre-line;">{row.male}</td>
                       <td style="white-space:pre-line;">{row.female}</td>
                     </tr>
@@ -281,10 +281,10 @@ import {
           <div class="overflow-x-auto no-scrollbar border-2 border-cokro-navy rounded-xl">
             <table class="w-full text-left border-collapse min-w-[600px]">
               <thead>
-                <tr class="bg-cokro-header bg-doodle-pattern text-white font-display text-xs sm:text-sm uppercase tracking-wider">
-                  <th class="py-3.5 px-4 border-r border-white/20 w-16 text-center">NO</th>
-                  <th class="py-3.5 px-4 border-r border-white/20 w-44">KATEGORI</th>
-                  <th class="py-3.5 px-5 border-r border-white/20">DESKRIPSI PELANGGARAN</th>
+                <tr class="bg-cokro-blue text-white font-display text-xs sm:text-sm uppercase tracking-wider">
+                  <th class="py-3.5 px-4 border-r border-white/20 w-16 text-center text-cokro-gold">NO</th>
+                  <th class="py-3.5 px-4 border-r border-white/20 w-44 text-cokro-gold">KATEGORI</th>
+                  <th class="py-3.5 px-5 border-r border-white/20 text-cokro-gold">DESKRIPSI PELANGGARAN</th>
                   <th class="py-3.5 px-4 text-center w-28 text-cokro-gold">BOBOT POIN</th>
                 </tr>
               </thead>
@@ -375,8 +375,8 @@ import {
             <table class="tt-table" style="width:100%; min-width:500px;">
               <thead>
                 <tr>
-                  <th class="col-no">NO</th>
-                  <th style="width:48%">PELANGGARAN KHUSUS</th>
+                  <th class="col-no col-gold-header">NO</th>
+                  <th class="col-gold-header" style="width:48%">PELANGGARAN KHUSUS</th>
                   <th class="col-gold-header" style="width:48%">TINDAKAN / SANKSI KHUSUS</th>
                 </tr>
               </thead>
@@ -667,10 +667,10 @@ import {
   .badge-letter-navy   { background: #0F52BA; color: #fff; }
   .badge-letter-red    { background: #dc2626; color: #fff; }
 
-  /* ─── Table Striping & Header Colors ─── */
+  /* ─── Table Striping & Header Colors (Polos) ─── */
   .tt-table tbody tr:nth-child(even) { background-color: #f8fafc; }
   .tt-table tbody tr:hover            { background-color: #f1f5f9; }
-  .tt-table thead tr                  { background-color: #0F52BA; color: #fff; background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23FFFFFF" fill-opacity="0.15" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E'); }
+  .tt-table thead tr                  { background-color: #0F52BA; color: #fff; }
   .tt-table                           { border-collapse: collapse; }
   .tt-table th,
   .tt-table td                        { padding: 0.75rem 1rem; vertical-align: top; }
@@ -681,7 +681,8 @@ import {
   .tt-table th + th, .tt-table td + td { border-left: 1px solid rgba(255,255,255,0.15); }
   .tt-table tbody td + td             { border-left: 1px solid #e2e8f0; }
   .tt-table tbody tr + tr             { border-top: 1px solid #e2e8f0; }
-  .tt-table .col-cat                  { font-weight: 600; color: #0A2540; width: 9rem; }
+  .tt-table .col-cat                  { font-weight: 700; color: #0F52BA; width: 9rem; }
+  .tt-table td.col-cat                 { background-color: #EBF4FF; color: #0F52BA; }
   .tt-table .col-gold-header          { color: #F5C842; }
 
   /* ─── Violation Points Badge Colors ─── */
@@ -703,7 +704,7 @@ import {
   .card-pair .number-badge {
     width: 1.75rem; height: 1.75rem; min-width: 1.75rem;
     border-radius: 9999px;
-    background: #0A2540; color: #fff;
+    background: #0F52BA; color: #fff;
     font-weight: 900; font-size: 0.75rem;
     display: inline-flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 0.125rem;

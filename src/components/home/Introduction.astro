@@ -1,5 +1,8 @@
 ---
 // Introduction.astro — Revised: compact mobile cards, cleaner layout
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 ---
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative" aria-labelledby="intro-title">
   <!-- Top wave divider -->
@@ -27,8 +30,43 @@
         </div>
       </div>
       <div class="w-full lg:w-1/2">
-        <div class="relative w-full rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg overflow-hidden bg-white group">
-          <img src="/Assets/photos/campus/intro-pkkmb.webp" alt="Kegiatan PKKMB Fakultas Vokasi UNY" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+        <!-- Swiper Slider TMTP -->
+        <div class="relative rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg overflow-hidden bg-cokro-navy">
+          <div class="swiper intro-tmtp-slider w-full h-56 sm:h-64 lg:h-72">
+            <div class="swiper-wrapper">
+              <!-- Slide 1: TMTP Kulon Progo -->
+              <div class="swiper-slide relative cursor-grab active:cursor-grabbing">
+                <img
+                  src="/Assets/photos/gallery/tmtp-kp.webp"
+                  alt="TMTP PKKMB KM FV UNY 2025 — Kampus Kulon Progo"
+                  class="w-full h-full object-cover select-none pointer-events-none"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cokro-navy/90 to-transparent px-4 py-3">
+                  <p class="text-white text-xs font-display font-bold uppercase tracking-widest">📍 TMTP · Kampus Kulon Progo</p>
+                </div>
+              </div>
+              <!-- Slide 2: TMTP Gunungkidul -->
+              <div class="swiper-slide relative cursor-grab active:cursor-grabbing">
+                <img
+                  src="/Assets/photos/gallery/tmtp-gk.webp"
+                  alt="TMTP PKKMB KM FV UNY 2025 — Kampus Gunungkidul"
+                  class="w-full h-full object-cover select-none pointer-events-none"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cokro-navy/90 to-transparent px-4 py-3">
+                  <p class="text-white text-xs font-display font-bold uppercase tracking-widest">📍 TMTP · Kampus Gunungkidul</p>
+                </div>
+              </div>
+            </div>
+            <!-- Pagination dots -->
+            <div class="intro-tmtp-pagination swiper-pagination"></div>
+            <!-- Navigation arrows -->
+            <div class="intro-tmtp-prev swiper-button-prev !text-white !drop-shadow-md"></div>
+            <div class="intro-tmtp-next swiper-button-next !text-white !drop-shadow-md"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -116,3 +154,42 @@
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+  function initIntroSlider() {
+    const sliderEl = document.querySelector(".intro-tmtp-slider");
+    if (sliderEl) {
+      new Swiper(".intro-tmtp-slider", {
+        modules: [Navigation, Pagination, Autoplay],
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        grabCursor: true,
+        simulateTouch: true,
+        allowTouchMove: true,
+        pagination: {
+          el: ".intro-tmtp-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".intro-tmtp-next",
+          prevEl: ".intro-tmtp-prev",
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initIntroSlider);
+  } else {
+    initIntroSlider();
+  }
+  document.addEventListener("astro:page-load", initIntroSlider);
+</script>

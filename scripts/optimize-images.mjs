@@ -6,7 +6,7 @@ import { join, extname, dirname, basename } from 'node:path';
 import sharp from 'sharp';
 
 const ROOT = join(process.cwd(), 'public', 'Assets');
-const MAX_WIDTH = 1280;
+const MAX_WIDTH = 700;
 const QUALITY = 75;
 
 let converted = 0;

@@ -18,12 +18,12 @@ TARGET_DIRS = [
 ]
 
 # Resolution rules based on folder/filepath
-MAX_PHOTO_DIM = 1920
-MAX_LOGO_DIM = 800
-MAX_OTHER_DIM = 1920
+MAX_PHOTO_DIM = 1280
+MAX_LOGO_DIM = 600
+MAX_OTHER_DIM = 1280
 
-QUALITY_WEBP = 75
-QUALITY_JPEG = 75
+QUALITY_WEBP = 72
+QUALITY_JPEG = 72
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 

@@ -68,7 +68,7 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-const SUPPORTED_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff', '.bmp'];
+const SUPPORTED_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.tif', '.tiff', '.bmp'];
 
 function getAllFiles(dirOrFile) {
   let fileList = [];

@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "optimize:images": "node scripts/optimize-images.mjs",
     "build": "npm run optimize:images && astro build && node scripts/cleanup-originals.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,10 +18,8 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
     "lucide-astro": "^0.556.0",
+    "sharp": "^0.35.3",
     "swiper": "^14.0.7",
     "tailwindcss": "^4.3.3"
-  },
-  "devDependencies": {
-    "sharp": "^0.35.3"
   }
 }

@@ -1,6 +1,10 @@
 ---
 // Navbar.astro — Dynamic active state + real assets
 import SocialIcons from './SocialIcons.astro';
+import { Image } from 'astro:assets';
+import logoPkkmb from '../../assets/logos/pkkmb/logo-pkkmbfv2026.svg';
+import logoCokro from '../../assets/logos/partners/logo-cokro.svg';
+
 const pathname = Astro.url.pathname;
 
 const navLinks = [
@@ -27,12 +31,11 @@ function isActive(href: string): boolean {
     <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="PKKMB FV UNY 2026 – Beranda">
       <!-- PKKMB logo bubble -->
       <div class="w-10 h-10 rounded-full bg-white/90 p-0.5 shadow flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-200">
-        <img src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg" alt="" aria-hidden="true" class="w-full h-full object-contain" />
+        <Image src={logoPkkmb} alt="" aria-hidden="true" class="w-full h-full object-contain" loading="eager" decoding="sync" />
       </div>
       <!-- Cokro logo + wordmark -->
       <div class="flex items-center gap-1.5">
-        <img src="/Assets/logos/partners/logo-cokro.svg" alt="" aria-hidden="true"
-             class="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200" />
+        <Image src={logoCokro} alt="" aria-hidden="true" class="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200" loading="eager" decoding="sync" />
         <div class="leading-[1.1] text-white hidden sm:block select-none">
           <span class="font-extrabold text-[10px] tracking-widest uppercase block font-display">COKRO</span>
           <span class="font-extrabold text-[10px] tracking-widest uppercase block font-display">AKSATA</span>

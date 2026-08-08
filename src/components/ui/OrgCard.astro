@@ -1,5 +1,7 @@
 ---
 // OrgCard.astro — Generic card for Ormawa & UKM — navigates to detail page
+import { Image } from 'astro:assets';
+
 interface Props {
   id: string;
   name: string;
@@ -19,6 +21,11 @@ const badgeClasses: Record<string, string> = {
   sky:  'bg-cokro-sky text-white',
 };
 
+// Peta gambar lokal dari src/assets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp,svg}', { eager: true });
+const cardImageObj = cardImage ? (images[cardImage]?.default || cardImage) : undefined;
+const logoObj = images[logo]?.default || logo;
+
 const hasImage = !!cardImage;
 ---
 
@@ -31,16 +38,19 @@ const hasImage = !!cardImage;
   <!-- Card Header Photo / Thumbnail -->
   <div class="relative w-full h-44 sm:h-48 overflow-hidden" style={!hasImage ? 'background: linear-gradient(135deg, #0A2540 0%, #0F52BA 60%, #38BDF8 100%)' : ''}>
     {hasImage ? (
-      <img
-        src={cardImage}
+      <Image
+        src={cardImageObj!}
         alt={`Foto ${name}`}
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         loading="lazy"
         decoding="async"
+        width={800}
+        height={480}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     ) : (
       <div class="w-full h-full flex items-center justify-center">
-        <img src={logo} alt={`Logo ${name}`} class="w-24 h-24 object-contain opacity-30" loading="lazy" decoding="async" />
+        <Image src={logoObj} alt={`Logo ${name}`} class="w-24 h-24 object-contain opacity-30" loading="lazy" decoding="async" width={96} height={96} />
       </div>
     )}
     <div class="absolute inset-0 bg-gradient-to-t from-cokro-navy/80 via-transparent to-transparent"></div>
@@ -55,7 +65,7 @@ const hasImage = !!cardImage;
   <div class="relative pt-12 pb-6 px-6 flex-1 flex flex-col">
     <!-- Logo (oversized floating badge overlapping image) -->
     <div class="absolute -top-10 left-6 w-20 h-20 bg-white rounded-full border-4 border-cokro-navy shadow-3d-solid flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 z-20">
-      <img src={logo} alt={`Logo ${name}`} class="w-14 h-14 object-contain" loading="lazy" decoding="async" />
+      <Image src={logoObj} alt={`Logo ${name}`} class="w-14 h-14 object-contain" loading="lazy" decoding="async" width={56} height={56} />
     </div>
 
     <!-- Name & Short Name -->

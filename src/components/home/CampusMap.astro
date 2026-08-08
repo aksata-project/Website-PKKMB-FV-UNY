@@ -69,15 +69,28 @@
 </section>
 
 <script>
-  document.querySelectorAll('[data-maps-facade]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.src = btn.dataset.src;
-      iframe.className = 'absolute top-0 left-0 w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-500';
-      iframe.allowfullscreen = true;
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      iframe.title = btn.getAttribute('aria-label')?.replace('Muat ', '') ?? 'Peta Kampus';
-      btn.replaceWith(iframe);
+  function initMapsFacade() {
+    document.querySelectorAll('[data-maps-facade]').forEach((btn) => {
+      // Hapus listener lama jika ada (dengan mereplace tombol dengan clone)
+      const newBtn = btn.cloneNode(true) as HTMLElement;
+      btn.parentNode?.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = newBtn.dataset.src || '';
+        iframe.className = 'absolute top-0 left-0 w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-500';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        iframe.title = newBtn.getAttribute('aria-label')?.replace('Muat ', '') ?? 'Peta Kampus';
+        newBtn.replaceWith(iframe);
+      });
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMapsFacade);
+  } else {
+    initMapsFacade();
+  }
+  document.addEventListener('astro:page-load', initMapsFacade);
 </script>

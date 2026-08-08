@@ -5,53 +5,69 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
-// Gallery images — Arsip Dokumentasi PKKMB KM FV UNY 2025
+import { Image } from "astro:assets";
+
+// Ambil semua foto galeri dari src/assets
+const galleryGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/photos/gallery/*.webp",
+  { eager: true },
+);
+
 const galleryImages = [
   {
-    src: "/Assets/photos/gallery/pkkmb-uny-1.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-uny-1.webp"]?.default,
     alt: "Dokumentasi PKKMB KM FV UNY 2025 — Momen Kebersamaan #1",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-kp-1.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-1.webp"]?.default,
     alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #1",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-kp-2.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-2.webp"]?.default,
     alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #2",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-kp-3.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-3.webp"]?.default,
     alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #3",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-kp-gk-1.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-gk-1.webp"]?.default,
     alt: "Dokumentasi PKKMB KM FV UNY 2025 — Kampus KP & GK #1",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-kp-gk-2.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-gk-2.webp"]?.default,
     alt: "Dokumentasi PKKMB KM FV UNY 2025 — Kampus KP & GK #2",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-gunkid-1.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gunkid-1.webp"]?.default,
     alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Gunungkidul #1",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-gunkid-3.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gunkid-3.webp"]?.default,
     alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Gunungkidul #2",
   },
   {
-    src: "/Assets/photos/gallery/pkkmb-gk-2.webp",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gk-2.webp"]?.default,
     alt: "Antusiasme Peserta PKKMB KM FV UNY 2025 — Gunungkidul",
   },
   {
-    src: "/Assets/photos/gallery/tmtp-kp.webp",
+    src: galleryGlob["/src/assets/photos/gallery/tmtp-kp.webp"]?.default,
     alt: "Sesi TMTP PKKMB KM FV UNY 2025 — Kampus Kulon Progo",
   },
   {
-    src: "/Assets/photos/gallery/tmtp-gk.webp",
+    src: galleryGlob["/src/assets/photos/gallery/tmtp-gk.webp"]?.default,
     alt: "Sesi TMTP PKKMB KM FV UNY 2025 — Kampus Gunungkidul",
   },
-];
+].filter((item): item is { src: ImageMetadata; alt: string } =>
+  Boolean(item.src),
+);
+
+// Maskot FV
+const mascotGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{webp,png,jpg,svg}",
+  { eager: true },
+);
+const mascotObj = mascotGlob["/src/assets/images/maskot-fv.webp"]?.default;
 ---
 
 <section
@@ -60,27 +76,61 @@ const galleryImages = [
   aria-labelledby="welcome-title"
 >
   <!-- Mixed decorative background -->
-  <div class="absolute inset-0 bg-doodle-pattern opacity-[0.08] pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute -left-20 top-20 h-56 w-56 rounded-full bg-cokro-gold/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-cokro-sky/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute right-[8%] top-24 hidden h-24 w-24 rounded-full border-4 border-cokro-blue/20 sm:block" aria-hidden="true"></div>
-  <div class="absolute left-[8%] top-48 hidden text-4xl text-cokro-gold/70 sm:block" aria-hidden="true">✦</div>
-  <div class="absolute right-[12%] bottom-32 hidden text-3xl text-cokro-blue/40 sm:block" aria-hidden="true">✦</div>
+  <div
+    class="absolute inset-0 bg-doodle-pattern opacity-[0.08] pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute -left-20 top-20 h-56 w-56 rounded-full bg-cokro-gold/20 blur-3xl pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-cokro-sky/20 blur-3xl pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute right-[8%] top-24 hidden h-24 w-24 rounded-full border-4 border-cokro-blue/20 sm:block"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute left-[8%] top-48 hidden text-4xl text-cokro-gold/70 sm:block"
+    aria-hidden="true"
+  >
+    ✦
+  </div>
+  <div
+    class="absolute right-[12%] bottom-32 hidden text-3xl text-cokro-blue/40 sm:block"
+    aria-hidden="true"
+  >
+    ✦
+  </div>
 
-  <!-- LARGE PEEKING MASCOT FROM RIGHT SIDE EDGE (Head & Upper Body Only) -->
-  <!-- Mobile: z-0 (behind text), opacity 40%, pushed further right (-right-24). Desktop: z-30, full opacity -->
+  <!-- PEEKING & FLOATING MASCOT ON RIGHT SIDE -->
   <div
     id="mascot-peeking-container"
-    class="pointer-events-none absolute -right-24 top-4 sm:-right-28 sm:top-2 md:-right-36 md:top-4 lg:-right-48 lg:top-6 xl:-right-56 z-0 sm:z-30 opacity-40 sm:opacity-100 w-52 sm:w-96 md:w-[480px] lg:w-[580px] xl:w-[640px]"
+    class="pointer-events-none absolute right-2 sm:right-6 md:right-10 lg:right-16 top-4 sm:top-6 z-20 w-40 sm:w-64 md:w-80 lg:w-96 opacity-100"
     aria-hidden="true"
   >
     <div class="mascot-tilt-wrapper transition-transform duration-700 ease-out">
-      <img
-        src="/Assets/images/maskot-fv.webp"
-        alt="Maskot Fakultas Vokasi UNY"
-        class="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(10,37,64,0.35)]"
-        loading="lazy"
-      />
+      {
+        mascotObj ? (
+          <Image
+            src={mascotObj}
+            alt="Maskot Fakultas Vokasi UNY"
+            class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(10,37,64,0.3)]"
+            loading="lazy"
+          />
+        ) : (
+          <div class="w-full h-64 border-2 border-dashed border-cokro-gold/40 rounded-card-md flex items-center justify-center text-xs text-cokro-navy/70 p-4 text-center bg-cokro-tint/50 backdrop-blur-sm">
+            📌 Upload <code>maskot-fv.webp</code> ke{" "}
+            <code>src/assets/images/</code>
+          </div>
+        )
+      }
     </div>
   </div>
 
@@ -103,8 +153,17 @@ const galleryImages = [
         Selamat datang di keluarga besar Fakultas Vokasi Universitas Negeri
         Yogyakarta!<br />
       </p>
-      <svg class="mx-auto mt-5 h-7 w-36 text-cokro-blue" viewBox="0 0 144 28" fill="none" aria-hidden="true">
-        <path d="M4 14c14-18 24 18 38 0s24 18 38 0 24 18 38 0 14 6 22 0" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+      <svg
+        class="mx-auto mt-5 h-7 w-36 text-cokro-blue"
+        viewBox="0 0 144 28"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M4 14c14-18 24 18 38 0s24 18 38 0 24 18 38 0 14 6 22 0"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"></path>
       </svg>
     </div>
 
@@ -167,11 +226,13 @@ const galleryImages = [
             {
               galleryImages.map((img) => (
                 <div class="swiper-slide w-full h-full cursor-grab active:cursor-grabbing">
-                  <img
+                  <Image
                     src={img.src}
                     alt={img.alt}
                     loading="lazy"
                     class="w-full h-full object-cover select-none pointer-events-none"
+                    width={800}
+                    height={450}
                   />
                 </div>
               ))
@@ -184,9 +245,6 @@ const galleryImages = [
           <div class="swiper-button-next !text-white !drop-shadow-md"></div>
         </div>
       </div>
-      <p class="mt-3 text-xs font-body text-cokro-text-muted text-center">
-        Scroll foto → klik untuk diperbesar. Dokumentasi resmi PKKMB FV UNY.
-      </p>
     </div>
   </div>
 </section>
@@ -210,7 +268,7 @@ const galleryImages = [
             }
           });
         },
-        { threshold: 0 }
+        { threshold: 0 },
       );
       observer.observe(welcomeSection);
       // Immediate check if already visible on load
@@ -255,41 +313,24 @@ const galleryImages = [
 </script>
 
 <style>
-  /* Large Peeking Mascot Entrance from Right Screen Edge (Tilting Left -35deg) */
+  /* Mascot Entrance & Swaying Animation */
   .mascot-tilt-wrapper {
-    transform: translateX(160px) translateY(-20px) rotate(-35deg) scale(0.85);
-    opacity: 0;
+    opacity: 1;
+    transform: rotate(-15deg);
+    animation: mascot-sway-idle 4s ease-in-out infinite;
   }
 
   #mascot-peeking-container.is-visible .mascot-tilt-wrapper {
-    animation: mascot-pop-in 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-               mascot-sway-idle 4s ease-in-out infinite 1.2s;
-  }
-
-  @keyframes mascot-pop-in {
-    0% {
-      transform: translateX(180px) translateY(-30px) rotate(-45deg) scale(0.8);
-      opacity: 0;
-    }
-    65% {
-      transform: translateX(-15px) translateY(5px) rotate(-28deg) scale(1.04);
-      opacity: 1;
-    }
-    85% {
-      transform: translateX(8px) translateY(-2px) rotate(-37deg) scale(0.98);
-    }
-    100% {
-      transform: translateX(0) translateY(0) rotate(-35deg) scale(1);
-      opacity: 1;
-    }
+    animation: mascot-sway-idle 4s ease-in-out infinite;
   }
 
   @keyframes mascot-sway-idle {
-    0%, 100% {
-      transform: translateX(0px) translateY(0px) rotate(-35deg);
+    0%,
+    100% {
+      transform: translateY(0px) rotate(-15deg);
     }
     50% {
-      transform: translateX(-10px) translateY(-16px) rotate(-28deg);
+      transform: translateY(-12px) rotate(-8deg);
     }
   }
 </style>

@@ -6,6 +6,7 @@ import Navbar from '../../components/layout/Navbar.astro';
 import Footer from '../../components/layout/Footer.astro';
 import PageHeader from '../../components/ui/PageHeader.astro';
 import { orgs, getOrgById } from '../../data/orgs';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   return orgs
@@ -25,12 +26,17 @@ const badgeColorMap: Record<string, string> = {
   blue: 'bg-cokro-blue text-white',
   sky:  'bg-cokro-sky text-white',
 };
+
+// Peta gambar lokal dari src/assets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp,svg}', { eager: true });
+const logoObj = images[org.logo]?.default || org.logo;
+const headerPreloadSrc = org.headerImage ? (images[org.headerImage]?.default?.src ?? org.headerImage) : undefined;
 ---
 
 <BaseLayout
   title={`${org.name} — PKKMB FV UNY 2026`}
   description={`Profil ${org.name} (${org.shortName}) — Unit Kegiatan Mahasiswa Fakultas Vokasi UNY.`}
-  preloadImages={org.headerImage ? [org.headerImage] : []}
+  preloadImages={headerPreloadSrc ? [headerPreloadSrc] : []}
 >
   <Navbar />
 
@@ -54,7 +60,7 @@ const badgeColorMap: Record<string, string> = {
         <section class="relative overflow-hidden bg-white rounded-card-lg border-2 border-cokro-navy shadow-3d-solid-lg p-7 md:p-10 grid md:grid-cols-[auto_1fr] items-center gap-7 md:gap-10">
           <div class="absolute -right-16 -top-16 w-52 h-52 rounded-full border-[18px] border-cokro-gold/25 pointer-events-none"></div>
           <div class="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full bg-cokro-tint border-4 border-cokro-navy shadow-3d-solid flex items-center justify-center">
-            <img src={org.logo} alt={`Logo ${org.name}`} class="w-24 h-24 md:w-28 md:h-28 object-contain" loading="lazy" decoding="async" />
+            <Image src={logoObj} alt={`Logo ${org.name}`} class="w-24 h-24 md:w-28 md:h-28 object-contain" loading="lazy" decoding="async" width={112} height={112} />
           </div>
           <div class="relative">
             <span class={`inline-block mb-2 px-4 py-1 rounded-pill text-xs font-extrabold uppercase tracking-widest border-2 border-cokro-navy ${badgeColorMap[org.badgeColor]}`}>{org.badge}</span>
@@ -71,20 +77,26 @@ const badgeColorMap: Record<string, string> = {
           </div>
           {org.gallery && org.gallery.length > 0 ? (
             <div class="gallery-carousel flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2">
-              {org.gallery.slice(0, 3).map((imgUrl, idx) => (
-                <div class="group relative w-full flex-none snap-start rounded-card-md border-2 border-cokro-navy shadow-3d-solid overflow-hidden bg-cokro-navy aspect-[4/3] md:aspect-[16/9]">
-                  <img
-                    src={imgUrl}
-                    alt={`Dokumentasi ${org.name} #${idx + 1}`}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-cokro-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span class="text-xs font-bold text-white uppercase tracking-wider">Dokumentasi {String(idx + 1).padStart(2, '0')}</span>
+              {org.gallery.slice(0, 3).map((imgUrl, idx) => {
+                const imgObj = images[imgUrl]?.default || imgUrl;
+                return (
+                  <div class="group relative w-full flex-none snap-start rounded-card-md border-2 border-cokro-navy shadow-3d-solid overflow-hidden bg-cokro-navy aspect-[4/3] md:aspect-[16/9]">
+                    <Image
+                      src={imgObj}
+                      alt={`Dokumentasi ${org.name} #${idx + 1}`}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width={800}
+                      height={600}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-cokro-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <span class="text-xs font-bold text-white uppercase tracking-wider">Dokumentasi {String(idx + 1).padStart(2, '0')}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div class="bg-white rounded-card-md border-2 border-dashed border-cokro-navy/30 p-8 text-center flex flex-col items-center justify-center">

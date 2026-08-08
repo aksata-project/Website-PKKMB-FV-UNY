@@ -1,25 +1,63 @@
 ---
-// Hero.astro — Revised with "2026" text, decorative elements, better visual
+// Hero.astro — Revised: Clean 3D Pop Style, No Overflow, Dynamic Assets
+import { Image } from "astro:assets";
+import logoPkkmb from "../../assets/logos/pkkmb/logo-pkkmbfv2026.svg";
+import maskotFv from "../../assets/images/maskot-fv.webp";
+
+const bgGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/illustrations/background/*.{webp,png,jpg,svg}",
+  { eager: true },
+);
+const wordsGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/illustrations/words/*.{webp,png,jpg,svg}",
+  { eager: true },
+);
+
+const bgObj =
+  bgGlob["/src/assets/illustrations/background/home-bg.webp"]?.default;
+const ctaObj =
+  wordsGlob["/src/assets/illustrations/words/home-cta1.webp"]?.default;
 ---
 
 <section
   class="relative min-h-[100vh] flex flex-col items-center justify-center pt-24 pb-40 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
-  style="background-image: url('/Assets/illustrations/background/home-bg.webp');"
+  style={bgObj ? `background-image: url('${bgObj.src}');` : undefined}
   aria-label="Hero Section"
 >
   <!-- Light overlay -->
   <div class="absolute inset-0 pointer-events-none bg-white/5 z-0"></div>
 
   <!-- Animated clouds -->
-  <div class="hero-clouds absolute inset-0 z-[1] overflow-hidden pointer-events-none" aria-hidden="true">
-    <svg class="hero-cloud hero-cloud-one" viewBox="0 0 260 100" aria-hidden="true">
-      <path d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z" fill="#3B82F6" />
+  <div
+    class="hero-clouds absolute inset-0 z-[1] overflow-hidden pointer-events-none"
+    aria-hidden="true"
+  >
+    <svg
+      class="hero-cloud hero-cloud-one"
+      viewBox="0 0 260 100"
+      aria-hidden="true"
+    >
+      <path
+        d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z"
+        fill="#3B82F6"></path>
     </svg>
-    <svg class="hero-cloud hero-cloud-two" viewBox="0 0 260 100" aria-hidden="true">
-      <path d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z" fill="#3B82F6" />
+    <svg
+      class="hero-cloud hero-cloud-two"
+      viewBox="0 0 260 100"
+      aria-hidden="true"
+    >
+      <path
+        d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z"
+        fill="#3B82F6"></path>
     </svg>
-    <svg class="hero-cloud hero-cloud-three" viewBox="0 0 260 100" aria-hidden="true">
-      <path d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z" fill="#3B82F6" />
+    <svg
+      class="hero-cloud hero-cloud-three"
+      viewBox="0 0 260 100"
+      aria-hidden="true"
+    >
+      <path
+        d="M28 76C12 76 2 66 2 52c0-13 10-24 23-25C31 11 44 1 61 1c18 0 33 12 37 29 5-4 12-6 19-6 17 0 30 12 31 28 13 1 23 11 23 24H28Z"
+        fill="#3B82F6"></path>
     </svg>
   </div>
 
@@ -77,34 +115,60 @@
   <!-- Mixed graphic elements -->
   <div
     class="hero-mix-shape absolute left-[6%] top-[28%] h-20 w-20 rotate-12 rounded-[42%_58%_62%_38%/55%_38%_62%_45%] bg-cokro-gold/25 shadow-[6px_6px_0_#0A2540]/20 pointer-events-none z-[2]"
-  ></div>
+  >
+  </div>
   <div
     class="hero-mix-shape hero-mix-shape-secondary absolute right-[7%] bottom-[28%] h-28 w-28 -rotate-12 rounded-[58%_42%_38%_62%/45%_62%_38%_55%] border-4 border-cokro-blue/30 pointer-events-none z-[2]"
-  ></div>
+  >
+  </div>
   <svg
     class="absolute left-[14%] bottom-[24%] h-16 w-28 text-cokro-gold/70 pointer-events-none z-[2]"
     viewBox="0 0 120 60"
     fill="none"
     aria-hidden="true"
   >
-    <path d="M4 42c12-30 22 30 34 0s22 30 34 0 22 30 44-6" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+    <path
+      d="M4 42c12-30 22 30 34 0s22 30 34 0 22 30 44-6"
+      stroke="currentColor"
+      stroke-width="5"
+      stroke-linecap="round"></path>
   </svg>
 
   <div
     class="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center"
   >
-    <!-- Main Title Image -->
+    <!-- Official PKKMB Logo Badge -->
     <div
-      class="mb-0 w-full max-w-4xl px-2 transform hover:scale-105 transition-transform duration-500"
+      class="mb-3 transform hover:scale-105 transition-transform duration-300"
     >
-      <img
-        src="/Assets/illustrations/words/home-cta1.webp"
-        alt="PKKMB FV UNY 2026"
-        class="w-full h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+      <Image
+        src={logoPkkmb}
+        alt="Logo Resmi PKKMB FV UNY 2026"
+        class="w-24 sm:w-32 md:w-40 lg:w-48 h-auto object-contain drop-shadow-xl"
         loading="eager"
-        fetchpriority="high"
-        decoding="async"
+        decoding="sync"
       />
+    </div>
+
+    <!-- Main Title Banner Image (Take The Leap Artwork) - ENLARGED -->
+    <div
+      class="mb-2 w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl px-2 transform hover:scale-105 transition-transform duration-500 flex justify-center"
+    >
+      {
+        ctaObj ? (
+          <Image
+            src={ctaObj}
+            alt="PKKMB FV UNY 2026 - Take The Leap, Chase Your Dream"
+            class="w-full h-auto object-contain max-h-[160px] sm:max-h-[220px] md:max-h-[280px] lg:max-h-[340px] drop-shadow-[6px_6px_0_#0A2540]"
+            loading="eager"
+            decoding="sync"
+          />
+        ) : (
+          <div class="px-8 py-3 bg-cokro-gold text-cokro-navy rounded-pill font-display font-black text-base sm:text-xl uppercase tracking-widest border-4 border-cokro-navy shadow-3d-solid">
+            Take The Leap, Chase Your Dream
+          </div>
+        )
+      }
     </div>
 
     <!-- "2025" large floating badge -->
@@ -152,7 +216,8 @@
           class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="days">00</span
         >
-        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
+        <span
+          class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Hari</span
         >
       </div>
@@ -164,7 +229,8 @@
           class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="hours">00</span
         >
-        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
+        <span
+          class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Jam</span
         >
       </div>
@@ -176,7 +242,8 @@
           class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="minutes">00</span
         >
-        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
+        <span
+          class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Menit</span
         >
       </div>
@@ -188,7 +255,8 @@
           class="font-display font-black text-2xl sm:text-4xl md:text-5xl text-cokro-blue countdown-value tabular-nums leading-none mb-1"
           id="seconds">00</span
         >
-        <span class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
+        <span
+          class="text-[10px] sm:text-xs font-black text-cokro-navy uppercase tracking-wider"
           >Detik</span
         >
       </div>
@@ -208,8 +276,7 @@
     >
       <path
         d="M0,45 C140,110 290,105 450,42 C600,-20 760,12 900,65 C1030,112 1125,106 1200,35 V120 H0 Z"
-        class="fill-white"
-      ></path>
+        class="fill-white"></path>
     </svg>
   </div>
 </section>
@@ -248,7 +315,13 @@
     update();
     setInterval(update, 1000);
   }
-  document.addEventListener("DOMContentLoaded", initCountdown);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCountdown);
+  } else {
+    initCountdown();
+  }
+  document.addEventListener("astro:page-load", initCountdown);
 </script>
 <style>
   .hero-cloud {
@@ -297,33 +370,59 @@
   }
 
   @keyframes hero-mix-float {
-    0%, 100% { transform: translateY(0) rotate(12deg); }
-    50% { transform: translateY(-14px) rotate(18deg); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(12deg);
+    }
+    50% {
+      transform: translateY(-14px) rotate(18deg);
+    }
   }
 
   @keyframes hero-mix-float-secondary {
-    0%, 100% { transform: translateY(0) rotate(-12deg); }
-    50% { transform: translateY(12px) rotate(-6deg); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(-12deg);
+    }
+    50% {
+      transform: translateY(12px) rotate(-6deg);
+    }
   }
 
   @keyframes hero-cloud-drift-one {
-    from { transform: translateX(0) translateY(0); }
-    to { transform: translateX(135vw) translateY(-18px); }
+    from {
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      transform: translateX(135vw) translateY(-18px);
+    }
   }
 
   @keyframes hero-cloud-drift-two {
-    from { transform: translateX(0) translateY(0); }
-    to { transform: translateX(140vw) translateY(14px); }
+    from {
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      transform: translateX(140vw) translateY(14px);
+    }
   }
 
   @keyframes hero-cloud-drift-three {
-    from { transform: translateX(0) translateY(0); }
-    to { transform: translateX(138vw) translateY(-10px); }
+    from {
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      transform: translateX(138vw) translateY(-10px);
+    }
   }
 
   @keyframes hero-wave-sway {
-    from { transform: translateX(-1.5%) scaleX(1.02); }
-    to { transform: translateX(1.5%) scaleX(1.04); }
+    from {
+      transform: translateX(-1.5%) scaleX(1.02);
+    }
+    to {
+      transform: translateX(1.5%) scaleX(1.04);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

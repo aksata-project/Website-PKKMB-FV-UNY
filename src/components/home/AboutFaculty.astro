@@ -1,121 +1,377 @@
 ---
 // AboutFaculty.astro
-import 'swiper/css';
-import 'swiper/css/autoplay';
+import { Image } from "astro:assets";
 
 const stats = [
-  { value: "1.200+", label: "Mahasiswa Baru" },
+  { value: "1.300+", label: "Mahasiswa Baru" },
   { value: "14", label: "Program Studi" },
   { value: "9", label: "Ormawa" },
-  { value: "6", label: "UKM" }
+  { value: "6", label: "UKM" },
 ];
 
-// Actual logos from public/Assets/logos/ormawa
+// Logos ormawa (9)
+import logoBem from "../../assets/logos/ormawa/logo-bem.webp";
+import logoDpm from "../../assets/logos/ormawa/logo-dpm.webp";
+import logoHimanagari from "../../assets/logos/ormawa/logo-himanagari.webp";
+import logoHimatabona from "../../assets/logos/ormawa/logo-himatabona.webp";
+import logoHmdbk from "../../assets/logos/ormawa/logo-hmdbk.webp";
+import logoHmdtm from "../../assets/logos/ormawa/logo-hmdtm.webp";
+import logoHmdts from "../../assets/logos/ormawa/logo-hmdts.webp";
+import logoHmok from "../../assets/logos/ormawa/logo-hmok.webp";
+import logoHmve from "../../assets/logos/ormawa/logo-hmve.webp";
+
+// Logos ukm (6)
+import logoBaiturrahman from "../../assets/logos/ukm/logo-ukm-baiturrahman.webp";
+import logoKesenian from "../../assets/logos/ukm/logo-ukm-kesenian.webp";
+import logoKsr from "../../assets/logos/ukm/logo-ukm-ksr.webp";
+import logoKwu from "../../assets/logos/ukm/logo-ukm-kwu.webp";
+import logoOlahraga from "../../assets/logos/ukm/logo-ukm-olahraga.webp";
+import logoReaction from "../../assets/logos/ukm/logo-ukm-reaction.webp";
+
+// Foto kampus dari src/assets
+import campusKp1 from "../../assets/photos/campus/kulon-progo-1.webp";
+import campusKp2 from "../../assets/photos/campus/kulon-progo-2.webp";
+import campusGk1 from "../../assets/photos/campus/gunungkidul-1.webp";
+import campusGk2 from "../../assets/photos/campus/gunungkidul-2.webp";
+
 const logos = [
-  "/Assets/logos/ormawa/logo-bem.svg",
-  "/Assets/logos/ormawa/logo-dpm.svg",
-  "/Assets/logos/ormawa/logo-himanagari.svg",
-  "/Assets/logos/ormawa/logo-himatabona.svg",
-  "/Assets/logos/ormawa/logo-hmdbk.svg",
-  "/Assets/logos/ormawa/logo-hmdtm.svg",
-  "/Assets/logos/ormawa/logo-hmdts.svg",
-  "/Assets/logos/ormawa/logo-hmok.svg",
-  "/Assets/logos/ormawa/logo-hmve.svg"
+  // 9 Ormawa
+  { src: logoBem, alt: "Logo BEM FV UNY", title: "BEM FV UNY" },
+  { src: logoDpm, alt: "Logo DPM FV UNY", title: "DPM KM FV UNY" },
+  { src: logoHimanagari, alt: "Logo HIMA Nagari", title: "HIMA Nagari" },
+  { src: logoHimatabona, alt: "Logo HIMA Tabona", title: "HIMA Tabona" },
+  { src: logoHmdbk, alt: "Logo HIMA DBK", title: "HIMA DBK" },
+  { src: logoHmdtm, alt: "Logo HMDTM", title: "HMDTM" },
+  { src: logoHmdts, alt: "Logo HMDTS", title: "HMDTS" },
+  { src: logoHmok, alt: "Logo HIMA Orkes", title: "HIMA Orkes" },
+  { src: logoHmve, alt: "Logo HMVE", title: "HMVE" },
+  // 6 UKM
+  { src: logoReaction, alt: "Logo UKM Reaction", title: "UKM Reaction" },
+  {
+    src: logoBaiturrahman,
+    alt: "Logo UKM Baiturrahman",
+    title: "UKM Baiturrahman",
+  },
+  { src: logoKesenian, alt: "Logo UKM Kesenian", title: "UKM Kesenian" },
+  { src: logoKsr, alt: "Logo UKM KSR PMI", title: "UKM KSR PMI" },
+  { src: logoKwu, alt: "Logo UKM Kewirausahaan", title: "UKM KWU" },
+  { src: logoOlahraga, alt: "Logo UKM Olahraga", title: "UKM Olahraga" },
 ];
 ---
-<section class="py-24 px-4 sm:px-6 lg:px-8 bg-cokro-blue relative overflow-hidden" aria-labelledby="about-title">
+
+<section
+  class="py-24 px-4 sm:px-6 lg:px-8 bg-cokro-blue relative overflow-hidden"
+  aria-labelledby="about-title"
+>
   <!-- Doodle Overlay -->
-  <div class="absolute inset-0 bg-doodle-pattern opacity-10 pointer-events-none"></div>
+  <div
+    class="absolute inset-0 bg-doodle-pattern opacity-10 pointer-events-none"
+  >
+  </div>
 
   <div class="max-w-7xl mx-auto relative z-10">
     <div class="text-center mb-16">
-      <h2 id="about-title" class="font-display font-bold text-4xl md:text-5xl text-white mb-6" style="-webkit-text-stroke: 2px #0A2540; text-shadow: 4px 4px 0px #0A2540;">
+      <h2
+        id="about-title"
+        class="font-display font-bold text-4xl md:text-5xl text-white mb-6"
+        style="-webkit-text-stroke: 2px #0A2540; text-shadow: 4px 4px 0px #0A2540;"
+      >
         Tentang Fakultas Vokasi UNY
       </h2>
       <p class="font-body text-lg text-cokro-tint max-w-3xl mx-auto">
-        Berpusat pada ilmu terapan dan keterampilan praktis, Fakultas Vokasi UNY siap mencetak lulusan handal yang dibutuhkan oleh industri global masa depan.
+        Berpusat pada ilmu terapan dan keterampilan praktis, Fakultas Vokasi UNY
+        siap mencetak lulusan handal yang dibutuhkan oleh industri global masa
+        depan.
       </p>
     </div>
 
     <!-- Stats Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
-      {stats.map(stat => (
-        <div class="bg-white rounded-card-md border-4 border-cokro-navy shadow-3d-solid-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-          <div class="font-display font-black text-4xl md:text-5xl text-cokro-gold mb-2" style="-webkit-text-stroke: 1px #0A2540;">{stat.value}</div>
-          <div class="font-body font-bold text-cokro-navy text-sm md:text-base uppercase tracking-wider">{stat.label}</div>
-        </div>
-      ))}
+      {
+        stats.map((stat) => (
+          <div class="bg-white rounded-card-md border-4 border-cokro-navy shadow-3d-solid-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="font-display font-black text-4xl md:text-5xl text-cokro-gold mb-2"
+              style="-webkit-text-stroke: 1px #0A2540;"
+            >
+              {stat.value}
+            </div>
+            <div class="font-body font-bold text-cokro-navy text-sm md:text-base uppercase tracking-wider">
+              {stat.label}
+            </div>
+          </div>
+        ))
+      }
     </div>
 
     <!-- Sejarah Fakultas Vokasi -->
     <div class="mb-24 space-y-16">
       <div class="text-center mb-12">
-        <h3 class="font-display font-bold text-3xl md:text-4xl text-white mb-4" style="-webkit-text-stroke: 1px #0A2540; text-shadow: 2px 2px 0px #0A2540;">Sejarah Fakultas Vokasi</h3>
-        <p class="font-body text-cokro-tint max-w-2xl mx-auto">Mengenal lebih dekat perjalanan Fakultas Vokasi UNY di Kampus Kulon Progo dan Gunung Kidul.</p>
+        <h3
+          class="font-display font-bold text-3xl md:text-4xl text-white mb-4"
+          style="-webkit-text-stroke: 1px #0A2540; text-shadow: 2px 2px 0px #0A2540;"
+        >
+          Sejarah Fakultas Vokasi
+        </h3>
+        <p class="font-body text-cokro-tint max-w-2xl mx-auto">
+          Mengenal lebih dekat perjalanan Fakultas Vokasi UNY di Kampus Kulon
+          Progo dan Gunung Kidul.
+        </p>
       </div>
 
       <!-- Kampus Kulon Progo -->
-      <div class="relative overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-white p-5 shadow-3d-solid-lg sm:p-8 lg:p-10">
-        <div class="absolute top-0 left-0 w-full h-4 bg-cokro-gold border-b-4 border-cokro-navy"></div>
-        <h4 class="font-display font-bold text-2xl text-cokro-navy mb-8 text-center mt-2">Kampus Kulon Progo</h4>
+      <div
+        class="relative overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-white p-5 shadow-3d-solid-lg sm:p-8 lg:p-10"
+      >
+        <div
+          class="absolute top-0 left-0 w-full h-4 bg-cokro-gold border-b-4 border-cokro-navy"
+        >
+        </div>
+        <h4
+          class="font-display font-bold text-2xl text-cokro-navy mb-8 text-center mt-2"
+        >
+          Kampus Kulon Progo
+        </h4>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
           <!-- Paragraf di kiri -->
-          <div class="max-w-3xl space-y-4 text-cokro-navy font-body text-[13px] text-justify leading-7 sm:text-sm lg:col-span-3">
-            <p>Sejarah Fakultas Vokasi UNY Kampus Kulon Progo diawali dari pengalihan fungsi gedung Sekolah Guru Olahraga (SGO) yang berlokasi di Dusun Serut, Kalurahan Pengasih, Kapanewon Pengasih, Kabupaten Kulon Progo. Kompleks gedung yang sebelumnya telah dibekukan pemerintah sejak tahun 1992 ini resmi dialihfungsikan pada tahun 2000 untuk dikelola oleh IKIP Yogyakarta (sebelum bertransformasi menjadi UNY).</p>
-            <p>Pada awal berdirinya, Kampus Wates menyelenggarakan 11 Program Studi Diploma Tiga (D3) dari Fakultas Teknik (D3 Teknik Mesin, Otomotif, Elektro, Elektronika, Sipil, Tata Boga, Busana), Fakultas Ilmu Sosial (D3 Sekretari, Akuntansi, Pemasaran), dan Fakultas Ilmu Keolahragaan (D3 Penjas). Pada tahun 2001, program studi FT dipindahkan ke Karangmalang untuk mengoptimalkan praktikum mahasiswa, sementara D3 Penjas ditingkatkan menjadi S1 PJKR.</p>
-            <p>Perkembangan berlanjut pada tahun 2005 hingga 2009 dengan dibukanya D2 PGSD Penjas (FIK) dan D2 PGSD Kelas (FIP) di Kampus Wates, yang kemudian ditingkatkan menjadi jenjang S1 PGSD Penjas serta Program Kelanjutan Studi (PKS) S1 Pendidikan Jasmani.</p>
-            <p>Pada tahun 2019, seluruh program studi Diploma Tiga (D3) pada Fakultas Ekonomi dan Fakultas Teknik secara strategis ditingkatkan menjadi Program Studi Sarjana Terapan (D4). Langkah besar ini diambil guna menyesuaikan kurikulum vokasi dengan kompetensi praktis dunia kerja dan industri terapan modern. Pelaksanaan perkuliahan diselenggarakan di Kampus Wates dan Kampus Gunungkidul.</p>
-            <p>Puncaknya pada tahun 2023, UNY Kampus Wates secara resmi bertransformasi dan berdiri mandiri sebagai Fakultas Vokasi UNY. Fakultas Vokasi menaungi 14 Program Studi Sarjana Terapan (D4) dari 6 Departemen utama yang berdedikasi melahirkan lulusan vokasi unggul dan relevan dengan industri.</p>
+          <div
+            class="max-w-3xl space-y-4 text-cokro-navy font-body text-[13px] text-justify leading-7 sm:text-sm lg:col-span-3"
+          >
+            <p>
+              Sejarah Fakultas Vokasi UNY Kampus Kulon Progo diawali dari
+              pengalihan fungsi gedung Sekolah Guru Olahraga (SGO) yang
+              berlokasi di Dusun Serut, Kalurahan Pengasih, Kapanewon Pengasih,
+              Kabupaten Kulon Progo. Kompleks gedung yang sebelumnya telah
+              dibekukan pemerintah sejak tahun 1992 ini resmi dialihfungsikan
+              pada tahun 2000 untuk dikelola oleh IKIP Yogyakarta (sebelum
+              bertransformasi menjadi UNY).
+            </p>
+            <p>
+              Pada awal berdirinya, Kampus Wates menyelenggarakan 11 Program
+              Studi Diploma Tiga (D3) dari Fakultas Teknik (D3 Teknik Mesin,
+              Otomotif, Elektro, Elektronika, Sipil, Tata Boga, Busana),
+              Fakultas Ilmu Sosial (D3 Sekretari, Akuntansi, Pemasaran), dan
+              Fakultas Ilmu Keolahragaan (D3 Penjas). Pada tahun 2001, program
+              studi FT dipindahkan ke Karangmalang untuk mengoptimalkan
+              praktikum mahasiswa, sementara D3 Penjas ditingkatkan menjadi S1
+              PJKR.
+            </p>
+            <p>
+              Perkembangan berlanjut pada tahun 2005 hingga 2009 dengan
+              dibukanya D2 PGSD Penjas (FIK) dan D2 PGSD Kelas (FIP) di Kampus
+              Wates, yang kemudian ditingkatkan menjadi jenjang S1 PGSD Penjas
+              serta Program Kelanjutan Studi (PKS) S1 Pendidikan Jasmani.
+            </p>
+            <p>
+              Pada tahun 2019, seluruh program studi Diploma Tiga (D3) pada
+              Fakultas Ekonomi dan Fakultas Teknik secara strategis ditingkatkan
+              menjadi Program Studi Sarjana Terapan (D4). Langkah besar ini
+              diambil guna menyesuaikan kurikulum vokasi dengan kompetensi
+              praktis dunia kerja dan industri terapan modern. Pelaksanaan
+              perkuliahan diselenggarakan di Kampus Wates dan Kampus
+              Gunungkidul.
+            </p>
+            <p>
+              Puncaknya pada tahun 2023, UNY Kampus Wates secara resmi
+              bertransformasi dan berdiri mandiri sebagai Fakultas Vokasi UNY.
+              Fakultas Vokasi menaungi 14 Program Studi Sarjana Terapan (D4)
+              dari 6 Departemen utama yang berdedikasi melahirkan lulusan vokasi
+              unggul dan relevan dengan industri.
+            </p>
           </div>
           <!-- Seluruh foto di kanan; pada mobile foto mengikuti paragraf -->
           <div class="grid grid-cols-1 gap-5 lg:col-span-2">
-            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2">
-              <img src="/Assets/photos/campus/kulon-progo-1.webp" alt="Fakultas Vokasi UNY Kampus Kulon Progo" class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+            <div
+              class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2"
+            >
+              <Image
+                src={campusKp1}
+                alt="Fakultas Vokasi UNY Kampus Kulon Progo"
+                class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={400}
+              />
             </div>
-            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2">
-              <img src="/Assets/photos/campus/kulon-progo-2.webp" alt="Gedung Utama Vokasi UNY Kampus Kulon Progo" class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+            <div
+              class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2"
+            >
+              <Image
+                src={campusKp2}
+                alt="Gedung Utama Vokasi UNY Kampus Kulon Progo"
+                class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={400}
+              />
             </div>
           </div>
         </div>
       </div>
 
       <!-- Kampus Gunung Kidul -->
-      <div class="relative overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-white p-5 shadow-3d-solid-lg sm:p-8 lg:p-10">
-        <div class="absolute top-0 left-0 w-full h-4 bg-cokro-gold border-b-4 border-cokro-navy"></div>
-        <h4 class="font-display font-bold text-2xl text-cokro-navy mb-8 text-center mt-2">Kampus Gunung Kidul</h4>
+      <div
+        class="relative overflow-hidden rounded-card-lg border-4 border-cokro-navy bg-white p-5 shadow-3d-solid-lg sm:p-8 lg:p-10"
+      >
+        <div
+          class="absolute top-0 left-0 w-full h-4 bg-cokro-gold border-b-4 border-cokro-navy"
+        >
+        </div>
+        <h4
+          class="font-display font-bold text-2xl text-cokro-navy mb-8 text-center mt-2"
+        >
+          Kampus Gunung Kidul
+        </h4>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
           <!-- Paragraf di kiri -->
-          <div class="max-w-3xl space-y-4 text-cokro-navy font-body text-[13px] text-justify leading-7 sm:text-sm lg:col-span-3">
-            <p>Pendirian Kampus UNY di Kabupaten Gunungkidul merupakan wujud sinergi strategis dan gagasan bersama antara Rektor UNY, Prof. Dr. Sutrisno Wibawa, M.Pd. dengan Bupati Gunungkidul, Hj. Badingah, S.Sos. Kampus ini berlokasi di Dusun Kepuh, Desa Pacarejo, Kecamatan Semanu, Kabupaten Gunungkidul. Peletakan batu pertama (Ground Breaking) dilaksanakan pada hari Jumat, 21 Februari 2019 dengan dihadiri jajaran pimpinan universitas dan daerah.</p>
-            <p>Pembangunan gedung kampus berlantai empat yang dilengkapi area parkir serta fasilitas modern selesai dalam kurun waktu satu tahun, lalu diresmikan secara akbar pada hari Senin, 31 Agustus 2020 oleh Rektor UNY dan Bupati Gunungkidul. Perkuliahan pertama dilaksanakan pada tanggal 1 September 2020 secara daring akibat pandemi Covid-19.</p>
-            <p>Pada tahun pertama operasinya, UNY Kampus Gunungkidul membuka 6 Program Studi Sarjana Terapan (D4 Vokasi), yaitu: Tata Busana, Tata Boga, Elektronika, Administrasi Perkantoran, Akuntansi Publik, dan Ekonomi Digital. Antusiasme masyarakat sangat tinggi di mana tercatat sebanyak 1.147 pendaftar dari 13 provinsi memperebutkan 375 kuota mahasiswa baru yang diterima.</p>
-            <p>Untuk menjalankan kegiatan akademik dan operasional kampus, dibentuk struktur pengelola yang dipimpin oleh Dr. Slamet Suyanto, M.Ed. (Ketua Pengelola) dan Dr. Sutopo, M.T., S.Pd. (Sekretaris Pengelola), didukung oleh 4 tenaga kependidikan serta 17 dosen pengajar di bawah bimbingan dosen senior Fakultas Teknik dan Fakultas Ekonomi UNY.</p>
+          <div
+            class="max-w-3xl space-y-4 text-cokro-navy font-body text-[13px] text-justify leading-7 sm:text-sm lg:col-span-3"
+          >
+            <p>
+              Pendirian Kampus UNY di Kabupaten Gunungkidul merupakan wujud
+              sinergi strategis dan gagasan bersama antara Rektor UNY, Prof. Dr.
+              Sutrisno Wibawa, M.Pd. dengan Bupati Gunungkidul, Hj. Badingah,
+              S.Sos. Kampus ini berlokasi di Dusun Kepuh, Desa Pacarejo,
+              Kecamatan Semanu, Kabupaten Gunungkidul. Peletakan batu pertama
+              (Ground Breaking) dilaksanakan pada hari Jumat, 21 Februari 2019
+              dengan dihadiri jajaran pimpinan universitas dan daerah.
+            </p>
+            <p>
+              Pembangunan gedung kampus berlantai empat yang dilengkapi area
+              parkir serta fasilitas modern selesai dalam kurun waktu satu
+              tahun, lalu diresmikan secara akbar pada hari Senin, 31 Agustus
+              2020 oleh Rektor UNY dan Bupati Gunungkidul. Perkuliahan pertama
+              dilaksanakan pada tanggal 1 September 2020 secara daring akibat
+              pandemi Covid-19.
+            </p>
+            <p>
+              Pada tahun pertama operasinya, UNY Kampus Gunungkidul membuka 6
+              Program Studi Sarjana Terapan (D4 Vokasi), yaitu: Tata Busana,
+              Tata Boga, Elektronika, Administrasi Perkantoran, Akuntansi
+              Publik, dan Ekonomi Digital. Antusiasme masyarakat sangat tinggi
+              di mana tercatat sebanyak 1.147 pendaftar dari 13 provinsi
+              memperebutkan 375 kuota mahasiswa baru yang diterima.
+            </p>
+            <p>
+              Untuk menjalankan kegiatan akademik dan operasional kampus,
+              dibentuk struktur pengelola yang dipimpin oleh Dr. Slamet Suyanto,
+              M.Ed. (Ketua Pengelola) dan Dr. Sutopo, M.T., S.Pd. (Sekretaris
+              Pengelola), didukung oleh 4 tenaga kependidikan serta 17 dosen
+              pengajar di bawah bimbingan dosen senior Fakultas Teknik dan
+              Fakultas Ekonomi UNY.
+            </p>
           </div>
           <!-- Seluruh foto di kanan; pada mobile foto mengikuti paragraf -->
           <div class="grid grid-cols-1 gap-5 lg:col-span-2">
-            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2">
-              <img src="/Assets/photos/campus/gunungkidul-1.webp" alt="Fakultas Vokasi UNY Kampus Gunungkidul" class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+            <div
+              class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[4px_4px_0_#0A2540] flex items-center justify-center p-2"
+            >
+              <Image
+                src={campusGk1}
+                alt="Fakultas Vokasi UNY Kampus Gunungkidul"
+                class="w-full h-auto max-h-[260px] object-contain rounded-lg hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={400}
+              />
             </div>
-            <div class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2">
-              <img src="/Assets/photos/campus/gunungkidul-2.webp" alt="Gedung Utama Vokasi UNY Kampus Gunungkidul" class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+            <div
+              class="overflow-hidden rounded-xl border-2 border-cokro-navy bg-cokro-tint shadow-[-4px_4px_0_#0A2540] flex items-center justify-center p-2"
+            >
+              <Image
+                src={campusGk2}
+                alt="Gedung Utama Vokasi UNY Kampus Gunungkidul"
+                class="w-full h-auto max-h-[380px] object-contain rounded-lg hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={400}
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Logo Slideshow (Marquee with Swiper) -->
-    <div class="bg-white rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg p-8">
-      <h3 class="text-center font-display font-bold text-2xl text-cokro-navy mb-8">Keluarga Ormawa & UKM</h3>
-      
-      <!-- Swiper Marquee -->
-      <div class="swiper logo-marquee w-full h-[150px]">
-        <div class="swiper-wrapper items-center">
-          {logos.map((logo) => (
-            <div class="swiper-slide w-auto flex justify-center">
-              <img src={logo} alt="Logo Organisasi" loading="lazy" decoding="async" class="h-[100px] w-[100px] md:h-[120px] md:w-[120px] object-contain drop-shadow-md hover:scale-110 transition-transform duration-300" />
-            </div>
-          ))}
+    <!-- Logo Continuous Running Marquee (Pure CSS Infinite Loop) -->
+    <div
+      class="bg-white rounded-card-lg border-4 border-cokro-navy shadow-3d-solid-lg p-6 sm:p-8 overflow-hidden"
+    >
+      <div
+        class="flex flex-col sm:flex-row items-center justify-between gap-2 mb-6 text-center sm:text-left"
+      >
+        <h3 class="font-display font-bold text-2xl text-cokro-navy">
+          Keluarga Ormawa & UKM
+        </h3>
+        <span
+          class="text-xs font-bold text-cokro-blue uppercase tracking-wider bg-cokro-tint px-3 py-1 rounded-pill border border-cokro-navy"
+        >
+          15 Organisasi
+        </span>
+      </div>
+
+      <!-- Continuous CSS Marquee Container -->
+      <div class="relative w-full overflow-hidden py-3">
+        <!-- Edge Gradient Fades -->
+        <div
+          class="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
+        >
+        </div>
+        <div
+          class="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+        >
+        </div>
+
+        <div class="logo-marquee-track flex items-center gap-6 sm:gap-10 w-max">
+          <!-- First Set of 15 Logos -->
+          {
+            logos.map((logo) => (
+              <div class="flex flex-col items-center justify-center group shrink-0 w-24 sm:w-28 md:w-32">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-card-md border-2 border-cokro-navy/20 bg-white p-2 flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-cokro-gold group-hover:shadow-md transition-all duration-300">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    class="max-h-full max-w-full object-contain"
+                    width={112}
+                    height={112}
+                  />
+                </div>
+                <span class="mt-2 text-[11px] font-bold text-cokro-navy text-center truncate max-w-full group-hover:text-cokro-blue transition-colors">
+                  {logo.title}
+                </span>
+              </div>
+            ))
+          }
+
+          <!-- Second Set of 15 Logos (Duplicated for 100% Seamless Infinite Loop) -->
+          {
+            logos.map((logo) => (
+              <div
+                class="flex flex-col items-center justify-center group shrink-0 w-24 sm:w-28 md:w-32"
+                aria-hidden="true"
+              >
+                <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-card-md border-2 border-cokro-navy/20 bg-white p-2 flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-cokro-gold group-hover:shadow-md transition-all duration-300">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    class="max-h-full max-w-full object-contain"
+                    width={112}
+                    height={112}
+                  />
+                </div>
+                <span class="mt-2 text-[11px] font-bold text-cokro-navy text-center truncate max-w-full group-hover:text-cokro-blue transition-colors">
+                  {logo.title}
+                </span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -123,43 +379,26 @@ const logos = [
 </section>
 
 <style>
-  /* Custom transition for smooth continuous marquee */
-  .logo-marquee .swiper-wrapper {
-    transition-timing-function: linear !important;
+  .logo-marquee-track {
+    animation: logoMarqueeScroll 28s linear infinite;
   }
-</style>
 
-<script>
-  import Swiper from 'swiper';
-  import { Autoplay, FreeMode } from 'swiper/modules';
+  .logo-marquee-track:hover {
+    animation-play-state: paused;
+  }
 
-  function initLogoMarquee() {
-    const el = document.querySelector('.logo-marquee');
-    if (el) {
-      new Swiper('.logo-marquee', {
-        modules: [Autoplay, FreeMode],
-        spaceBetween: 40,
-        slidesPerView: 'auto',
-        loop: true,
-        freeMode: true,
-        speed: 3500,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          320: { slidesPerView: 3, spaceBetween: 20 },
-          768: { slidesPerView: 5, spaceBetween: 40 },
-          1024: { slidesPerView: 7, spaceBetween: 50 },
-        }
-      });
+  @keyframes logoMarqueeScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLogoMarquee);
-  } else {
-    initLogoMarquee();
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation: none;
+    }
   }
-  document.addEventListener('astro:page-load', initLogoMarquee);
-</script>
+</style>

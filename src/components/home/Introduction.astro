@@ -3,6 +3,9 @@
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Image } from 'astro:assets';
+import tmtpKp from '../../assets/photos/gallery/tmtp-kp.webp';
+import tmtpGk from '../../assets/photos/gallery/tmtp-gk.webp';
 ---
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative" aria-labelledby="intro-title">
   <!-- Top wave divider -->
@@ -36,12 +39,14 @@ import "swiper/css/navigation";
             <div class="swiper-wrapper">
               <!-- Slide 1: TMTP Kulon Progo -->
               <div class="swiper-slide relative cursor-grab active:cursor-grabbing">
-                <img
-                  src="/Assets/photos/gallery/tmtp-kp.webp"
+                <Image
+                  src={tmtpKp}
                   alt="TMTP PKKMB KM FV UNY 2025 — Kampus Kulon Progo"
                   class="w-full h-full object-cover select-none pointer-events-none"
                   loading="lazy"
                   decoding="async"
+                  width={600}
+                  height={350}
                 />
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cokro-navy/90 to-transparent px-4 py-3">
                   <p class="text-white text-xs font-display font-bold uppercase tracking-widest">📍 TMTP · Kampus Kulon Progo</p>
@@ -49,12 +54,14 @@ import "swiper/css/navigation";
               </div>
               <!-- Slide 2: TMTP Gunungkidul -->
               <div class="swiper-slide relative cursor-grab active:cursor-grabbing">
-                <img
-                  src="/Assets/photos/gallery/tmtp-gk.webp"
+                <Image
+                  src={tmtpGk}
                   alt="TMTP PKKMB KM FV UNY 2025 — Kampus Gunungkidul"
                   class="w-full h-full object-cover select-none pointer-events-none"
                   loading="lazy"
                   decoding="async"
+                  width={600}
+                  height={350}
                 />
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cokro-navy/90 to-transparent px-4 py-3">
                   <p class="text-white text-xs font-display font-bold uppercase tracking-widest">📍 TMTP · Kampus Gunungkidul</p>

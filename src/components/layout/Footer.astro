@@ -1,6 +1,8 @@
 ---
 // Footer.astro — Revised with correct content & navigation links
 import SocialIcons from "./SocialIcons.astro";
+import { Image } from "astro:assets";
+import logoPkkmb from "../../assets/logos/pkkmb/logo-pkkmbfv2026.svg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -53,8 +55,8 @@ const navLinks = [
           <div
             class="w-14 h-14 rounded-full bg-white p-1.5 flex items-center justify-center shadow-[4px_4px_0px_#3B82F6] border-2 border-cokro-sky overflow-hidden shrink-0"
           >
-            <img
-              src="/Assets/logos/pkkmb/logo-pkkmbfv2026.svg"
+            <Image
+              src={logoPkkmb}
               alt="PKKMB FV UNY 2026"
               class="w-full h-full object-contain"
               loading="lazy"

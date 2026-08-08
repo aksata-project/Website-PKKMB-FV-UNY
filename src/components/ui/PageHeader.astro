@@ -1,5 +1,7 @@
 ---
 // PageHeader.astro — Reusable banner header untuk semua halaman (Sizing diselaraskan)
+import { Image } from 'astro:assets';
+
 interface Props {
   title: string;
   subtitle?: string;
@@ -7,6 +9,10 @@ interface Props {
   headerImage?: string; // Opt: background image 1920x480 (banner ratio)
 }
 const { title, subtitle, badge, headerImage } = Astro.props;
+
+// Peta gambar lokal dari src/assets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp,svg}', { eager: true });
+const headerImageObj = headerImage ? images[headerImage]?.default : undefined;
 ---
 
 <div class="relative">
@@ -14,14 +20,28 @@ const { title, subtitle, badge, headerImage } = Astro.props;
     <!-- Optional Background Image -->
     {headerImage && (
       <div class="absolute inset-0 z-0">
-        <img 
-          src={headerImage} 
-          alt={`Header ${title}`}
-          class="w-full h-full object-cover opacity-25"
-          fetchpriority="high"
-          decoding="async"
-          onerror="this.onerror=null; this.src='https://placehold.co/1920x480/0F52BA/FFFFFF/webp?text=Header+Image+(1920+x+480)';"
-        />
+        {headerImageObj ? (
+          <Image 
+            src={headerImageObj} 
+            alt={`Header ${title}`}
+            class="w-full h-full object-cover opacity-25"
+            fetchpriority="high"
+            decoding="async"
+            width={1920}
+            height={480}
+          />
+        ) : (
+          <img 
+            src={headerImage} 
+            alt={`Header ${title}`}
+            class="w-full h-full object-cover opacity-25"
+            fetchpriority="high"
+            decoding="async"
+            width="1920"
+            height="480"
+            onerror="this.onerror=null; this.src='https://placehold.co/1920x480/0F52BA/FFFFFF/webp?text=Header+Image+(1920+x+480)';"
+          />
+        )}
         <div class="absolute inset-0 bg-gradient-to-b from-cokro-navy/60 via-cokro-header/70 to-cokro-header"></div>
       </div>
     )}

@@ -8,19 +8,18 @@ import Introduction from '../components/home/Introduction.astro';
 import Philosophy from '../components/home/Philosophy.astro';
 import AboutFaculty from '../components/home/AboutFaculty.astro';
 import CampusMap from '../components/home/CampusMap.astro';
+import heroBg from '../assets/illustrations/background/home-bg.webp';
+import heroCta from '../assets/illustrations/words/home-cta1.webp';
 
 // Global Styles
 import '../styles/global.css';
-
-const heroBg = '/Assets/illustrations/background/home-bg.webp';
-const heroCta = '/Assets/illustrations/words/home-cta1.webp';
 ---
 
 <BaseLayout
   title="PKKMB FV UNY 2026 | Cokro Aksata"
   description="Website Resmi PKKMB Fakultas Vokasi Universitas Negeri Yogyakarta 2026. Take the leap, chase your dream!"
   bodyClass="relative"
-  preloadImages={[heroBg, heroCta]}
+  preloadImages={[heroBg.src, heroCta.src]}
 >
   <!-- Fixed Background Elements -->
   <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-gradient-to-b from-white to-cokro-tint">

@@ -41,6 +41,12 @@ export interface OrgData {
   achievements?: string[];
   contact: {
     instagram?: string;
+    tiktok?: string;
+    youtube?: string;
+    linkedin?: string;
+    website?: string;
+    whatsapp?: string;
+    email?: string;
   };
 }
 
@@ -145,7 +151,7 @@ export const orgs: OrgData[] = [
   {
     id: 'himanagari',
     type: 'ormawa',
-    name: 'Himpunan Mahasiswa Bisnis & Keuangan',
+    name: 'Himpunan Mahasiswa Tata Busana, Tata Boga & Tata Rias Kecantikan',
     shortName: 'HIMANAGARI',
     logo: '/src/assets/logos/ormawa/logo-himanagari.webp',
     cardImage: '/src/assets/photos/ormawa/card-himanagari.webp',
@@ -232,6 +238,8 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/himatabona',
+      tiktok: 'https://www.tiktok.com/@himatabonafvuny',
+      email: 'himatabona@gmail.com',
     },
   },
   {
@@ -411,12 +419,15 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/himaorkesfvuny',
+      tiktok: 'https://www.tiktok.com/@himaorkesfvuny',
+      youtube: 'https://www.youtube.com/@HimaOrkesFvUny',
+      whatsapp: 'https://wa.me/6285669903988',
     },
   },
   {
     id: 'hmve',
     type: 'ormawa',
-    name: 'Himpunan Mahasiswa Vokasi Elektro',
+    name: 'Himpunan Mahasiswa Vokasi Elektro dan Elektronika',
     shortName: 'HMVE',
     logo: '/src/assets/logos/ormawa/logo-hmve.webp',
     badge: 'Himpunan',
@@ -429,36 +440,55 @@ export const orgs: OrgData[] = [
       '/src/assets/photos/ormawa/gallery-hmve-3.webp',
     ],
     description:
-      'HMVE bergerak dalam pengembangan inovasi teknologi kelistrikan, otomasi, dan elektronika terapan. Aktif dalam kegiatan riset, kompetisi robotik, dan kolaborasi dengan industri elektronika nasional.',
+      'Himpunan Mahasiswa Vokasi Elektro dan Elektronika (HMVE) UNY merupakan wadah bagi mahasiswa Vokasi Elektro dan Elektronika untuk berhimpun, berproses, dan menyalurkan aspirasi, sekaligus mengembangkan potensi, keterampilan, dan kesolidan. Kabinet Prakarsa Asa hadir dengan tagline "Berani Melangkah, Wujudkan Harapan", diharapkan menjadi penggerak HMVE UNY yang lebih proaktif, kolaboratif, dan memberi ruang bagi setiap pengurus untuk berkontribusi.',
     vision:
-      'Menjadi himpunan elektro yang inovatif dan berdampak dalam kemajuan teknologi kelistrikan dan elektronika Indonesia.',
+      'Mewujudkan HMVE UNY yang aktif, kolaboratif, dan berdaya guna bagi pengembangan mahasiswa dan himpunan.',
     missions: [
-      'Mengembangkan kompetensi teknis anggota di bidang elektro, elektronika, dan otomasi.',
-      'Memfasilitasi kegiatan riset dan inovasi teknologi terapan yang bermanfaat.',
-      'Menjalin kerjasama dengan industri elektronika dan ketenagalistrikan.',
+      'Memfasilitasi pengembangan akademik, minat, dan bakat mahasiswa melalui informasi serta kegiatan yang terstruktur dan mudah diakses.',
+      'Menyediakan ruang aspirasi dan advokasi yang terbuka, cepat, dan bertanggung jawab bagi seluruh mahasiswa.',
+      'Mengembangkan program inovatif dan kegiatan sosial yang memberikan dampak nyata.',
+      'Membangun hubungan yang harmonis dan berkelanjutan dengan mahasiswa, dosen, alumni, serta pihak eksternal.',
     ],
     structure: {
-      pembina: '[Nama Dosen Pembina]',
-      ketua: '[Nama Ketua HMVE]',
-      wakilKetua: '[Nama Wakil Ketua]',
+      pembina: 'Sa\'adillah Rosyadi S.Pd. M.Pd.',
+      ketua: 'Fadhil Destiawan',
+      wakilKetua: 'Mulya Putra Adhi Nugraha',
       divisions: [
-        { name: 'Riset & Inovasi', head: '[Nama Kepala Divisi]' },
-        { name: 'Robotika & Otomasi', head: '[Nama Kepala Divisi]' },
-        { name: 'Energi Terbarukan', head: '[Nama Kepala Divisi]' },
-        { name: 'Media & Dokumentasi', head: '[Nama Kepala Divisi]' },
+        { name: 'Biro Personalia', head: 'Shafa Naufal Ramadhan' },
+        { name: 'Biro Administrasi', head: 'Dinta Khoiru Sanata' },
+        { name: 'Biro Keuangan', head: 'Naswa Revalinda Wibowo' },
+        { name: 'Biro KOMINFO', head: 'Habib Muhammad Fauzan' },
+        { name: 'Divisi PSDM', head: 'Rossa Astia Kirania Putri' },
+        { name: 'Divisi SOSJAR', head: 'Cito Refanov' },
+        { name: 'Divisi KWU', head: 'Arkaan Ahmad' },
+        { name: 'Divisi IPTEK', head: 'Khaliq Bima Alvian Putra' },
+        { name: 'Divisi APP', head: 'Daffa Aryabima' },
+        { name: 'Divisi MIKAT', head: 'Dimas Ardian Rassi' },
       ],
     },
     programs: [
-      { name: 'Electrical Engineering Competition', description: 'Kompetisi desain dan inovasi kelistrikan antar mahasiswa vokasi se-Indonesia.' },
-      { name: 'Workshop IoT & Robotika', description: 'Pelatihan intensif Internet of Things dan pemrograman robot untuk mahasiswa.' },
-      { name: 'Solar Panel Community', description: 'Program instalasi panel surya di desa-desa terpencil sebagai bentuk pengabdian masyarakat.' },
+      { name: 'SEMNAS', description: 'Seminar Nasional bidang teknologi elektro dan elektronika dari Divisi IPTEK.' },
+      { name: 'Bincang Departemen', description: 'Forum diskusi dan sharing session terkait perkembangan departemen dari Divisi APP.' },
+      { name: 'CIRCUIT', description: 'Program pengembangan kompetensi dan skill mahasiswa dari Divisi PSDM.' },
+      { name: 'Voltalimpic', description: 'Kompetisi olahraga dan minat bakat mahasiswa elektro dari Divisi MIKAT.' },
+      { name: 'Pioneer', description: 'Program pengembangan soft skill dan kepemimpinan dari Divisi SOSJAR.' },
+      { name: 'Merch', description: 'Produk merchandise khas HMVE dari Divisi KWU.' },
     ],
     achievements: [
-      'Juara I Kompetisi Robotik Nasional Vokasi 2024.',
-      'Best Innovation Award di IoT Summit Indonesia 2024.',
+      'Juara 1 Badminton Ganda Putra Komposisi 2023.',
+      'Juara 1 Futsal Komposisi 2023.',
+      'Juara 2 Basket Komposisi 2023.',
+      'Juara 1 Voli Komposisi 2023.',
+      'Program Ormawa Membangun Negeri (POMN) 2024.',
+      'Juara 1 Vsport 2024.',
+      'Juara Umum Komposisi 2025.',
     ],
     contact: {
-      instagram: 'https://instagram.com/hmve_uny',
+      instagram: 'https://instagram.com/hmve.uny',
+      tiktok: 'https://www.tiktok.com/@hmve.uny',
+      youtube: 'https://www.youtube.com/@hmve_uny',
+      linkedin: 'https://www.linkedin.com/in/hmve.uny',
+      website: 'https://linktr.ee/hmve.uny',
     },
   },
 
@@ -516,6 +546,8 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/ukmf_baiturrahman',
+      tiktok: 'https://www.tiktok.com/@ukmf_baiturrahman',
+      whatsapp: 'https://wa.me/6285774307886',
     },
   },
   {
@@ -614,6 +646,7 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/ukmfreaction',
+      email: 'ukmfreaction.fvuny@gmail.com',
     },
   },
   {
@@ -662,6 +695,8 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/kwuvokasiuny',
+      tiktok: 'https://www.tiktok.com/@kwuvokasiuny',
+      youtube: 'https://www.youtube.com/@UKMFKWUVokasiUNY',
     },
   },
   {
@@ -755,6 +790,9 @@ export const orgs: OrgData[] = [
     ],
     contact: {
       instagram: 'https://instagram.com/ukmfv_olahraga',
+      tiktok: 'https://www.tiktok.com/@ukmfv_olahraga',
+      email: 'ukmfkouny@gmail.com',
+      whatsapp: 'https://wa.me/628983024000',
     },
   },
 ];

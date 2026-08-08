@@ -3,6 +3,10 @@ dist/
 # generated types
 .astro/
 
+#AI
+AGENTS.md/
+CLAUDE.md/
+
 # dependencies
 node_modules/
 
@@ -12,6 +16,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# auto webp
+convert-webp.mjs/
 
 # environment variables
 .env
@@ -26,12 +32,3 @@ pnpm-debug.log*
 # media & data besar yang tidak dipakai website
 asset/
 drive_*.json
-
-# Abaikan file gambar mentah di public/Assets (karena sudah di-convert ke WebP hemat ukuran)
-public/Assets/**/*.jpg
-public/Assets/**/*.JPG
-public/Assets/**/*.jpeg
-public/Assets/**/*.JPEG
-public/Assets/**/*.png
-public/Assets/**/*.PNG
-*.pdf

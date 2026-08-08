@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "convert-webp": "node convert-webp.mjs"
   },
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.5.10",
@@ -20,6 +21,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "cwebp-bin": "^8.0.0",
     "sharp": "^0.35.3"
   }
 }

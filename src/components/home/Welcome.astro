@@ -7,7 +7,7 @@ import "swiper/css/autoplay";
 
 import { Image } from "astro:assets";
 
-// Ambil semua foto galeri dari src/assets
+// Ambil semua foto galeri dari src/assets/photos/gallery
 const galleryGlob = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/photos/gallery/*.webp",
   { eager: true },
@@ -15,48 +15,48 @@ const galleryGlob = import.meta.glob<{ default: ImageMetadata }>(
 
 const galleryImages = [
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-uny-1.webp"]?.default,
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-1.webp"]?.default,
     alt: "Dokumentasi PKKMB KM FV UNY 2025 — Momen Kebersamaan #1",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-1.webp"]?.default,
-    alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #1",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-2.webp"]?.default,
+    alt: "Keseruan PKKMB KM FV UNY 2025 — Dokumentasi #2",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-2.webp"]?.default,
-    alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #2",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-3.webp"]?.default,
+    alt: "Keseruan PKKMB KM FV UNY 2025 — Dokumentasi #3",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-3.webp"]?.default,
-    alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Kulon Progo #3",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-4.webp"]?.default,
+    alt: "Dokumentasi PKKMB KM FV UNY 2025 — Dokumentasi #4",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-gk-1.webp"]?.default,
-    alt: "Dokumentasi PKKMB KM FV UNY 2025 — Kampus KP & GK #1",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-5.webp"]?.default,
+    alt: "Dokumentasi PKKMB KM FV UNY 2025 — Dokumentasi #5",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-kp-gk-2.webp"]?.default,
-    alt: "Dokumentasi PKKMB KM FV UNY 2025 — Kampus KP & GK #2",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-6.webp"]?.default,
+    alt: "Dokumentasi PKKMB KM FV UNY 2025 — Dokumentasi #6",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gunkid-1.webp"]?.default,
-    alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Gunungkidul #1",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-7.webp"]?.default,
+    alt: "Keseruan PKKMB KM FV UNY 2025 — Dokumentasi #7",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gunkid-3.webp"]?.default,
-    alt: "Keseruan PKKMB KM FV UNY 2025 — Kampus Gunungkidul #2",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-8.webp"]?.default,
+    alt: "Keseruan PKKMB KM FV UNY 2025 — Dokumentasi #8",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/pkkmb-gk-2.webp"]?.default,
-    alt: "Antusiasme Peserta PKKMB KM FV UNY 2025 — Gunungkidul",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-9.webp"]?.default,
+    alt: "Antusiasme Peserta PKKMB KM FV UNY 2025 — Dokumentasi #9",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/tmtp-kp.webp"]?.default,
-    alt: "Sesi TMTP PKKMB KM FV UNY 2025 — Kampus Kulon Progo",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-10.webp"]?.default,
+    alt: "Sesi PKKMB KM FV UNY 2025 — Dokumentasi #10",
   },
   {
-    src: galleryGlob["/src/assets/photos/gallery/tmtp-gk.webp"]?.default,
-    alt: "Sesi TMTP PKKMB KM FV UNY 2025 — Kampus Gunungkidul",
+    src: galleryGlob["/src/assets/photos/gallery/pkkmb25-11.webp"]?.default,
+    alt: "Sesi PKKMB KM FV UNY 2025 — Dokumentasi #11",
   },
 ].filter((item): item is { src: ImageMetadata; alt: string } =>
   Boolean(item.src),

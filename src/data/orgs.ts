@@ -102,10 +102,6 @@ export const orgs: OrgData[] = [
       { name: 'Report Triwulan', description: 'Publikasi laporan transparansi kinerja, advokasi, dan keuangan BEM KM FV UNY secara berkala kepada seluruh mahasiswa.' },
       { name: 'Vokasi Loka Cakrawala (VLC)', description: 'Program SDP Leadership pembinaan karakter kepemimpinan, debat kritis, simulasi uji krisis, pentas seni, dan aksi nyata aksara bhakti.' },
     ],
-    achievements: [
-      'Penyelenggara PKKMB terbaik tingkat fakultas se-UNY 2024.',
-      'Juara I Lomba Debat Mahasiswa antar BEM Perguruan Tinggi Yogyakarta 2024.',
-    ],
     contact: {
       instagram: 'https://instagram.com/bemvokasiuny',
       tiktok: 'https://www.tiktok.com/@bemfvuny',
@@ -364,22 +360,13 @@ export const orgs: OrgData[] = [
         { name: 'Divisi Hubungan Masyarakat & Sosmas', head: 'Pengurus Humas & Sosmas' },
         { name: 'Divisi Media Informasi & Desain', head: 'Pengurus Medinfo' },
       ],
+
+      contact: {
+        instagram: 'https://instagram.com/hmdtm.fvuny',
+        email: 'himamesinvokasi@gmail.com',
+        whatsapp: 'https://wa.me/6285117795591',
+      },
     },
-    programs: [
-      { name: 'Mechanical Engineering Expo', description: 'Pameran hasil riset terapan, manufaktur, dan rekayasa otomotif karya inovatif mahasiswa DTMO.' },
-      { name: 'Otomotif & CNC Challenge', description: 'Ajang kompetisi keterampilan teknik pemesinan presisi dan troubleshooting otomotif antar mahasiswa.' },
-      { name: 'Forum Diskusi Terbuka DTMO', description: 'Ruang dialog aspirasi mahasiswa bersama jurusan guna merancang fasilitas dan lingkungan akademik yang nyaman.' },
-    ],
-    achievements: [
-      'Juara II Kompetisi Desain Mesin Nasional 2024.',
-      'Peserta Aktif Kontes Mobil Hemat Energi (KMHE) & Kontes Robot Terbang Indonesia.',
-    ],
-    contact: {
-      instagram: 'https://instagram.com/hmdtm.fvuny',
-      email: 'himamesinvokasi@gmail.com',
-      whatsapp: 'https://wa.me/6285117795591',
-    },
-  },
   {
     id: 'hmdts',
     type: 'ormawa',

@@ -3,9 +3,9 @@ dist/
 # generated types
 .astro/
 
-#AI
-AGENTS.md/
-CLAUDE.md/
+# AI
+AGENTS.md
+CLAUDE.md
 
 # dependencies
 node_modules/
@@ -17,7 +17,8 @@ yarn-error.log*
 pnpm-debug.log*
 
 # auto webp
-convert-webp.mjs/
+convert-webp.mjs
+
 
 # environment variables
 .env

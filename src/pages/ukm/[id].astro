@@ -185,23 +185,25 @@ const headerPreloadSrc = org.headerImage ? (images[org.headerImage]?.default?.sr
           </div>
         </section>
 
-        <!-- E: Program Kerja Unggulan -->
-        <section aria-labelledby="proker-title">
-          <div class="flex items-end justify-between gap-4 mb-5 border-b-2 border-cokro-navy pb-3">
-            <h3 id="proker-title" class="font-display font-bold text-2xl text-cokro-navy">Program Kerja Unggulan</h3><span class="font-display font-black text-cokro-blue text-sm tracking-widest">05</span>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            {org.programs.map((p, i) => (
-              <div class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200 p-5 flex gap-4">
-                <span class="shrink-0 w-10 h-10 rounded-full bg-cokro-tint border-2 border-cokro-navy flex items-center justify-center font-display font-black text-cokro-navy text-sm">{i+1}</span>
-                <div>
-                  <h4 class="font-display font-bold text-cokro-navy mb-1">{p.name}</h4>
-                  <p class="font-body text-sm text-cokro-text-muted leading-relaxed">{p.description}</p>
+        <!-- E: Program Kerja Unggulan (Opsional) -->
+        {org.programs && org.programs.length > 0 && (
+          <section aria-labelledby="proker-title">
+            <div class="flex items-end justify-between gap-4 mb-5 border-b-2 border-cokro-navy pb-3">
+              <h3 id="proker-title" class="font-display font-bold text-2xl text-cokro-navy">Program Kerja Unggulan</h3><span class="font-display font-black text-cokro-blue text-sm tracking-widest">05</span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              {org.programs.map((p, i) => (
+                <div class="bg-white rounded-card-md border-2 border-cokro-navy shadow-3d-solid hover:-translate-y-1 hover:shadow-3d-solid-hover transition-all duration-200 p-5 flex gap-4">
+                  <span class="shrink-0 w-10 h-10 rounded-full bg-cokro-tint border-2 border-cokro-navy flex items-center justify-center font-display font-black text-cokro-navy text-sm">{i+1}</span>
+                  <div>
+                    <h4 class="font-display font-bold text-cokro-navy mb-1">{p.name}</h4>
+                    <p class="font-body text-sm text-cokro-text-muted leading-relaxed">{p.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         <!-- F: Prestasi (Opsional) -->
         {org.achievements && org.achievements.length > 0 && (

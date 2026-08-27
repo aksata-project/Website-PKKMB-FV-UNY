@@ -37,7 +37,7 @@ export interface OrgData {
     wakilKetua: string;
     divisions: { name: string; head: string }[];
   };
-  programs: { name: string; description: string }[];
+  programs?: { name: string; description: string }[];
   achievements?: string[];
   contact: {
     instagram?: string;
@@ -360,13 +360,13 @@ export const orgs: OrgData[] = [
         { name: 'Divisi Hubungan Masyarakat & Sosmas', head: 'Pengurus Humas & Sosmas' },
         { name: 'Divisi Media Informasi & Desain', head: 'Pengurus Medinfo' },
       ],
-
-      contact: {
-        instagram: 'https://instagram.com/hmdtm.fvuny',
-        email: 'himamesinvokasi@gmail.com',
-        whatsapp: 'https://wa.me/6285117795591',
-      },
     },
+    contact: {
+      instagram: 'https://instagram.com/hmdtm.fvuny',
+      email: 'himamesinvokasi@gmail.com',
+      whatsapp: 'https://wa.me/6285117795591',
+    },
+  },
   {
     id: 'hmdts',
     type: 'ormawa',
